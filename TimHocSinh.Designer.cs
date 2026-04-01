@@ -1,6 +1,6 @@
 ﻿namespace QuanLyHocSinhTHPT
 {
-    partial class Form1
+    partial class frm_TimHocSinh
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // frm_TimHocSinh
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form1";
+            this.Name = "frm_TimHocSinh";
+            this.Text = "Tìm học sinh";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-

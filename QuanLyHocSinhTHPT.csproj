@@ -46,14 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="ChonDoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ChonDoiTuong.Designer.cs">
+      <DependentUpon>ChonDoiTuong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NhapThongTin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhapThongTin.Designer.cs">
+      <DependentUpon>NhapThongTin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimHocSinh.Designer.cs">
+      <DependentUpon>TimHocSinh.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ChonDoiTuong.resx">
+      <DependentUpon>ChonDoiTuong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhapThongTin.resx">
+      <DependentUpon>NhapThongTin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +81,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TimHocSinh.resx">
+      <DependentUpon>TimHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
