@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace QuanLyHocSinhTHPT
 {
-    public partial class frm_TimHocSinh : Form
+    public partial class frm_Dashboard : Form
     {
-        public frm_TimHocSinh()
+        public string vaiTro;
+        public frm_Dashboard(string vaiTro)
         {
             InitializeComponent();
+            lbl_ChucVu.Text = vaiTro;
+            this.vaiTro = vaiTro;
+        }
+
+        private void btn_Thoat_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
