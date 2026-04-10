@@ -32,10 +32,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_ChucVu = new System.Windows.Forms.Label();
             this.btn_XemDiem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_Timkiem = new System.Windows.Forms.Button();
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btn_Thoat = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_Xemdanhsachlop = new System.Windows.Forms.Button();
+            this.btn_Xoahocsinh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,15 +80,16 @@
             this.btn_XemDiem.Text = "Xem điểm";
             this.btn_XemDiem.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_Timkiem
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(51, 345);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 82);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Xem danh sách lớp";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_Timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Timkiem.Location = new System.Drawing.Point(51, 345);
+            this.btn_Timkiem.Name = "btn_Timkiem";
+            this.btn_Timkiem.Size = new System.Drawing.Size(175, 82);
+            this.btn_Timkiem.TabIndex = 3;
+            this.btn_Timkiem.Text = "Tìm kiếm";
+            this.btn_Timkiem.UseVisualStyleBackColor = true;
+            this.btn_Timkiem.Click += new System.EventHandler(this.btn_Timkiem_Click);
             // 
             // btn_DangXuat
             // 
@@ -110,25 +112,37 @@
             this.btn_Thoat.UseVisualStyleBackColor = true;
             this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
-            // button2
+            // btn_Xemdanhsachlop
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(51, 453);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 82);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Xem danh sách lớp";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_Xemdanhsachlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Xemdanhsachlop.Location = new System.Drawing.Point(51, 453);
+            this.btn_Xemdanhsachlop.Name = "btn_Xemdanhsachlop";
+            this.btn_Xemdanhsachlop.Size = new System.Drawing.Size(175, 82);
+            this.btn_Xemdanhsachlop.TabIndex = 6;
+            this.btn_Xemdanhsachlop.Text = "Xem danh sách lớp";
+            this.btn_Xemdanhsachlop.UseVisualStyleBackColor = true;
+            this.btn_Xemdanhsachlop.Click += new System.EventHandler(this.btn_Xemdanhsachlop_Click);
+            // 
+            // btn_Xoahocsinh
+            // 
+            this.btn_Xoahocsinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Xoahocsinh.Location = new System.Drawing.Point(281, 345);
+            this.btn_Xoahocsinh.Name = "btn_Xoahocsinh";
+            this.btn_Xoahocsinh.Size = new System.Drawing.Size(175, 82);
+            this.btn_Xoahocsinh.TabIndex = 7;
+            this.btn_Xoahocsinh.Text = "Xóa học sinh";
+            this.btn_Xoahocsinh.UseVisualStyleBackColor = true;
             // 
             // frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 638);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btn_Xoahocsinh);
+            this.Controls.Add(this.btn_Xemdanhsachlop);
             this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.btn_DangXuat);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_Timkiem);
             this.Controls.Add(this.btn_XemDiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_XemThongTinCaNhan);
@@ -147,9 +161,10 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lbl_ChucVu;
         private System.Windows.Forms.Button btn_XemDiem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_Timkiem;
         private System.Windows.Forms.Button btn_DangXuat;
         private System.Windows.Forms.Button btn_Thoat;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_Xemdanhsachlop;
+        private System.Windows.Forms.Button btn_Xoahocsinh;
     }
 }

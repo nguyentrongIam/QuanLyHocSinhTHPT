@@ -16,7 +16,7 @@ namespace QuanLyHocSinhTHPT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_ChonDoiTuong());
+            Application.Run(new frm_Dashboard("Quản trị viên"));
         }
     }
 }

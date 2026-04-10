@@ -56,5 +56,10 @@ namespace QuanLyHocSinhTHPT
             //khởi tạo frm đăng nhập với vai trò là "Quản trị viên"
             MoFormNhapThongTin("Quản trị viên");
         }
+
+        private void frm_ChonDoiTuong_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

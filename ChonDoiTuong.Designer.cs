@@ -100,6 +100,7 @@
             this.Name = "frm_ChonDoiTuong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Học Sinh - Đăng nhập";
+            this.Load += new System.EventHandler(this.frm_ChonDoiTuong_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

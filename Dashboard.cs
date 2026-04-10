@@ -24,5 +24,17 @@ namespace QuanLyHocSinhTHPT
         {
             Close();
         }
+
+        private void btn_Xemdanhsachlop_Click(object sender, EventArgs e)
+        {
+            FrmXemDanhSach frm = new FrmXemDanhSach();
+            frm.Show();
+        }
+
+        private void btn_Timkiem_Click(object sender, EventArgs e)
+        {
+            FrmTimKiem frm = new FrmTimKiem();
+            frm.Show();
+        }
     }
 }

@@ -67,6 +67,24 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TimKiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimKiem.Designer.cs">
+      <DependentUpon>TimKiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XemDanhSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemDanhSach.Designer.cs">
+      <DependentUpon>XemDanhSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XoaHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XoaHocSinh.Designer.cs">
+      <DependentUpon>XoaHocSinh.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChonDoiTuong.resx">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +103,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TimKiem.resx">
+      <DependentUpon>TimKiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XemDanhSach.resx">
+      <DependentUpon>XemDanhSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XoaHocSinh.resx">
+      <DependentUpon>XoaHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
