@@ -59,6 +59,11 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="Diem.cs" />
+    <Compile Include="HocSinh.cs" />
+    <Compile Include="Lop.cs" />
+    <Compile Include="MonHoc.cs" />
+    <Compile Include="NhanVien.cs" />
     <Compile Include="NhapThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +72,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaiKhoan.cs" />
+    <Compile Include="ThemHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThemHocSinh.Designer.cs">
+      <DependentUpon>ThemHocSinh.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="ChonDoiTuong.resx">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </EmbeddedResource>
@@ -85,6 +97,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ThemHocSinh.resx">
+      <DependentUpon>ThemHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

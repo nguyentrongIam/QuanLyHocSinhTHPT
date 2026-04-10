@@ -45,14 +45,13 @@ namespace QuanLyHocSinhTHPT
 
         private void btn_DangNhap_Click(object sender, EventArgs e)
         {
-            string ten_dang_nhap = txt_TenDangNhap.Text;
-            string mat_khau = txt_MatKhau.Text;
-            string sSQL = "select * from TaiKhoan";
-            sSQL += " where TenDangNhap='" + ten_dang_nhap + "' and MatKhau='" + mat_khau + "'";
-            Database db = new Database();
-            DataSet ds = db.XemDanhSach(sSQL);
-            //kiểm tra rỗng,nếu không rỗng thì kiểm tra xem có đúng 1 hàng không(không trùng tài khoản)
-            if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count == 1)
+            TaiKhoan ac = new TaiKhoan(txt_TenDangNhap.Text= "GV007", txt_MatKhau.Text="07071991");
+            if (this.loaiVaiTro== "Quản trị viên")
+                ac.vaiTro = "Admin";
+            else if (this.loaiVaiTro == "Phụ huynh / Học sinh")
+                ac.vaiTro = "HocSinh";
+            else ac.vaiTro = "GiaoVien";
+            if (ac.XacMinhDangNhap())
             {
                 MessageBox.Show("Đăng nhập thành công!");
                 //đăng nhập thành công thì trả về tín hiệu

@@ -31,11 +31,12 @@
             this.btn_XemThongTinCaNhan = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_ChucVu = new System.Windows.Forms.Label();
-            this.btn_XemDiem = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btn_Thoat = new System.Windows.Forms.Button();
+            this.btn_XemDiem = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.btn_ThemHocSinh = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,11 +49,14 @@
             this.btn_XemThongTinCaNhan.TabIndex = 0;
             this.btn_XemThongTinCaNhan.Text = "Xem thông tin cá nhân";
             this.btn_XemThongTinCaNhan.UseVisualStyleBackColor = true;
+            this.btn_XemThongTinCaNhan.Click += new System.EventHandler(this.btn_XemThongTinCaNhan_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.AliceBlue;
             this.panel1.Controls.Add(this.lbl_ChucVu);
+            this.panel1.Controls.Add(this.btn_DangXuat);
+            this.panel1.Controls.Add(this.btn_Thoat);
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1096, 64);
@@ -68,6 +72,28 @@
             this.lbl_ChucVu.Size = new System.Drawing.Size(149, 39);
             this.lbl_ChucVu.TabIndex = 2;
             this.lbl_ChucVu.Text = "Chức vụ";
+            // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DangXuat.Location = new System.Drawing.Point(968, 13);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(115, 40);
+            this.btn_DangXuat.TabIndex = 4;
+            this.btn_DangXuat.Text = "Đăng xuất";
+            this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.Btn_DangXuat_Click);
+            // 
+            // btn_Thoat
+            // 
+            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Thoat.Location = new System.Drawing.Point(847, 13);
+            this.btn_Thoat.Name = "btn_Thoat";
+            this.btn_Thoat.Size = new System.Drawing.Size(115, 40);
+            this.btn_Thoat.TabIndex = 5;
+            this.btn_Thoat.Text = "Thoát";
+            this.btn_Thoat.UseVisualStyleBackColor = true;
+            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
             // 
             // btn_XemDiem
             // 
@@ -89,27 +115,6 @@
             this.button1.Text = "Xem danh sách lớp";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btn_DangXuat
-            // 
-            this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangXuat.Location = new System.Drawing.Point(281, 453);
-            this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(175, 82);
-            this.btn_DangXuat.TabIndex = 4;
-            this.btn_DangXuat.Text = "Đăng xuất";
-            this.btn_DangXuat.UseVisualStyleBackColor = true;
-            // 
-            // btn_Thoat
-            // 
-            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Thoat.Location = new System.Drawing.Point(508, 453);
-            this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(175, 82);
-            this.btn_Thoat.TabIndex = 5;
-            this.btn_Thoat.Text = "Thoát";
-            this.btn_Thoat.UseVisualStyleBackColor = true;
-            this.btn_Thoat.Click += new System.EventHandler(this.btn_Thoat_Click);
-            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -120,14 +125,24 @@
             this.button2.Text = "Xem danh sách lớp";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // btn_ThemHocSinh
+            // 
+            this.btn_ThemHocSinh.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ThemHocSinh.Location = new System.Drawing.Point(280, 453);
+            this.btn_ThemHocSinh.Name = "btn_ThemHocSinh";
+            this.btn_ThemHocSinh.Size = new System.Drawing.Size(175, 82);
+            this.btn_ThemHocSinh.TabIndex = 7;
+            this.btn_ThemHocSinh.Text = "Thêm học sinh";
+            this.btn_ThemHocSinh.UseVisualStyleBackColor = true;
+            this.btn_ThemHocSinh.Click += new System.EventHandler(this.btn_ThemHocSinh_Click);
+            // 
             // frm_Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1096, 638);
+            this.Controls.Add(this.btn_ThemHocSinh);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.btn_Thoat);
-            this.Controls.Add(this.btn_DangXuat);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btn_XemDiem);
             this.Controls.Add(this.panel1);
@@ -151,5 +166,6 @@
         private System.Windows.Forms.Button btn_DangXuat;
         private System.Windows.Forms.Button btn_Thoat;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_ThemHocSinh;
     }
 }

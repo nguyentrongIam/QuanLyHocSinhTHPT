@@ -44,6 +44,7 @@
             this.btn_PhuHuynh_HocSinh.Name = "btn_PhuHuynh_HocSinh";
             this.btn_PhuHuynh_HocSinh.Size = new System.Drawing.Size(240, 240);
             this.btn_PhuHuynh_HocSinh.TabIndex = 0;
+            this.btn_PhuHuynh_HocSinh.Tag = "HocSinh";
             this.btn_PhuHuynh_HocSinh.Text = "Phụ huynh/Học sinh";
             this.btn_PhuHuynh_HocSinh.UseVisualStyleBackColor = true;
             this.btn_PhuHuynh_HocSinh.Click += new System.EventHandler(this.btn_PhuHuynh_HocSinh_Click);
@@ -58,6 +59,7 @@
             this.btn_GiaoVien.Name = "btn_GiaoVien";
             this.btn_GiaoVien.Size = new System.Drawing.Size(240, 240);
             this.btn_GiaoVien.TabIndex = 1;
+            this.btn_GiaoVien.Tag = "GiaoVien";
             this.btn_GiaoVien.Text = "Giáo viên";
             this.btn_GiaoVien.UseVisualStyleBackColor = true;
             this.btn_GiaoVien.Click += new System.EventHandler(this.btn_GiaoVien_Click);
@@ -72,6 +74,7 @@
             this.btn_QuanTriVien.Name = "btn_QuanTriVien";
             this.btn_QuanTriVien.Size = new System.Drawing.Size(240, 240);
             this.btn_QuanTriVien.TabIndex = 3;
+            this.btn_QuanTriVien.Tag = "Admin";
             this.btn_QuanTriVien.Text = "Quản trị viên";
             this.btn_QuanTriVien.UseVisualStyleBackColor = true;
             this.btn_QuanTriVien.Click += new System.EventHandler(this.btn_QuanTriVien_Click);
