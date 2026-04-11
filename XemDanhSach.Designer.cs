@@ -43,11 +43,11 @@
             // 
             this.btn_Xemdanhsach.AutoSize = true;
             this.btn_Xemdanhsach.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Xemdanhsach.Location = new System.Drawing.Point(352, 29);
+            this.btn_Xemdanhsach.Location = new System.Drawing.Point(331, 29);
             this.btn_Xemdanhsach.Name = "btn_Xemdanhsach";
-            this.btn_Xemdanhsach.Size = new System.Drawing.Size(321, 29);
+            this.btn_Xemdanhsach.Size = new System.Drawing.Size(420, 29);
             this.btn_Xemdanhsach.TabIndex = 0;
-            this.btn_Xemdanhsach.Text = "Xem danh sách sinh viên";
+            this.btn_Xemdanhsach.Text = "Xem danh sách học sinh theo lớp";
             // 
             // gird_Danhsach
             // 

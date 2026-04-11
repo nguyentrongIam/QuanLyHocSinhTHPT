@@ -19,12 +19,12 @@ namespace QuanLyHocSinhTHPT
 
         private void btn_Timkiem_Click(object sender, EventArgs e)
         {
-            string sSQL = "select * from HocSinh where 1=1 ";
+            string sSQL= "select * from HocSinh where 1=1 ";
             //Khởi tạo đối tượng
             Database db = new Database();
             //Lấy dữ liệu từ textbox
             if (!string.IsNullOrWhiteSpace(txt_mssv.Text))
-                sSQL += " and MaHS like N'%" + txt_mssv.Text + "%'";
+                sSQL += " and MaHS like N'%"+ txt_mssv .Text+ "%'";
             if (!string.IsNullOrWhiteSpace(txt_hoten.Text))
                 sSQL += " and HoTen like N'%" + txt_hoten.Text + "%'";
             if (!string.IsNullOrWhiteSpace(txt_sdt.Text))

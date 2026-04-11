@@ -36,5 +36,13 @@ namespace QuanLyHocSinhTHPT
             FrmTimKiem frm = new FrmTimKiem();
             frm.Show();
         }
+
+        private void btn_DangXuat_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_ChonDoiTuong frm =new frm_ChonDoiTuong();
+            frm.ShowDialog();
+            Close();
+        }
     }
 }

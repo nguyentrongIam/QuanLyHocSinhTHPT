@@ -54,6 +54,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.AliceBlue;
             this.panel1.Controls.Add(this.lbl_ChucVu);
+            this.panel1.Controls.Add(this.btn_Thoat);
+            this.panel1.Controls.Add(this.btn_DangXuat);
             this.panel1.Location = new System.Drawing.Point(1, -1);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1096, 64);
@@ -93,20 +95,21 @@
             // 
             // btn_DangXuat
             // 
-            this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangXuat.Location = new System.Drawing.Point(281, 453);
+            this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DangXuat.Location = new System.Drawing.Point(983, 13);
             this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(175, 82);
+            this.btn_DangXuat.Size = new System.Drawing.Size(100, 39);
             this.btn_DangXuat.TabIndex = 4;
             this.btn_DangXuat.Text = "Đăng xuất";
             this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // btn_Thoat
             // 
-            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Thoat.Location = new System.Drawing.Point(508, 453);
+            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Thoat.Location = new System.Drawing.Point(889, 13);
             this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(175, 82);
+            this.btn_Thoat.Size = new System.Drawing.Size(88, 39);
             this.btn_Thoat.TabIndex = 5;
             this.btn_Thoat.Text = "Thoát";
             this.btn_Thoat.UseVisualStyleBackColor = true;
@@ -140,8 +143,6 @@
             this.ClientSize = new System.Drawing.Size(1096, 638);
             this.Controls.Add(this.btn_Xoahocsinh);
             this.Controls.Add(this.btn_Xemdanhsachlop);
-            this.Controls.Add(this.btn_Thoat);
-            this.Controls.Add(this.btn_DangXuat);
             this.Controls.Add(this.btn_Timkiem);
             this.Controls.Add(this.btn_XemDiem);
             this.Controls.Add(this.panel1);
