@@ -19,27 +19,20 @@ namespace QuanLyHocSinhTHPT
 
         private void btn_Timkiem_Click(object sender, EventArgs e)
         {
-            string sSQL;
-            string mahs, hoten, ngaysinh, sdt;
-
+            string sSQL = "select * from HocSinh where 1=1 ";
             //Khởi tạo đối tượng
             Database db = new Database();
-
             //Lấy dữ liệu từ textbox
-            mahs = txt_mssv.Text;
-            hoten = txt_hoten.Text;
-            sdt = txt_sdt.Text;
-
-            sSQL = $"select * from HocSinh where MaHS='{mahs}' or HoTen=N'{hoten}' or SDT='{sdt}'";
-
+            if (!string.IsNullOrWhiteSpace(txt_mssv.Text))
+                sSQL += " and MaHS like N'%" + txt_mssv.Text + "%'";
+            if (!string.IsNullOrWhiteSpace(txt_hoten.Text))
+                sSQL += " and HoTen like N'%" + txt_hoten.Text + "%'";
+            if (!string.IsNullOrWhiteSpace(txt_sdt.Text))
+                sSQL += " and SDT like N'%" + txt_sdt.Text + "%'";
             //Lưu dữ liệu vừa truy vấn
             DataSet dts = db.XemDanhSach(sSQL);
-
             //Hiện lên DataGirdView
             gird_Timkiem.DataSource = dts.Tables[0];
-                
-    
-
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
