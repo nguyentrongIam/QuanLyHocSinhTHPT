@@ -79,6 +79,12 @@
     <Compile Include="XemDanhSach.Designer.cs">
       <DependentUpon>XemDanhSach.cs</DependentUpon>
     </Compile>
+    <Compile Include="XemThongTinCaNhan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XemThongTinCaNhan.Designer.cs">
+      <DependentUpon>XemThongTinCaNhan.cs</DependentUpon>
+    </Compile>
     <Compile Include="XoaHocSinh.cs">
       <SubType>Form</SubType>
     </Compile>
