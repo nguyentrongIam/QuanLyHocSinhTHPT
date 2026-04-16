@@ -44,5 +44,10 @@ namespace QuanLyHocSinhTHPT
             frm.ShowDialog();
             Close();
         }
+
+        private void frm_Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
