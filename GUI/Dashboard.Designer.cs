@@ -1,4 +1,4 @@
-﻿namespace QuanLyHocSinhTHPT
+﻿namespace QuanLyHocSinhTHPT.GUI
 {
     partial class frm_Dashboard
     {
@@ -52,22 +52,23 @@
             this.btn_XemThongTinCaNhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_XemThongTinCaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_XemThongTinCaNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_XemThongTinCaNhan.Location = new System.Drawing.Point(0, 51);
-            this.btn_XemThongTinCaNhan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_XemThongTinCaNhan.Location = new System.Drawing.Point(0, 63);
+            this.btn_XemThongTinCaNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_XemThongTinCaNhan.Name = "btn_XemThongTinCaNhan";
-            this.btn_XemThongTinCaNhan.Size = new System.Drawing.Size(182, 39);
+            this.btn_XemThongTinCaNhan.Size = new System.Drawing.Size(243, 48);
             this.btn_XemThongTinCaNhan.TabIndex = 0;
             this.btn_XemThongTinCaNhan.Text = "Xem thông tin cá nhân";
             this.btn_XemThongTinCaNhan.UseVisualStyleBackColor = false;
+            this.btn_XemThongTinCaNhan.Click += new System.EventHandler(this.btn_XemThongTinCaNhan_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.lbl_ChucVu);
             this.panel1.Location = new System.Drawing.Point(1, -1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(918, 52);
+            this.panel1.Size = new System.Drawing.Size(1224, 64);
             this.panel1.TabIndex = 1;
             // 
             // lbl_ChucVu
@@ -75,10 +76,9 @@
             this.lbl_ChucVu.AutoSize = true;
             this.lbl_ChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_ChucVu.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lbl_ChucVu.Location = new System.Drawing.Point(20, 8);
-            this.lbl_ChucVu.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_ChucVu.Location = new System.Drawing.Point(27, 10);
             this.lbl_ChucVu.Name = "lbl_ChucVu";
-            this.lbl_ChucVu.Size = new System.Drawing.Size(121, 31);
+            this.lbl_ChucVu.Size = new System.Drawing.Size(149, 39);
             this.lbl_ChucVu.TabIndex = 2;
             this.lbl_ChucVu.Text = "Chức vụ";
             // 
@@ -89,10 +89,10 @@
             this.btn_Thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Thoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_Thoat.Location = new System.Drawing.Point(0, 482);
-            this.btn_Thoat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Thoat.Location = new System.Drawing.Point(0, 593);
+            this.btn_Thoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(182, 39);
+            this.btn_Thoat.Size = new System.Drawing.Size(243, 48);
             this.btn_Thoat.TabIndex = 5;
             this.btn_Thoat.Text = "Thoát";
             this.btn_Thoat.UseVisualStyleBackColor = false;
@@ -106,10 +106,10 @@
             this.btn_DangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_DangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_DangXuat.Location = new System.Drawing.Point(0, 444);
-            this.btn_DangXuat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_DangXuat.Location = new System.Drawing.Point(0, 546);
+            this.btn_DangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(182, 39);
+            this.btn_DangXuat.Size = new System.Drawing.Size(243, 48);
             this.btn_DangXuat.TabIndex = 4;
             this.btn_DangXuat.Text = "Đăng xuất";
             this.btn_DangXuat.UseVisualStyleBackColor = false;
@@ -122,10 +122,10 @@
             this.btn_Timkiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Timkiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_Timkiem.Location = new System.Drawing.Point(0, 127);
-            this.btn_Timkiem.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Timkiem.Location = new System.Drawing.Point(0, 156);
+            this.btn_Timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Timkiem.Name = "btn_Timkiem";
-            this.btn_Timkiem.Size = new System.Drawing.Size(182, 39);
+            this.btn_Timkiem.Size = new System.Drawing.Size(243, 48);
             this.btn_Timkiem.TabIndex = 3;
             this.btn_Timkiem.Text = "Tìm kiếm học sinh";
             this.btn_Timkiem.UseVisualStyleBackColor = false;
@@ -138,10 +138,10 @@
             this.btn_Xemdanhsachlop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Xemdanhsachlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Xemdanhsachlop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_Xemdanhsachlop.Location = new System.Drawing.Point(0, 165);
-            this.btn_Xemdanhsachlop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Xemdanhsachlop.Location = new System.Drawing.Point(0, 203);
+            this.btn_Xemdanhsachlop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btn_Xemdanhsachlop.Name = "btn_Xemdanhsachlop";
-            this.btn_Xemdanhsachlop.Size = new System.Drawing.Size(182, 39);
+            this.btn_Xemdanhsachlop.Size = new System.Drawing.Size(243, 48);
             this.btn_Xemdanhsachlop.TabIndex = 6;
             this.btn_Xemdanhsachlop.Text = "Xem danh sách lớp";
             this.btn_Xemdanhsachlop.UseVisualStyleBackColor = false;
@@ -154,10 +154,10 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button1.Location = new System.Drawing.Point(0, 279);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(0, 343);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(182, 39);
+            this.button1.Size = new System.Drawing.Size(243, 48);
             this.button1.TabIndex = 8;
             this.button1.Text = "Quản lý học sinh";
             this.button1.UseVisualStyleBackColor = false;
@@ -169,10 +169,10 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button2.Location = new System.Drawing.Point(0, 317);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
+            this.button2.Location = new System.Drawing.Point(0, 390);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(182, 39);
+            this.button2.Size = new System.Drawing.Size(243, 48);
             this.button2.TabIndex = 9;
             this.button2.Text = "Quản lý điểm số";
             this.button2.UseVisualStyleBackColor = false;
@@ -184,10 +184,10 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button3.Location = new System.Drawing.Point(0, 241);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
+            this.button3.Location = new System.Drawing.Point(0, 297);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(182, 39);
+            this.button3.Size = new System.Drawing.Size(243, 48);
             this.button3.TabIndex = 10;
             this.button3.Text = "Quản lý giáo viên";
             this.button3.UseVisualStyleBackColor = false;
@@ -199,10 +199,10 @@
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button5.Location = new System.Drawing.Point(1, 355);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
+            this.button5.Location = new System.Drawing.Point(1, 437);
+            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(181, 52);
+            this.button5.Size = new System.Drawing.Size(241, 64);
             this.button5.TabIndex = 12;
             this.button5.Text = "Quản lý tài khoản(GV/HS)";
             this.button5.UseVisualStyleBackColor = false;
@@ -214,10 +214,10 @@
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button6.Location = new System.Drawing.Point(0, 203);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
+            this.button6.Location = new System.Drawing.Point(0, 250);
+            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(182, 39);
+            this.button6.Size = new System.Drawing.Size(243, 48);
             this.button6.TabIndex = 13;
             this.button6.Text = "Quản lý lớp học";
             this.button6.UseVisualStyleBackColor = false;
@@ -229,10 +229,10 @@
             this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button7.Location = new System.Drawing.Point(1, 406);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
+            this.button7.Location = new System.Drawing.Point(1, 500);
+            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(181, 39);
+            this.button7.Size = new System.Drawing.Size(241, 48);
             this.button7.TabIndex = 14;
             this.button7.Text = "Thống kê";
             this.button7.UseVisualStyleBackColor = false;
@@ -244,20 +244,20 @@
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button4.Location = new System.Drawing.Point(0, 89);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
+            this.button4.Location = new System.Drawing.Point(0, 110);
+            this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(182, 39);
+            this.button4.Size = new System.Drawing.Size(243, 48);
             this.button4.TabIndex = 15;
             this.button4.Text = "Xem thông tin cá nhân";
             this.button4.UseVisualStyleBackColor = false;
             // 
             // frm_Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(246)))), ((int)(((byte)(249)))));
-            this.ClientSize = new System.Drawing.Size(919, 521);
+            this.ClientSize = new System.Drawing.Size(1225, 641);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btn_DangXuat);
             this.Controls.Add(this.btn_Thoat);
@@ -271,7 +271,7 @@
             this.Controls.Add(this.btn_Timkiem);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_XemThongTinCaNhan);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frm_Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản Lý Học Sinh - Dashboard";

@@ -7,9 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyHocSinhTHPT.DTO;
+using QuanLyHocSinhTHPT.DAO;
+using QuanLyHocSinhTHPT.BUS;
+using QuanLyHocSinhTHPT.GUI;
 
-namespace QuanLyHocSinhTHPT
-{
+namespace QuanLyHocSinhTHPT.GUI
+{ 
     public partial class frm_ChonDoiTuong : Form
     {
         public frm_ChonDoiTuong()

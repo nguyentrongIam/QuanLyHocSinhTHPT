@@ -7,8 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyHocSinhTHPT.DTO;
+using QuanLyHocSinhTHPT.DAO;
+using QuanLyHocSinhTHPT.BUS;
+using QuanLyHocSinhTHPT.GUI;
 
-namespace QuanLyHocSinhTHPT
+namespace QuanLyHocSinhTHPT.GUI
 {
     public partial class frm_Dashboard : Form
     {
@@ -46,6 +50,11 @@ namespace QuanLyHocSinhTHPT
         }
 
         private void frm_Dashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_XemThongTinCaNhan_Click(object sender, EventArgs e)
         {
 
         }

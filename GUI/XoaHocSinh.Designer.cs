@@ -1,4 +1,4 @@
-﻿namespace QuanLyHocSinhTHPT
+﻿namespace QuanLyHocSinhTHPT.GUI
 {
     partial class XoaHocSinh
     {
@@ -49,6 +49,7 @@
             this.Controls.Add(this.label1);
             this.Name = "XoaHocSinh";
             this.Text = "XoaHocSinh";
+            this.Load += new System.EventHandler(this.XoaHocSinh_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

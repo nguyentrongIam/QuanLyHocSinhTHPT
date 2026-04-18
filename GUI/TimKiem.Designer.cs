@@ -1,4 +1,4 @@
-﻿namespace QuanLyHocSinhTHPT
+﻿namespace QuanLyHocSinhTHPT.GUI
 {
     partial class FrmTimKiem
     {

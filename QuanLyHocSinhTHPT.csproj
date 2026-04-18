@@ -52,10 +52,10 @@
     <Compile Include="BUS\MonHocBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\TaiKhoanBUS.cs" />
-    <Compile Include="ChonDoiTuong.cs">
+    <Compile Include="GUI\ChonDoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChonDoiTuong.Designer.cs">
+    <Compile Include="GUI\ChonDoiTuong.Designer.cs">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\Database.cs" />
@@ -65,10 +65,10 @@
     <Compile Include="DAO\MonHocDAO.cs" />
     <Compile Include="DAO\NhanVienDAO.cs" />
     <Compile Include="DAO\TaiKhoanDAO.cs" />
-    <Compile Include="Dashboard.cs">
+    <Compile Include="GUI\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="GUI\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
@@ -78,46 +78,70 @@
     <Compile Include="DTO\MonHocDTO.cs" />
     <Compile Include="DTO\NhanVienDTO.cs" />
     <Compile Include="DTO\TaiKhoanDTO.cs" />
-    <Compile Include="NhapThongTin.cs">
+    <Compile Include="GUI\DashboardGiaoVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NhapThongTin.Designer.cs">
+    <Compile Include="GUI\DashboardGiaoVien.Designer.cs">
+      <DependentUpon>DashboardGiaoVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DashboardPhuHuynhHocSinh.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DashboardPhuHuynhHocSinh.Designer.cs">
+      <DependentUpon>DashboardPhuHuynhHocSinh.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DashboardQuanTriVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\DashboardQuanTriVien.Designer.cs">
+      <DependentUpon>DashboardQuanTriVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NhapThongTin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\NhapThongTin.Designer.cs">
       <DependentUpon>NhapThongTin.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TimKiem.cs">
+    <Compile Include="GUI\TimKiem.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TimKiem.Designer.cs">
+    <Compile Include="GUI\TimKiem.Designer.cs">
       <DependentUpon>TimKiem.cs</DependentUpon>
     </Compile>
-    <Compile Include="XemDanhSach.cs">
+    <Compile Include="GUI\XemDanhSach.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemDanhSach.Designer.cs">
+    <Compile Include="GUI\XemDanhSach.Designer.cs">
       <DependentUpon>XemDanhSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="XemThongTinCaNhan.cs">
+    <Compile Include="GUI\XemThongTinCaNhan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XemThongTinCaNhan.Designer.cs">
+    <Compile Include="GUI\XemThongTinCaNhan.Designer.cs">
       <DependentUpon>XemThongTinCaNhan.cs</DependentUpon>
     </Compile>
-    <Compile Include="XoaHocSinh.cs">
+    <Compile Include="GUI\XoaHocSinh.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="XoaHocSinh.Designer.cs">
+    <Compile Include="GUI\XoaHocSinh.Designer.cs">
       <DependentUpon>XoaHocSinh.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChonDoiTuong.resx">
+    <EmbeddedResource Include="GUI\ChonDoiTuong.resx">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="GUI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NhapThongTin.resx">
+    <EmbeddedResource Include="GUI\DashboardQuanTriVien.resx">
+      <DependentUpon>DashboardQuanTriVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\NhapThongTin.resx">
       <DependentUpon>NhapThongTin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\XemThongTinCaNhan.resx">
+      <DependentUpon>XemThongTinCaNhan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,13 +152,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TimKiem.resx">
+    <EmbeddedResource Include="GUI\TimKiem.resx">
       <DependentUpon>TimKiem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XemDanhSach.resx">
+    <EmbeddedResource Include="GUI\XemDanhSach.resx">
       <DependentUpon>XemDanhSach.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="XoaHocSinh.resx">
+    <EmbeddedResource Include="GUI\XoaHocSinh.resx">
       <DependentUpon>XoaHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -153,8 +177,6 @@
   <ItemGroup>
     <Content Include="Database\setup.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="GUI\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

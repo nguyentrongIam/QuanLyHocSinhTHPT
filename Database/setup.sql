@@ -3,18 +3,38 @@ GO
 USE QuanLyHocSinhDB;
 GO
 
--- 1. BẢNG NHÂN VIÊN (Gồm cả BGH và Giáo viên)
-CREATE TABLE NhanVien (
-    MaNV VARCHAR(20) PRIMARY KEY,
+-- ==========================================
+-- PHẦN 1: TẠO BẢNG & RÀNG BUỘC (DDL)
+-- Lệnh tạo bảng phải theo thứ tự để tránh lỗi khóa ngoại
+-- ==========================================
+
+-- 1. BẢNG GỐC: Người Dùng (Lưu thông tin chung của tất cả mọi người)
+CREATE TABLE NguoiDung (
+    MaNguoiDung VARCHAR(20) PRIMARY KEY,
     HoTen NVARCHAR(100) NOT NULL,
     NgaySinh DATE,
-    GioiTinh NVARCHAR(10),
+    GioiTinh NVARCHAR(10) CHECK (GioiTinh IN (N'Nam', N'Nữ', N'Khác')),
     DiaChi NVARCHAR(255),
     SDT VARCHAR(15),
-    ChucVu NVARCHAR(50) -- 'Hiệu trưởng', 'Hiệu phó', 'Giáo viên'
+    LoaiNguoiDung VARCHAR(20) CHECK (LoaiNguoiDung IN ('NV', 'HS')) -- NV: Nhân viên, HS: Học sinh
 );
 
--- 2. BẢNG LỚP HỌC
+-- 2. BẢNG NHÂN VIÊN (Tham chiếu đến NguoiDung)
+CREATE TABLE NhanVien (
+    MaNV VARCHAR(20) PRIMARY KEY,
+    ChucVu NVARCHAR(50), -- 'Hiệu trưởng', 'Hiệu phó', 'Giáo viên'
+    TrinhDo NVARCHAR(50),
+    FOREIGN KEY (MaNV) REFERENCES NguoiDung(MaNguoiDung)
+);
+
+-- 3. BẢNG MÔN HỌC
+CREATE TABLE MonHoc (
+    MaMon VARCHAR(20) PRIMARY KEY,
+    TenMon NVARCHAR(50) NOT NULL,
+    HeSo INT DEFAULT 1 CHECK (HeSo IN (1, 2))
+);
+
+-- 4. BẢNG LỚP HỌC (Có GVCN tham chiếu đến NhanVien)
 CREATE TABLE Lop (
     MaLop VARCHAR(20) PRIMARY KEY,
     TenLop NVARCHAR(50) NOT NULL,
@@ -22,102 +42,123 @@ CREATE TABLE Lop (
     FOREIGN KEY (MaGVCN) REFERENCES NhanVien(MaNV)
 );
 
--- 3. BẢNG HỌC SINH
+-- 5. BẢNG HỌC SINH (Tham chiếu đến NguoiDung và Lop)
 CREATE TABLE HocSinh (
     MaHS VARCHAR(20) PRIMARY KEY,
-    HoTen NVARCHAR(100) NOT NULL,
-    NgaySinh DATE,
-    GioiTinh NVARCHAR(10),
-    DiaChi NVARCHAR(255),
-    SDT VARCHAR(15), -- Số điện thoại phụ huynh/học sinh
     MaLop VARCHAR(20),
+    NienKhoa VARCHAR(20),
+    FOREIGN KEY (MaHS) REFERENCES NguoiDung(MaNguoiDung),
     FOREIGN KEY (MaLop) REFERENCES Lop(MaLop)
 );
 
--- 4. BẢNG MÔN HỌC (Chương trình 2006)
-CREATE TABLE MonHoc (
-    MaMon VARCHAR(20) PRIMARY KEY,
-    TenMon NVARCHAR(50) NOT NULL
+-- 6. BẢNG TÀI KHOẢN (Tham chiếu trực tiếp đến NguoiDung)
+CREATE TABLE TaiKhoan (
+    TenDangNhap VARCHAR(20) PRIMARY KEY,
+    MatKhau VARCHAR(50) NOT NULL,
+    VaiTro NVARCHAR(20) CHECK (VaiTro IN ('Admin', 'GiaoVien', 'HocSinh')),
+    TrangThai BIT DEFAULT 1, -- 1: Hoạt động, 0: Khóa
+    FOREIGN KEY (TenDangNhap) REFERENCES NguoiDung(MaNguoiDung)
 );
 
--- 5. BẢNG ĐIỂM
+-- 7. BẢNG PHÂN CÔNG GIẢNG DẠY
+CREATE TABLE PhanCongGiangDay (
+    MaGV VARCHAR(20),
+    MaLop VARCHAR(20),
+    MaMon VARCHAR(20),
+    HocKy INT CHECK (HocKy IN (1, 2)),
+    NamHoc VARCHAR(20),
+    PRIMARY KEY (MaGV, MaLop, MaMon, HocKy, NamHoc),
+    FOREIGN KEY (MaGV) REFERENCES NhanVien(MaNV),
+    FOREIGN KEY (MaLop) REFERENCES Lop(MaLop),
+    FOREIGN KEY (MaMon) REFERENCES MonHoc(MaMon)
+);
+
+-- 8. BẢNG ĐIỂM
 CREATE TABLE Diem (
     MaHS VARCHAR(20),
     MaMon VARCHAR(20),
-    HocKy INT,
+    HocKy INT CHECK (HocKy IN (1, 2)),
     NamHoc VARCHAR(20),
-    DiemMieng FLOAT,
-    Diem15p FLOAT,
-    Diem45p FLOAT,
-    DiemThi FLOAT,
+    DiemMieng FLOAT CHECK (DiemMieng >= 0 AND DiemMieng <= 10),
+    Diem15p FLOAT CHECK (Diem15p >= 0 AND Diem15p <= 10),
+    Diem45p FLOAT CHECK (Diem45p >= 0 AND Diem45p <= 10),
+    DiemThi FLOAT CHECK (DiemThi >= 0 AND DiemThi <= 10),
+    DiemTB FLOAT CHECK (DiemTB >= 0 AND DiemTB <= 10),
     PRIMARY KEY (MaHS, MaMon, HocKy, NamHoc),
     FOREIGN KEY (MaHS) REFERENCES HocSinh(MaHS),
     FOREIGN KEY (MaMon) REFERENCES MonHoc(MaMon)
 );
-
--- 6. BẢNG TÀI KHOẢN (Dùng để đăng nhập và phân quyền)
-CREATE TABLE TaiKhoan (
-    TenDangNhap VARCHAR(20) PRIMARY KEY, -- Chính là MaNV hoặc MaHS
-    MatKhau VARCHAR(50) NOT NULL,
-    VaiTro NVARCHAR(20) -- 'Admin', 'GiaoVien', 'HocSinh'
-);
-GO
-USE QuanLyHocSinhDB;
 GO
 
--- 1. Chèn Ban Giám Hiệu
-INSERT INTO NhanVien VALUES ('AD001', N'Nguyễn Văn An', '1975-05-10', N'Nam', N'Hà Nội', '0912345678', N'Hiệu trưởng');
-INSERT INTO NhanVien VALUES ('AD002', N'Trần Thị Bình', '1980-08-15', N'Nữ', N'Hà Nội', '0912345679', N'Hiệu phó');
+-- ==========================================
+-- PHẦN 2: CHÈN DỮ LIỆU MẪU THỦ CÔNG (DML)
+-- ==========================================
 
--- 2. Chèn 13 Môn học và 13 Giáo viên tương ứng
-INSERT INTO MonHoc VALUES ('TOAN', N'Toán Học'), ('VAN', N'Ngữ Văn'), ('ANH', N'Tiếng Anh'), 
-                          ('LY', N'Vật Lý'), ('HOA', N'Hóa Học'), ('SINH', N'Sinh Học'),
-                          ('SU', N'Lịch Sử'), ('DIA', N'Địa Lý'), ('GDCD', N'GDCD'),
-                          ('TIN', N'Tin Học'), ('CN', N'Công Nghệ'), ('TD', N'Thể Dục'), ('QP', N'Quốc Phòng');
+-- 1. CHÈN NGƯỜI DÙNG (Tất cả BGH, GV, HS phải có mặt ở đây trước)
+INSERT INTO NguoiDung (MaNguoiDung, HoTen, NgaySinh, GioiTinh, DiaChi, SDT, LoaiNguoiDung) VALUES 
+('AD001', N'Nguyễn Văn An', '1975-05-10', N'Nam', N'Hà Nội', '0912345678', 'NV'),
+('AD002', N'Trần Thị Bình', '1980-08-15', N'Nữ', N'Hà Nội', '0912345679', 'NV'),
+('GV001', N'Lê Toán', '1985-01-01', N'Nam', N'Hà Nội', '0980000001', 'NV'),
+('GV002', N'Phạm Văn', '1986-02-02', N'Nữ', N'Hà Nội', '0980000002', 'NV'),
+('GV003', N'Nguyễn Anh', '1987-03-03', N'Nữ', N'Hà Nội', '0980000003', 'NV'),
+('GV004', N'Hoàng Lý', '1988-04-04', N'Nam', N'Hà Nội', '0980000004', 'NV'),
+('HS001', N'Trần Ngọc A', '2010-01-15', N'Nam', N'Hà Nội', '0331234001', 'HS'),
+('HS002', N'Lê Thị B', '2010-02-20', N'Nữ', N'Hà Nội', '0331234002', 'HS'),
+('HS003', N'Phạm Văn C', '2010-03-25', N'Nam', N'Hà Nội', '0331234003', 'HS'),
+('HS004', N'Hoàng Ngọc D', '2010-04-10', N'Nữ', N'Hà Nội', '0331234004', 'HS'),
+('HS005', N'Ngô Tấn E', '2010-05-05', N'Nam', N'Hà Nội', '0331234005', 'HS'),
+('HS006', N'Đinh Thị F', '2010-06-12', N'Nữ', N'Hà Nội', '0331234006', 'HS');
 
-INSERT INTO NhanVien VALUES 
-('GV001', N'Lê Toán', '1985-01-01', N'Nam', N'Hà Nội', '098001', N'Giáo viên'),
-('GV002', N'Phạm Văn', '1986-02-02', N'Nữ', N'Hà Nội', '098002', N'Giáo viên'),
-('GV003', N'Nguyễn Anh', '1987-03-03', N'Nữ', N'Hà Nội', '098003', N'Giáo viên'),
-('GV004', N'Hoàng Lý', '1988-04-04', N'Nam', N'Hà Nội', '098004', N'Giáo viên'),
-('GV005', N'Ngô Hóa', '1989-05-05', N'Nam', N'Hà Nội', '098005', N'Giáo viên'),
-('GV006', N'Vũ Sinh', '1990-06-06', N'Nữ', N'Hà Nội', '098006', N'Giáo viên'),
-('GV007', N'Đỗ Sử', '1991-07-07', N'Nam', N'Hà Nội', '098007', N'Giáo viên'),
-('GV008', N'Bùi Địa', '1992-08-08', N'Nữ', N'Hà Nội', '098008', N'Giáo viên'),
-('GV009', N'Lý Công Dân', '1993-09-09', N'Nam', N'Hà Nội', '098009', N'Giáo viên'),
-('GV010', N'Quách Tin', '1994-10-10', N'Nam', N'Hà Nội', '098010', N'Giáo viên'),
-('GV011', N'Dương Công Nghệ', '1995-11-11', N'Nữ', N'Hà Nội', '098011', N'Giáo viên'),
-('GV012', N'Phan Thể Dục', '1996-12-12', N'Nam', N'Hà Nội', '098012', N'Giáo viên'),
-('GV013', N'Trịnh Quốc Phòng', '1997-01-13', N'Nam', N'Hà Nội', '098013', N'Giáo viên');
+-- 2. CHÈN NHÂN VIÊN (Trích xuất từ NguoiDung)
+INSERT INTO NhanVien (MaNV, ChucVu, TrinhDo) VALUES 
+('AD001', N'Hiệu trưởng', N'Thạc sĩ'),
+('AD002', N'Hiệu phó', N'Thạc sĩ'),
+('GV001', N'Giáo viên', N'Cử nhân'),
+('GV002', N'Giáo viên', N'Cử nhân'),
+('GV003', N'Giáo viên', N'Cử nhân'),
+('GV004', N'Giáo viên', N'Cử nhân');
 
--- 3. Tạo 3 Lớp học (Lấy 3 giáo viên đầu làm GVCN)
-INSERT INTO Lop VALUES ('10A1', N'10A1', 'GV001'), ('10A2', N'10A2', 'GV002'), ('10A3', N'10A3', 'GV003');
+-- 3. CHÈN MÔN HỌC
+INSERT INTO MonHoc (MaMon, TenMon, HeSo) VALUES 
+('TOAN', N'Toán Học', 2), 
+('VAN', N'Ngữ Văn', 2), 
+('ANH', N'Tiếng Anh', 1), 
+('LY', N'Vật Lý', 1);
 
--- 4. TỰ ĐỘNG TẠO 120 HỌC SINH (40 em/lớp) VÀ TÀI KHOẢN
-DECLARE @i INT = 1;
-DECLARE @MaLop VARCHAR(10);
-WHILE @i <= 120
-BEGIN
-    SET @MaLop = CASE 
-        WHEN @i <= 40 THEN '10A1'
-        WHEN @i <= 80 THEN '10A2'
-        ELSE '10A3'
-    END;
+-- 4. CHÈN LỚP HỌC (Cần có mã GVCN)
+INSERT INTO Lop (MaLop, TenLop, MaGVCN) VALUES 
+('10A1', N'10A1', 'GV001'), 
+('10A2', N'10A2', 'GV002');
 
-    DECLARE @MaHS VARCHAR(20) = 'HS' + RIGHT('000' + CAST(@i AS VARCHAR), 3);
-    
-    INSERT INTO HocSinh (MaHS, HoTen, NgaySinh, GioiTinh, MaLop)
-    VALUES (@MaHS, N'Học Sinh ' + CAST(@i AS VARCHAR), '2010-01-01', N'Nam', @MaLop);
+-- 5. CHÈN HỌC SINH (Trích xuất từ NguoiDung, ghép với Lop)
+INSERT INTO HocSinh (MaHS, MaLop, NienKhoa) VALUES 
+('HS001', '10A1', '2025-2028'),
+('HS002', '10A1', '2025-2028'),
+('HS003', '10A1', '2025-2028'),
+('HS004', '10A2', '2025-2028'),
+('HS005', '10A2', '2025-2028'),
+('HS006', '10A2', '2025-2028');
 
-    -- Tạo tài khoản cho học sinh (Mật khẩu mặc định: 01012010)
-    INSERT INTO TaiKhoan VALUES (@MaHS, '01012010', 'HocSinh');
+-- 6. CHÈN TÀI KHOẢN (Cho cả Admin, Giáo viên và Học sinh)
+INSERT INTO TaiKhoan (TenDangNhap, MatKhau, VaiTro, TrangThai) VALUES 
+('AD001', 'admin123', 'Admin', 1),
+('GV001', 'gv123456', 'GiaoVien', 1),
+('GV002', 'gv123456', 'GiaoVien', 1),
+('HS001', '15012010', 'HocSinh', 1),
+('HS002', '20022010', 'HocSinh', 1),
+('HS003', '25032010', 'HocSinh', 1);
 
-    SET @i = @i + 1;
-END;
+-- 7. CHÈN PHÂN CÔNG GIẢNG DẠY
+INSERT INTO PhanCongGiangDay (MaGV, MaLop, MaMon, HocKy, NamHoc) VALUES 
+('GV001', '10A1', 'TOAN', 1, '2025-2026'),
+('GV002', '10A1', 'VAN', 1, '2025-2026'),
+('GV003', '10A1', 'ANH', 1, '2025-2026'),
+('GV004', '10A2', 'LY', 1, '2025-2026');
 
--- 5. Tạo tài khoản cho Admin và Giáo viên
-INSERT INTO TaiKhoan SELECT MaNV, REPLACE(CONVERT(VARCHAR, NgaySinh, 103), '/', ''), 
-    CASE WHEN ChucVu LIKE N'%Hiệu%' THEN 'Admin' ELSE 'GiaoVien' END
-FROM NhanVien;
-
-select * from TaiKhoan where TenDangNhap='AD001' and MatKhau='10051975'
+-- 8. CHÈN ĐIỂM SỐ
+INSERT INTO Diem (MaHS, MaMon, HocKy, NamHoc, DiemMieng, Diem15p, Diem45p, DiemThi, DiemTB) VALUES 
+('HS001', 'TOAN', 1, '2025-2026', 8.0, 7.5, 8.0, 8.5, 8.1),
+('HS001', 'VAN', 1, '2025-2026', 7.0, 7.0, 6.5, 7.0, 6.9),
+('HS002', 'TOAN', 1, '2025-2026', 9.0, 8.5, 9.0, 9.5, 9.1),
+('HS004', 'TOAN', 1, '2025-2026', 6.0, 6.5, 7.0, 7.5, 7.0);
+GO

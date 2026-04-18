@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace QuanLyHocSinhTHPT
+namespace QuanLyHocSinhTHPT.GUI
 {
-    public partial class XoaHocSinh : Form
+    public partial class DashboardQuanTriVien : Form
     {
-        public XoaHocSinh()
+        public DashboardQuanTriVien()
         {
             InitializeComponent();
         }
