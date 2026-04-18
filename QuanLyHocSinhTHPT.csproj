@@ -46,12 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUS\DiemBUS.cs" />
+    <Compile Include="BUS\HocSinhBUS.cs" />
+    <Compile Include="BUS\LopBUS.cs" />
+    <Compile Include="BUS\MonHocBUS.cs" />
+    <Compile Include="BUS\NhanVienBUS.cs" />
+    <Compile Include="BUS\TaiKhoanBUS.cs" />
     <Compile Include="ChonDoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChonDoiTuong.Designer.cs">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\DiemDAO.cs" />
+    <Compile Include="DAO\HocSinhDAO.cs" />
+    <Compile Include="DAO\LopDAO.cs" />
+    <Compile Include="DAO\MonHocDAO.cs" />
+    <Compile Include="DAO\NhanVienDAO.cs" />
+    <Compile Include="DAO\TaiKhoanDAO.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +71,12 @@
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="DTO\DiemDTO.cs" />
+    <Compile Include="DTO\HocSinhDTO.cs" />
+    <Compile Include="DTO\LopDTO.cs" />
+    <Compile Include="DTO\MonHocDTO.cs" />
+    <Compile Include="DTO\NhanVienDTO.cs" />
+    <Compile Include="DTO\TaiKhoanDTO.cs" />
     <Compile Include="NhapThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\setup.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="GUI\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
