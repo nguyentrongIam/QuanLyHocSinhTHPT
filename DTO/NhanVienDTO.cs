@@ -13,11 +13,10 @@ namespace QuanLyHocSinhTHPT.DTO
     internal class NhanVienDTO
     {
         public string MaNV { get; set; } = string.Empty;
-        public string HoTen { get; set; } = string.Empty;
-        public DateTime? NgaySinh { get; set; }
+        public string HoTen { get; set; } = string.Empty;        // Từ NguoiDung
         public string GioiTinh { get; set; }
-        public string DiaChi { get; set; }
-        public string SDT { get; set; }
+        public DateTime NgaySinh { get; set; }
         public string ChucVu { get; set; }
+        public string TrinhDo { get; set; }
     }
 }

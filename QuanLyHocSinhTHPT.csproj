@@ -52,6 +52,8 @@
     <Compile Include="BUS\MonHocBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\TaiKhoanBUS.cs" />
+    <Compile Include="DTO\NguoiDungDTO.cs" />
+    <Compile Include="DTO\PhanCongGiangDayDTO.cs" />
     <Compile Include="GUI\ChonDoiTuong.cs">
       <SubType>Form</SubType>
     </Compile>

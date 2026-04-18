@@ -14,6 +14,7 @@ namespace QuanLyHocSinhTHPT.DTO
     {
         public string TenDangNhap { get; set; } = string.Empty;
         public string MatKhau { get; set; } = string.Empty;
-        public string VaiTro { get; set; }
+        public string VaiTro { get; set; } = string.Empty; // Admin, GiaoVien, HocSinh
+        public bool TrangThai { get; set; } = true;
     }
 }

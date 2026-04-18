@@ -14,5 +14,6 @@ namespace QuanLyHocSinhTHPT.DTO
     {
         public string MaMon { get; set; } = string.Empty;
         public string TenMon { get; set; } = string.Empty;
+        public int HeSo { get; set; } = 1;
     }
 }

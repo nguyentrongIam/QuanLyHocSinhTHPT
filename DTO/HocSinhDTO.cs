@@ -14,11 +14,12 @@ namespace QuanLyHocSinhTHPT.DTO
     {
         public string MaHS { get; set; } = string.Empty;
         public string HoTen { get; set; } = string.Empty;
-        public DateTime? NgaySinh { get; set; }
+        public DateTime NgaySinh { get; set; }
         public string GioiTinh { get; set; }
         public string DiaChi { get; set; }
         public string SDT { get; set; }
         public string MaLop { get; set; }
         public string TenLop { get; set; }
+        public string NienKhoa { get; set; }
     }
 }
