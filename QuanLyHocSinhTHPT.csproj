@@ -58,6 +58,7 @@
     <Compile Include="ChonDoiTuong.Designer.cs">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\Database.cs" />
     <Compile Include="DAO\DiemDAO.cs" />
     <Compile Include="DAO\HocSinhDAO.cs" />
     <Compile Include="DAO\LopDAO.cs" />
