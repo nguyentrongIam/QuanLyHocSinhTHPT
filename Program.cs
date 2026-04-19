@@ -20,7 +20,7 @@ namespace QuanLyHocSinhTHPT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_Dashboard("Quản trị viên"));
+            Application.Run(new frm_Dashboard("Giáo viên"));
         }
     }
 }

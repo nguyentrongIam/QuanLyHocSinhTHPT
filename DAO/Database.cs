@@ -15,8 +15,10 @@ namespace QuanLyHocSinhTHPT.DAO
 {
     public class Database
     {
-        private string sCon = "Data Source=.; Initial Catalog=QuanLyHocSinhDB;Integrated Security=True";
+        public string sCon = "Data Source=.; Initial Catalog=QuanLyHocSinhDB;Integrated Security=True";
+
         public Database() { }
+       
 
         // Lấy DataTable (dùng cho SELECT)
         public DataSet XemDanhSach(string sSQL)
