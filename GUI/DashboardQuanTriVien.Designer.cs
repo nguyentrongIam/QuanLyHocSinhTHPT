@@ -235,7 +235,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 596);
+            this.ClientSize = new System.Drawing.Size(1226, 597);
             this.Controls.Add(this.btn_DangXuat);
             this.Controls.Add(this.btn_Thoat);
             this.Controls.Add(this.button7);
