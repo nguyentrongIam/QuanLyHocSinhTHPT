@@ -168,6 +168,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="GUI\TimKiem.resx">
       <DependentUpon>TimKiem.cs</DependentUpon>
@@ -194,6 +195,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Database\setup.sql" />
+    <None Include="Resources\grade.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\user1.png" />
+    <None Include="Resources\turn-off.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\studentms-logo.png" />
+    <None Include="Resources\user.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

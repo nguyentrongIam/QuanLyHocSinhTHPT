@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyHocSinhTHPT.GUI
 {
-    public partial class DashboardQuanTriVien : Form
+    public partial class frmDashboardQuanTriVien : Form
     {
-        public DashboardQuanTriVien()
+        public frmDashboardQuanTriVien()
         {
             InitializeComponent();
         }

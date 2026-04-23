@@ -1,6 +1,6 @@
 ﻿namespace QuanLyHocSinhTHPT.GUI
 {
-    partial class DashboardQuanTriVien
+    partial class frmDashboardQuanTriVien
     {
         /// <summary>
         /// Required designer variable.
@@ -28,249 +28,512 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_DangXuat = new System.Windows.Forms.Button();
-            this.btn_Thoat = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btn_Xemdanhsachlop = new System.Windows.Forms.Button();
-            this.btn_Timkiem = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_ChucVu = new System.Windows.Forms.Label();
-            this.btn_XemThongTinCaNhan = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDashboardQuanTriVien));
+            this.label1 = new System.Windows.Forms.Label();
+            this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblSoHocSinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblTongHocSinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ShadowPanel3 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2ShadowPanel4 = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2PictureBox5 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox4 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox3 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox2 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.btnThoat = new Guna.UI2.WinForms.Guna2Button();
+            this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuanLyTaiKhoan = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuanLyDiemSo = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuanLyLopHoc = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuanLyGiaoVien = new Guna.UI2.WinForms.Guna2Button();
+            this.btnQuanLyHocSinh = new Guna.UI2.WinForms.Guna2Button();
+            this.btnXemThongTin = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ShadowPanel1.SuspendLayout();
+            this.guna2Panel1.SuspendLayout();
+            this.guna2ShadowPanel2.SuspendLayout();
+            this.guna2ShadowPanel3.SuspendLayout();
+            this.guna2ShadowPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_DangXuat
+            // label1
             // 
-            this.btn_DangXuat.AutoSize = true;
-            this.btn_DangXuat.BackColor = System.Drawing.Color.White;
-            this.btn_DangXuat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.btn_DangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_DangXuat.Location = new System.Drawing.Point(-1, 502);
-            this.btn_DangXuat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(243, 48);
-            this.btn_DangXuat.TabIndex = 19;
-            this.btn_DangXuat.Text = "Đăng xuất";
-            this.btn_DangXuat.UseVisualStyleBackColor = false;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 25F);
+            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label1.Location = new System.Drawing.Point(278, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(438, 47);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Xin chào, Administator";
             // 
-            // btn_Thoat
+            // guna2ShadowPanel1
             // 
-            this.btn_Thoat.BackColor = System.Drawing.Color.White;
-            this.btn_Thoat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.btn_Thoat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Thoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Thoat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_Thoat.Location = new System.Drawing.Point(-1, 549);
-            this.btn_Thoat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Thoat.Name = "btn_Thoat";
-            this.btn_Thoat.Size = new System.Drawing.Size(243, 48);
-            this.btn_Thoat.TabIndex = 20;
-            this.btn_Thoat.Text = "Thoát";
-            this.btn_Thoat.UseVisualStyleBackColor = false;
+            this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel1.Controls.Add(this.guna2PictureBox2);
+            this.guna2ShadowPanel1.Controls.Add(this.lblSoHocSinh);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTongHocSinh);
+            this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel1.Location = new System.Drawing.Point(286, 129);
+            this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
+            this.guna2ShadowPanel1.Radius = 10;
+            this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Silver;
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(316, 139);
+            this.guna2ShadowPanel1.TabIndex = 31;
             // 
-            // button7
+            // lblSoHocSinh
             // 
-            this.button7.BackColor = System.Drawing.Color.White;
-            this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button7.Location = new System.Drawing.Point(1, 456);
-            this.button7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(241, 48);
-            this.button7.TabIndex = 27;
-            this.button7.Text = "Thống kê";
-            this.button7.UseVisualStyleBackColor = false;
+            this.lblSoHocSinh.AutoSize = false;
+            this.lblSoHocSinh.BackColor = System.Drawing.Color.Transparent;
+            this.lblSoHocSinh.Font = new System.Drawing.Font("Arial", 15F);
+            this.lblSoHocSinh.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblSoHocSinh.Location = new System.Drawing.Point(47, 81);
+            this.lblSoHocSinh.Name = "lblSoHocSinh";
+            this.lblSoHocSinh.Size = new System.Drawing.Size(173, 58);
+            this.lblSoHocSinh.TabIndex = 1;
+            this.lblSoHocSinh.Text = "999999";
             // 
-            // button6
+            // lblTongHocSinh
             // 
-            this.button6.BackColor = System.Drawing.Color.White;
-            this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button6.Location = new System.Drawing.Point(-1, 206);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(243, 48);
-            this.button6.TabIndex = 26;
-            this.button6.Text = "Quản lý lớp học";
-            this.button6.UseVisualStyleBackColor = false;
+            this.lblTongHocSinh.AutoSize = false;
+            this.lblTongHocSinh.BackColor = System.Drawing.Color.Transparent;
+            this.lblTongHocSinh.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTongHocSinh.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblTongHocSinh.Location = new System.Drawing.Point(102, 34);
+            this.lblTongHocSinh.Name = "lblTongHocSinh";
+            this.lblTongHocSinh.Size = new System.Drawing.Size(196, 58);
+            this.lblTongHocSinh.TabIndex = 0;
+            this.lblTongHocSinh.Text = "Tổng học sinh";
             // 
-            // button5
+            // guna2Panel1
             // 
-            this.button5.BackColor = System.Drawing.Color.White;
-            this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button5.Location = new System.Drawing.Point(1, 393);
-            this.button5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(241, 64);
-            this.button5.TabIndex = 25;
-            this.button5.Text = "Quản lý tài khoản(GV/HS)";
-            this.button5.UseVisualStyleBackColor = false;
+            this.guna2Panel1.BackColor = System.Drawing.Color.White;
+            this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+            this.guna2Panel1.Controls.Add(this.btnThoat);
+            this.guna2Panel1.Controls.Add(this.btnDangXuat);
+            this.guna2Panel1.Controls.Add(this.btnQuanLyTaiKhoan);
+            this.guna2Panel1.Controls.Add(this.btnQuanLyDiemSo);
+            this.guna2Panel1.Controls.Add(this.btnQuanLyLopHoc);
+            this.guna2Panel1.Controls.Add(this.btnQuanLyGiaoVien);
+            this.guna2Panel1.Controls.Add(this.btnQuanLyHocSinh);
+            this.guna2Panel1.Controls.Add(this.btnXemThongTin);
+            this.guna2Panel1.Location = new System.Drawing.Point(1, 1);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(250, 834);
+            this.guna2Panel1.TabIndex = 28;
             // 
-            // button3
+            // imageList1
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button3.Location = new System.Drawing.Point(-1, 253);
-            this.button3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(243, 48);
-            this.button3.TabIndex = 24;
-            this.button3.Text = "Quản lý giáo viên";
-            this.button3.UseVisualStyleBackColor = false;
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "exit.png");
+            this.imageList1.Images.SetKeyName(1, "grade.png");
+            this.imageList1.Images.SetKeyName(2, "graph-analysis.png");
+            this.imageList1.Images.SetKeyName(3, "list.png");
+            this.imageList1.Images.SetKeyName(4, "loupe.png");
+            this.imageList1.Images.SetKeyName(5, "setting.png");
+            this.imageList1.Images.SetKeyName(6, "studentms-logo.png");
+            this.imageList1.Images.SetKeyName(7, "turn-off.png");
+            this.imageList1.Images.SetKeyName(8, "user.png");
             // 
-            // button2
+            // guna2ShadowPanel2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button2.Location = new System.Drawing.Point(-1, 346);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(243, 48);
-            this.button2.TabIndex = 23;
-            this.button2.Text = "Quản lý điểm số";
-            this.button2.UseVisualStyleBackColor = false;
+            this.guna2ShadowPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel2.Controls.Add(this.guna2PictureBox3);
+            this.guna2ShadowPanel2.Controls.Add(this.guna2HtmlLabel1);
+            this.guna2ShadowPanel2.Controls.Add(this.guna2HtmlLabel2);
+            this.guna2ShadowPanel2.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel2.Location = new System.Drawing.Point(645, 129);
+            this.guna2ShadowPanel2.Name = "guna2ShadowPanel2";
+            this.guna2ShadowPanel2.Radius = 10;
+            this.guna2ShadowPanel2.ShadowColor = System.Drawing.Color.Silver;
+            this.guna2ShadowPanel2.Size = new System.Drawing.Size(316, 139);
+            this.guna2ShadowPanel2.TabIndex = 32;
             // 
-            // button1
+            // guna2HtmlLabel1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.button1.Location = new System.Drawing.Point(-1, 299);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(243, 48);
-            this.button1.TabIndex = 22;
-            this.button1.Text = "Quản lý học sinh";
-            this.button1.UseVisualStyleBackColor = false;
+            this.guna2HtmlLabel1.AutoSize = false;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Arial", 15F);
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(47, 81);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(173, 58);
+            this.guna2HtmlLabel1.TabIndex = 1;
+            this.guna2HtmlLabel1.Text = "999999";
             // 
-            // btn_Xemdanhsachlop
+            // guna2HtmlLabel2
             // 
-            this.btn_Xemdanhsachlop.BackColor = System.Drawing.Color.White;
-            this.btn_Xemdanhsachlop.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.btn_Xemdanhsachlop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Xemdanhsachlop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Xemdanhsachlop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_Xemdanhsachlop.Location = new System.Drawing.Point(-1, 159);
-            this.btn_Xemdanhsachlop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Xemdanhsachlop.Name = "btn_Xemdanhsachlop";
-            this.btn_Xemdanhsachlop.Size = new System.Drawing.Size(243, 48);
-            this.btn_Xemdanhsachlop.TabIndex = 21;
-            this.btn_Xemdanhsachlop.Text = "Xem danh sách lớp";
-            this.btn_Xemdanhsachlop.UseVisualStyleBackColor = false;
+            this.guna2HtmlLabel2.AutoSize = false;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(102, 34);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(211, 58);
+            this.guna2HtmlLabel2.TabIndex = 0;
+            this.guna2HtmlLabel2.Text = "Tổng giáo viên";
             // 
-            // btn_Timkiem
+            // guna2ShadowPanel3
             // 
-            this.btn_Timkiem.BackColor = System.Drawing.Color.White;
-            this.btn_Timkiem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.btn_Timkiem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Timkiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Timkiem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_Timkiem.Location = new System.Drawing.Point(-1, 112);
-            this.btn_Timkiem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Timkiem.Name = "btn_Timkiem";
-            this.btn_Timkiem.Size = new System.Drawing.Size(243, 48);
-            this.btn_Timkiem.TabIndex = 18;
-            this.btn_Timkiem.Text = "Tìm kiếm học sinh";
-            this.btn_Timkiem.UseVisualStyleBackColor = false;
+            this.guna2ShadowPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel3.Controls.Add(this.guna2PictureBox4);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel3);
+            this.guna2ShadowPanel3.Controls.Add(this.guna2HtmlLabel4);
+            this.guna2ShadowPanel3.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel3.Location = new System.Drawing.Point(286, 313);
+            this.guna2ShadowPanel3.Name = "guna2ShadowPanel3";
+            this.guna2ShadowPanel3.Radius = 10;
+            this.guna2ShadowPanel3.ShadowColor = System.Drawing.Color.Silver;
+            this.guna2ShadowPanel3.Size = new System.Drawing.Size(316, 139);
+            this.guna2ShadowPanel3.TabIndex = 33;
             // 
-            // panel1
+            // guna2HtmlLabel3
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.lbl_ChucVu);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
-            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1224, 64);
-            this.panel1.TabIndex = 17;
+            this.guna2HtmlLabel3.AutoSize = false;
+            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Arial", 15F);
+            this.guna2HtmlLabel3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel3.Location = new System.Drawing.Point(47, 81);
+            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(173, 58);
+            this.guna2HtmlLabel3.TabIndex = 1;
+            this.guna2HtmlLabel3.Text = "999999";
             // 
-            // lbl_ChucVu
+            // guna2HtmlLabel4
             // 
-            this.lbl_ChucVu.AutoSize = true;
-            this.lbl_ChucVu.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ChucVu.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lbl_ChucVu.Location = new System.Drawing.Point(27, 10);
-            this.lbl_ChucVu.Name = "lbl_ChucVu";
-            this.lbl_ChucVu.Size = new System.Drawing.Size(222, 39);
-            this.lbl_ChucVu.TabIndex = 2;
-            this.lbl_ChucVu.Text = "Quản trị viên";
+            this.guna2HtmlLabel4.AutoSize = false;
+            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel4.Location = new System.Drawing.Point(102, 34);
+            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(242, 58);
+            this.guna2HtmlLabel4.TabIndex = 0;
+            this.guna2HtmlLabel4.Text = "Điểm trung bình";
             // 
-            // btn_XemThongTinCaNhan
+            // guna2ShadowPanel4
             // 
-            this.btn_XemThongTinCaNhan.BackColor = System.Drawing.Color.White;
-            this.btn_XemThongTinCaNhan.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(254)))));
-            this.btn_XemThongTinCaNhan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_XemThongTinCaNhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XemThongTinCaNhan.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.btn_XemThongTinCaNhan.Location = new System.Drawing.Point(-1, 65);
-            this.btn_XemThongTinCaNhan.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_XemThongTinCaNhan.Name = "btn_XemThongTinCaNhan";
-            this.btn_XemThongTinCaNhan.Size = new System.Drawing.Size(243, 48);
-            this.btn_XemThongTinCaNhan.TabIndex = 16;
-            this.btn_XemThongTinCaNhan.Text = "Xem thông tin cá nhân";
-            this.btn_XemThongTinCaNhan.UseVisualStyleBackColor = false;
+            this.guna2ShadowPanel4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ShadowPanel4.Controls.Add(this.guna2PictureBox5);
+            this.guna2ShadowPanel4.Controls.Add(this.guna2HtmlLabel5);
+            this.guna2ShadowPanel4.Controls.Add(this.guna2HtmlLabel6);
+            this.guna2ShadowPanel4.FillColor = System.Drawing.Color.White;
+            this.guna2ShadowPanel4.Location = new System.Drawing.Point(645, 313);
+            this.guna2ShadowPanel4.Name = "guna2ShadowPanel4";
+            this.guna2ShadowPanel4.Radius = 10;
+            this.guna2ShadowPanel4.ShadowColor = System.Drawing.Color.Silver;
+            this.guna2ShadowPanel4.Size = new System.Drawing.Size(316, 139);
+            this.guna2ShadowPanel4.TabIndex = 34;
             // 
-            // DashboardQuanTriVien
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.AutoSize = false;
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Arial", 15F);
+            this.guna2HtmlLabel5.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(47, 81);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(173, 58);
+            this.guna2HtmlLabel5.TabIndex = 1;
+            this.guna2HtmlLabel5.Text = "999999";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.AutoSize = false;
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(102, 34);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(242, 58);
+            this.guna2HtmlLabel6.TabIndex = 0;
+            this.guna2HtmlLabel6.Text = "Tổng lớp học";
+            // 
+            // guna2PictureBox5
+            // 
+            this.guna2PictureBox5.FillColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2PictureBox5.Image = global::QuanLyHocSinhTHPT.Properties.Resources.user;
+            this.guna2PictureBox5.ImageRotate = 0F;
+            this.guna2PictureBox5.Location = new System.Drawing.Point(47, 29);
+            this.guna2PictureBox5.Name = "guna2PictureBox5";
+            this.guna2PictureBox5.Size = new System.Drawing.Size(31, 32);
+            this.guna2PictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox5.TabIndex = 2;
+            this.guna2PictureBox5.TabStop = false;
+            // 
+            // guna2PictureBox4
+            // 
+            this.guna2PictureBox4.FillColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2PictureBox4.Image = global::QuanLyHocSinhTHPT.Properties.Resources.user;
+            this.guna2PictureBox4.ImageRotate = 0F;
+            this.guna2PictureBox4.Location = new System.Drawing.Point(47, 29);
+            this.guna2PictureBox4.Name = "guna2PictureBox4";
+            this.guna2PictureBox4.Size = new System.Drawing.Size(31, 32);
+            this.guna2PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox4.TabIndex = 2;
+            this.guna2PictureBox4.TabStop = false;
+            // 
+            // guna2PictureBox3
+            // 
+            this.guna2PictureBox3.FillColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2PictureBox3.Image = global::QuanLyHocSinhTHPT.Properties.Resources.user;
+            this.guna2PictureBox3.ImageRotate = 0F;
+            this.guna2PictureBox3.Location = new System.Drawing.Point(47, 29);
+            this.guna2PictureBox3.Name = "guna2PictureBox3";
+            this.guna2PictureBox3.Size = new System.Drawing.Size(31, 32);
+            this.guna2PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox3.TabIndex = 2;
+            this.guna2PictureBox3.TabStop = false;
+            // 
+            // guna2PictureBox2
+            // 
+            this.guna2PictureBox2.FillColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2PictureBox2.Image = global::QuanLyHocSinhTHPT.Properties.Resources.user;
+            this.guna2PictureBox2.ImageRotate = 0F;
+            this.guna2PictureBox2.Location = new System.Drawing.Point(47, 29);
+            this.guna2PictureBox2.Name = "guna2PictureBox2";
+            this.guna2PictureBox2.Size = new System.Drawing.Size(31, 32);
+            this.guna2PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox2.TabIndex = 2;
+            this.guna2PictureBox2.TabStop = false;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Image = global::QuanLyHocSinhTHPT.Properties.Resources.studentms_logo;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(-5, 0);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Size = new System.Drawing.Size(259, 152);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 41;
+            this.guna2PictureBox1.TabStop = false;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnThoat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnThoat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnThoat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnThoat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnThoat.FillColor = System.Drawing.Color.White;
+            this.btnThoat.Font = new System.Drawing.Font("Arial", 8F);
+            this.btnThoat.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnThoat.Image = global::QuanLyHocSinhTHPT.Properties.Resources.turn_off;
+            this.btnThoat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnThoat.Location = new System.Drawing.Point(25, 630);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(154, 45);
+            this.btnThoat.TabIndex = 40;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangXuat.FillColor = System.Drawing.Color.White;
+            this.btnDangXuat.Font = new System.Drawing.Font("Arial", 8F);
+            this.btnDangXuat.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnDangXuat.Image = global::QuanLyHocSinhTHPT.Properties.Resources.exit;
+            this.btnDangXuat.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangXuat.Location = new System.Drawing.Point(25, 585);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Size = new System.Drawing.Size(154, 45);
+            this.btnDangXuat.TabIndex = 39;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangXuat.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
+            // 
+            // btnQuanLyTaiKhoan
+            // 
+            this.btnQuanLyTaiKhoan.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnQuanLyTaiKhoan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyTaiKhoan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyTaiKhoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQuanLyTaiKhoan.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQuanLyTaiKhoan.FillColor = System.Drawing.Color.White;
+            this.btnQuanLyTaiKhoan.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnQuanLyTaiKhoan.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnQuanLyTaiKhoan.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyTaiKhoan.Image")));
+            this.btnQuanLyTaiKhoan.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyTaiKhoan.Location = new System.Drawing.Point(11, 381);
+            this.btnQuanLyTaiKhoan.Name = "btnQuanLyTaiKhoan";
+            this.btnQuanLyTaiKhoan.Size = new System.Drawing.Size(224, 45);
+            this.btnQuanLyTaiKhoan.TabIndex = 36;
+            this.btnQuanLyTaiKhoan.Text = "Quản lý tài khoản";
+            this.btnQuanLyTaiKhoan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnQuanLyDiemSo
+            // 
+            this.btnQuanLyDiemSo.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnQuanLyDiemSo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyDiemSo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyDiemSo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQuanLyDiemSo.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQuanLyDiemSo.FillColor = System.Drawing.Color.White;
+            this.btnQuanLyDiemSo.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnQuanLyDiemSo.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnQuanLyDiemSo.Image = global::QuanLyHocSinhTHPT.Properties.Resources.grade;
+            this.btnQuanLyDiemSo.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyDiemSo.Location = new System.Drawing.Point(11, 336);
+            this.btnQuanLyDiemSo.Name = "btnQuanLyDiemSo";
+            this.btnQuanLyDiemSo.Size = new System.Drawing.Size(224, 45);
+            this.btnQuanLyDiemSo.TabIndex = 35;
+            this.btnQuanLyDiemSo.Text = "Quản lý điểm số";
+            this.btnQuanLyDiemSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnQuanLyLopHoc
+            // 
+            this.btnQuanLyLopHoc.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnQuanLyLopHoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyLopHoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyLopHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQuanLyLopHoc.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQuanLyLopHoc.FillColor = System.Drawing.Color.White;
+            this.btnQuanLyLopHoc.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnQuanLyLopHoc.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnQuanLyLopHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyLopHoc.Image")));
+            this.btnQuanLyLopHoc.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyLopHoc.Location = new System.Drawing.Point(11, 291);
+            this.btnQuanLyLopHoc.Name = "btnQuanLyLopHoc";
+            this.btnQuanLyLopHoc.Size = new System.Drawing.Size(224, 45);
+            this.btnQuanLyLopHoc.TabIndex = 34;
+            this.btnQuanLyLopHoc.Text = "Quản lý lớp học";
+            this.btnQuanLyLopHoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnQuanLyGiaoVien
+            // 
+            this.btnQuanLyGiaoVien.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnQuanLyGiaoVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyGiaoVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyGiaoVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQuanLyGiaoVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQuanLyGiaoVien.FillColor = System.Drawing.Color.White;
+            this.btnQuanLyGiaoVien.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnQuanLyGiaoVien.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnQuanLyGiaoVien.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyGiaoVien.Image")));
+            this.btnQuanLyGiaoVien.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyGiaoVien.Location = new System.Drawing.Point(11, 246);
+            this.btnQuanLyGiaoVien.Name = "btnQuanLyGiaoVien";
+            this.btnQuanLyGiaoVien.Size = new System.Drawing.Size(224, 45);
+            this.btnQuanLyGiaoVien.TabIndex = 33;
+            this.btnQuanLyGiaoVien.Text = "Quản lý giáo viên";
+            this.btnQuanLyGiaoVien.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnQuanLyHocSinh
+            // 
+            this.btnQuanLyHocSinh.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnQuanLyHocSinh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyHocSinh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnQuanLyHocSinh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnQuanLyHocSinh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnQuanLyHocSinh.FillColor = System.Drawing.Color.White;
+            this.btnQuanLyHocSinh.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnQuanLyHocSinh.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnQuanLyHocSinh.Image = ((System.Drawing.Image)(resources.GetObject("btnQuanLyHocSinh.Image")));
+            this.btnQuanLyHocSinh.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyHocSinh.Location = new System.Drawing.Point(11, 201);
+            this.btnQuanLyHocSinh.Name = "btnQuanLyHocSinh";
+            this.btnQuanLyHocSinh.Size = new System.Drawing.Size(224, 45);
+            this.btnQuanLyHocSinh.TabIndex = 32;
+            this.btnQuanLyHocSinh.Text = "Quản lý học sinh";
+            this.btnQuanLyHocSinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // btnXemThongTin
+            // 
+            this.btnXemThongTin.BorderStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.btnXemThongTin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnXemThongTin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnXemThongTin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnXemThongTin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnXemThongTin.FillColor = System.Drawing.Color.White;
+            this.btnXemThongTin.Font = new System.Drawing.Font("Arial", 12F);
+            this.btnXemThongTin.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.btnXemThongTin.Image = global::QuanLyHocSinhTHPT.Properties.Resources.user1;
+            this.btnXemThongTin.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnXemThongTin.Location = new System.Drawing.Point(11, 156);
+            this.btnXemThongTin.Name = "btnXemThongTin";
+            this.btnXemThongTin.Size = new System.Drawing.Size(224, 45);
+            this.btnXemThongTin.TabIndex = 29;
+            this.btnXemThongTin.Text = "Thông tin cá nhân";
+            this.btnXemThongTin.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
+            // frmDashboardQuanTriVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 597);
-            this.Controls.Add(this.btn_DangXuat);
-            this.Controls.Add(this.btn_Thoat);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn_Xemdanhsachlop);
-            this.Controls.Add(this.btn_Timkiem);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btn_XemThongTinCaNhan);
-            this.Name = "DashboardQuanTriVien";
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(250)))), ((int)(((byte)(250)))));
+            this.ClientSize = new System.Drawing.Size(1051, 680);
+            this.Controls.Add(this.guna2ShadowPanel4);
+            this.Controls.Add(this.guna2ShadowPanel3);
+            this.Controls.Add(this.guna2ShadowPanel2);
+            this.Controls.Add(this.guna2ShadowPanel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.guna2Panel1);
+            this.Name = "frmDashboardQuanTriVien";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DashboardQuanTriVien";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.guna2ShadowPanel1.ResumeLayout(false);
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2ShadowPanel2.ResumeLayout(false);
+            this.guna2ShadowPanel3.ResumeLayout(false);
+            this.guna2ShadowPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_DangXuat;
-        private System.Windows.Forms.Button btn_Thoat;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btn_Xemdanhsachlop;
-        private System.Windows.Forms.Button btn_Timkiem;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lbl_ChucVu;
-        private System.Windows.Forms.Button btn_XemThongTinCaNhan;
+        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
+        private Guna.UI2.WinForms.Guna2Button btnXemThongTin;
+        private Guna.UI2.WinForms.Guna2Button btnQuanLyHocSinh;
+        private Guna.UI2.WinForms.Guna2Button btnQuanLyGiaoVien;
+        private Guna.UI2.WinForms.Guna2Button btnQuanLyLopHoc;
+        private Guna.UI2.WinForms.Guna2Button btnQuanLyDiemSo;
+        private Guna.UI2.WinForms.Guna2Button btnQuanLyTaiKhoan;
+        private Guna.UI2.WinForms.Guna2Button btnDangXuat;
+        private Guna.UI2.WinForms.Guna2Button btnThoat;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblSoHocSinh;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lblTongHocSinh;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox2;
+        private System.Windows.Forms.ImageList imageList1;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel2;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel3;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox4;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
+        private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel4;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
     }
 }
