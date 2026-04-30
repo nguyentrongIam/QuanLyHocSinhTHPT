@@ -104,6 +104,18 @@
     <Compile Include="GUI\DashboardQuanTriVien.Designer.cs">
       <DependentUpon>DashboardQuanTriVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\frmAdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmAdminDashboard.Designer.cs">
+      <DependentUpon>frmAdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\frmLoginGuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\frmLoginGuna.Designer.cs">
+      <DependentUpon>frmLoginGuna.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NhapThongTin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DashboardQuanTriVien.resx">
       <DependentUpon>DashboardQuanTriVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmAdminDashboard.resx">
+      <DependentUpon>frmAdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\frmLoginGuna.resx">
+      <DependentUpon>frmLoginGuna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\NhapThongTin.resx">
       <DependentUpon>NhapThongTin.cs</DependentUpon>
