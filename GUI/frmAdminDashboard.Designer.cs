@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnSidebar = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanLyTaiKhoan = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanLyDiemSo = new Guna.UI2.WinForms.Guna2Button();
             this.btnPhanCongGiangDay = new Guna.UI2.WinForms.Guna2Button();
@@ -38,14 +39,13 @@
             this.btnXemHoSo = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnBody = new Guna.UI2.WinForms.Guna2Panel();
-            this.lblDangXuat = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSidebar
             // 
-            this.pnSidebar.Controls.Add(this.lblDangXuat);
+            this.pnSidebar.Controls.Add(this.btnDangXuat);
             this.pnSidebar.Controls.Add(this.btnQuanLyTaiKhoan);
             this.pnSidebar.Controls.Add(this.btnQuanLyDiemSo);
             this.pnSidebar.Controls.Add(this.btnPhanCongGiangDay);
@@ -61,6 +61,29 @@
             this.pnSidebar.Size = new System.Drawing.Size(298, 848);
             this.pnSidebar.TabIndex = 0;
             // 
+            // btnDangXuat
+            // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnDangXuat.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnDangXuat.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnDangXuat.FillColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btnDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.btnDangXuat.HoverState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.HoverState.FillColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.btnDangXuat.Location = new System.Drawing.Point(1, 772);
+            this.btnDangXuat.Name = "btnDangXuat";
+            this.btnDangXuat.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnDangXuat.PressedColor = System.Drawing.Color.Transparent;
+            this.btnDangXuat.Size = new System.Drawing.Size(297, 72);
+            this.btnDangXuat.TabIndex = 8;
+            this.btnDangXuat.Text = "Đăng xuất";
+            this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            // 
             // btnQuanLyTaiKhoan
             // 
             this.btnQuanLyTaiKhoan.BackColor = System.Drawing.Color.Transparent;
@@ -75,13 +98,14 @@
             this.btnQuanLyTaiKhoan.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyTaiKhoan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyTaiKhoan.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyTaiKhoan.Location = new System.Drawing.Point(1, 575);
+            this.btnQuanLyTaiKhoan.Location = new System.Drawing.Point(1, 570);
             this.btnQuanLyTaiKhoan.Name = "btnQuanLyTaiKhoan";
             this.btnQuanLyTaiKhoan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyTaiKhoan.Size = new System.Drawing.Size(297, 72);
             this.btnQuanLyTaiKhoan.TabIndex = 7;
             this.btnQuanLyTaiKhoan.Text = "Quản lý tài khoản";
             this.btnQuanLyTaiKhoan.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyTaiKhoan.Click += new System.EventHandler(this.btnQuanLyTaiKhoan_Click);
             // 
             // btnQuanLyDiemSo
             // 
@@ -97,13 +121,14 @@
             this.btnQuanLyDiemSo.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyDiemSo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyDiemSo.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyDiemSo.Location = new System.Drawing.Point(0, 503);
+            this.btnQuanLyDiemSo.Location = new System.Drawing.Point(0, 499);
             this.btnQuanLyDiemSo.Name = "btnQuanLyDiemSo";
             this.btnQuanLyDiemSo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyDiemSo.Size = new System.Drawing.Size(297, 72);
             this.btnQuanLyDiemSo.TabIndex = 6;
             this.btnQuanLyDiemSo.Text = "Quản lý điểm số";
             this.btnQuanLyDiemSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyDiemSo.Click += new System.EventHandler(this.btnQuanLyDiemSo_Click);
             // 
             // btnPhanCongGiangDay
             // 
@@ -119,13 +144,14 @@
             this.btnPhanCongGiangDay.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnPhanCongGiangDay.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnPhanCongGiangDay.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnPhanCongGiangDay.Location = new System.Drawing.Point(0, 431);
+            this.btnPhanCongGiangDay.Location = new System.Drawing.Point(0, 428);
             this.btnPhanCongGiangDay.Name = "btnPhanCongGiangDay";
             this.btnPhanCongGiangDay.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnPhanCongGiangDay.Size = new System.Drawing.Size(297, 72);
             this.btnPhanCongGiangDay.TabIndex = 5;
             this.btnPhanCongGiangDay.Text = "Phân công giảng dạy";
             this.btnPhanCongGiangDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPhanCongGiangDay.Click += new System.EventHandler(this.btnPhanCongGiangDay_Click);
             // 
             // btnQuanLyLopHoc
             // 
@@ -141,13 +167,14 @@
             this.btnQuanLyLopHoc.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyLopHoc.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyLopHoc.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyLopHoc.Location = new System.Drawing.Point(1, 359);
+            this.btnQuanLyLopHoc.Location = new System.Drawing.Point(1, 357);
             this.btnQuanLyLopHoc.Name = "btnQuanLyLopHoc";
             this.btnQuanLyLopHoc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyLopHoc.Size = new System.Drawing.Size(297, 72);
             this.btnQuanLyLopHoc.TabIndex = 4;
             this.btnQuanLyLopHoc.Text = "Quản lý Lớp học";
             this.btnQuanLyLopHoc.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyLopHoc.Click += new System.EventHandler(this.btnQuanLyLopHoc_Click);
             // 
             // btnQuanLyGiaoVien
             // 
@@ -163,13 +190,14 @@
             this.btnQuanLyGiaoVien.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyGiaoVien.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyGiaoVien.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyGiaoVien.Location = new System.Drawing.Point(1, 287);
+            this.btnQuanLyGiaoVien.Location = new System.Drawing.Point(1, 286);
             this.btnQuanLyGiaoVien.Name = "btnQuanLyGiaoVien";
             this.btnQuanLyGiaoVien.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyGiaoVien.Size = new System.Drawing.Size(297, 72);
             this.btnQuanLyGiaoVien.TabIndex = 3;
             this.btnQuanLyGiaoVien.Text = "Quản lý Giáo viên";
             this.btnQuanLyGiaoVien.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyGiaoVien.Click += new System.EventHandler(this.btnQuanLyGiaoVien_Click);
             // 
             // btnQuanLyHocSinh
             // 
@@ -185,13 +213,14 @@
             this.btnQuanLyHocSinh.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyHocSinh.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyHocSinh.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyHocSinh.Location = new System.Drawing.Point(0, 215);
+            this.btnQuanLyHocSinh.Location = new System.Drawing.Point(0, 214);
             this.btnQuanLyHocSinh.Name = "btnQuanLyHocSinh";
             this.btnQuanLyHocSinh.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyHocSinh.Size = new System.Drawing.Size(297, 72);
             this.btnQuanLyHocSinh.TabIndex = 2;
             this.btnQuanLyHocSinh.Text = "Quản lý Học sinh";
             this.btnQuanLyHocSinh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyHocSinh.Click += new System.EventHandler(this.btnQuanLyHocSinh_Click);
             // 
             // btnXemHoSo
             // 
@@ -214,6 +243,7 @@
             this.btnXemHoSo.TabIndex = 1;
             this.btnXemHoSo.Text = "Profile";
             this.btnXemHoSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnXemHoSo.Click += new System.EventHandler(this.btnXemHoSo_Click);
             // 
             // guna2PictureBox1
             // 
@@ -236,18 +266,6 @@
             this.pnBody.Size = new System.Drawing.Size(1371, 848);
             this.pnBody.TabIndex = 2;
             // 
-            // lblDangXuat
-            // 
-            this.lblDangXuat.AutoSize = false;
-            this.lblDangXuat.BackColor = System.Drawing.Color.Transparent;
-            this.lblDangXuat.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.lblDangXuat.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.lblDangXuat.Location = new System.Drawing.Point(35, 792);
-            this.lblDangXuat.Name = "lblDangXuat";
-            this.lblDangXuat.Size = new System.Drawing.Size(164, 26);
-            this.lblDangXuat.TabIndex = 8;
-            this.lblDangXuat.Text = "Đăng xuất";
-            // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -257,7 +275,7 @@
             this.Controls.Add(this.pnSidebar);
             this.Name = "frmAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmAdminDashboard";
+            this.Text = "StudentMS - Dashboard";
             this.pnSidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -276,6 +294,6 @@
         private Guna.UI2.WinForms.Guna2Button btnQuanLyLopHoc;
         private Guna.UI2.WinForms.Guna2Button btnQuanLyGiaoVien;
         private Guna.UI2.WinForms.Guna2Button btnQuanLyHocSinh;
-        private Guna.UI2.WinForms.Guna2HtmlLabel lblDangXuat;
+        private Guna.UI2.WinForms.Guna2Button btnDangXuat;
     }
 }

@@ -128,6 +128,12 @@
     <Compile Include="GUI\QuanLyHocSinh.Designer.cs">
       <DependentUpon>QuanLyHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucProfile.Designer.cs">
+      <DependentUpon>ucProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\TimKiem.cs">
@@ -174,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyHocSinh.resx">
       <DependentUpon>QuanLyHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucProfile.resx">
+      <DependentUpon>ucProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\XemThongTinCaNhan.resx">
       <DependentUpon>XemThongTinCaNhan.cs</DependentUpon>
