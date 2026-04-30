@@ -20,7 +20,7 @@ namespace QuanLyHocSinhTHPT.DAO
         {
             DataSet ds;
             //Chuoi truy van csdl
-            string sSQL= "select HoTen,d.MaHS,NgaySinh,GioiTinh,DiaChi,SDT,DiemMieng,Diem15p,Diem45p,DiemThi,DiemTB from NguoiDung ng join HocSinh hs on ng.MaNguoiDung = hs.MaHS join Diem d on hs.MaHS = d.MaHS ";
+            string sSQL= "  select * from HocSinh hs join BangDiem bd on hs.MaHS = bd.MaHS ";
             
             //Khoi tao doi tuong
             Database db = new Database();
