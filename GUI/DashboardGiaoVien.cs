@@ -16,5 +16,11 @@ namespace QuanLyHocSinhTHPT.GUI
         {
             InitializeComponent();
         }
+
+        private void btnQuanLyHocSinh_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyHocSinhGuna frm = new FrmQuanLyHocSinhGuna();
+            frm.Show();
+        }
     }
 }

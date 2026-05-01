@@ -16,11 +16,11 @@ namespace QuanLyHocSinhTHPT.DAO
     public class HocSinhDAO
     {
         private string connectionString = "Server=.;Database=QuanLyHocSinhDB;Integrated Security=True;";
-        public DataSet XemDanhSachHocSinh()
+        public DataSet XemDanhSachHocSinh(string MaLop,string nienkhoa)
         {
             DataSet ds;
             //Chuoi truy van csdl
-            string sSQL= "  select * from HocSinh hs join BangDiem bd on hs.MaHS = bd.MaHS ";
+            string sSQL= $" select hs.MaHS,nd.HoTen,nd.NgaySinh,nd.GioiTinh,nd.DiaChi,nd.SDT,hs.NienKhoa,hs.MaLop from HocSinh hs join NguoiDung nd on hs.MaHS = nd.MaNguoiDung join Diem d on hs.MaHS=d.MaHS where hs.MaLop = '{MaLop}' and hs.NienKhoa = '{nienkhoa}' ";
             
             //Khoi tao doi tuong
             Database db = new Database();
