@@ -126,6 +126,36 @@ namespace QuanLyHocSinhTHPT.DAO
             }
 
         }
+        public int ThemHocSinh(HocSinhDTO dto)
+        {
+            int kq;
+
+            // Dùng số điện thoại phụ huynh làm tên đăng nhập cho dễ nhớ
+            string tenDN = dto.SDTPH;
+
+            string sqlLayID = $"INSERT INTO TaiKhoan(TenDangNhap, MatKhau, TrangThai, MaVaiTro) " +
+                              $"VALUES ('{tenDN}', '123456', 1, 3); " +
+                              $"SELECT SCOPE_IDENTITY();";
+            int maTK_Moi = 0;
+            Database db = new Database();
+            try
+            {
+                maTK_Moi = Convert.ToInt32(db.LayGiaTri(sqlLayID));
+            }
+            catch
+            {
+                return 0; // Thêm tài khoản lỗi thì dừng luôn
+            }
+
+       
+            //Chuỗi Thêm bảng Học sinh
+            string sqlHocSinh = $"INSERT INTO HocSinh (HoTen, NgaySinh, GioiTinh, DiaChi, TenPhuHuynh, SDTPhuHuynh, MaTaiKhoan) " +
+                        $"VALUES (N'{dto.HoTen}', '{dto.NgaySinh}', N'{dto.GioiTinh}', N'{dto.DiaChi}', N'{dto.TenPH}', '{dto.SDTPH}', {maTK_Moi});";
+            MessageBox.Show(sqlLayID);
+            MessageBox.Show(sqlHocSinh);
+            return db.ThucThi(sqlHocSinh);
+
+        }
     }
 }
-///
+//
