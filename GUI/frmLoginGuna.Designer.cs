@@ -193,6 +193,8 @@
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.lblHuongDan);
             this.Controls.Add(this.lblXinChao);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmLoginGuna";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
