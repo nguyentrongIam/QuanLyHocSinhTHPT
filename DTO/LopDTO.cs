@@ -17,4 +17,4 @@ namespace QuanLyHocSinhTHPT.DTO
         public string MaGVCN { get; set; }
         public string TenGVCN { get; set; }
     }
-}
+}//
