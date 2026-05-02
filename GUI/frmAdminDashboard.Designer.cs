@@ -38,7 +38,7 @@
             this.btnQuanLyHocSinh = new Guna.UI2.WinForms.Guna2Button();
             this.btnXemHoSo = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.pnBody = new Guna.UI2.WinForms.Guna2Panel();
+            this.pn_body = new Guna.UI2.WinForms.Guna2Panel();
             this.pnSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -257,21 +257,21 @@
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
             // 
-            // pnBody
+            // pn_body
             // 
-            this.pnBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnBody.FillColor = System.Drawing.Color.White;
-            this.pnBody.Location = new System.Drawing.Point(298, 0);
-            this.pnBody.Name = "pnBody";
-            this.pnBody.Size = new System.Drawing.Size(1371, 848);
-            this.pnBody.TabIndex = 2;
+            this.pn_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_body.FillColor = System.Drawing.Color.White;
+            this.pn_body.Location = new System.Drawing.Point(298, 0);
+            this.pn_body.Name = "pn_body";
+            this.pn_body.Size = new System.Drawing.Size(1371, 848);
+            this.pn_body.TabIndex = 2;
             // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1669, 848);
-            this.Controls.Add(this.pnBody);
+            this.Controls.Add(this.pn_body);
             this.Controls.Add(this.pnSidebar);
             this.Name = "frmAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -286,7 +286,7 @@
 
         private Guna.UI2.WinForms.Guna2Panel pnSidebar;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Guna.UI2.WinForms.Guna2Panel pnBody;
+        private Guna.UI2.WinForms.Guna2Panel pn_body;
         private Guna.UI2.WinForms.Guna2Button btnXemHoSo;
         private Guna.UI2.WinForms.Guna2Button btnQuanLyTaiKhoan;
         private Guna.UI2.WinForms.Guna2Button btnQuanLyDiemSo;

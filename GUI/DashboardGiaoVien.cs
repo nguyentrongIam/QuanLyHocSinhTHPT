@@ -15,12 +15,56 @@ namespace QuanLyHocSinhTHPT.GUI
         public DashboardGiaoVien()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.TopMost = false;
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+
+            //Tắt thu nhỏ
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+
+            //Bung toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
         }
 
-        private void btnQuanLyHocSinh_Click(object sender, EventArgs e)
+        
+
+        private void DashboardGiaoVien_Load(object sender, EventArgs e)
         {
-            FrmQuanLyHocSinhGuna frm = new FrmQuanLyHocSinhGuna();
-            frm.Show();
+        
+            // 1. Tạm dừng vẽ giao diện để sắp xếp ngầm
+            this.SuspendLayout();
+
+            InitializeComponent();
+
+            // 2. Thiết lập thứ tự ưu tiên bằng code để đè lên Design
+            pn_sidebar.Dock = DockStyle.Left;
+            pn_sidebar.BringToFront();
+
+            pn_body.Dock = DockStyle.Fill;
+            pn_body.SendToBack();
+
+            // 3. Hoàn tất và vẽ lại toàn bộ một lần duy nhất
+            this.ResumeLayout(false);
+            this.PerformLayout();
+        
+    }
+
+        private void btnQuanLyHocSinh_Click_1(object sender, EventArgs e)
+        {
+            // 1. Xóa các control cũ đang hiển thị trong vùng chứa
+            pn_body.Controls.Clear();
+
+            // 2. Khởi tạo User Control
+            uc_QuanLyHocSinh uc = new uc_QuanLyHocSinh();
+
+            // 3. Thiết lập cho UC lấp đầy vùng chứa
+            uc.Dock = DockStyle.Fill;
+
+            // 4. Thêm UC vào vùng chứa và đưa lên trên cùng
+            pn_body.Controls.Add(uc);
+            uc.BringToFront();
         }
     }
 }

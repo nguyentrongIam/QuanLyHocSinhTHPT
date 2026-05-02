@@ -138,5 +138,10 @@ namespace QuanLyHocSinhTHPT.GUI
         {
 
         }
+
+        private void txt_nienkhoa_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

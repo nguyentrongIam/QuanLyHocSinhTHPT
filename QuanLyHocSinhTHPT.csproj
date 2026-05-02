@@ -56,8 +56,10 @@
     <Compile Include="BUS\HocSinhBUS.cs" />
     <Compile Include="BUS\LopBUS.cs" />
     <Compile Include="BUS\MonHocBUS.cs" />
+    <Compile Include="BUS\NamHocBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\TaiKhoanBUS.cs" />
+    <Compile Include="DAO\NamHocDAO.cs" />
     <Compile Include="DTO\NguoiDungDTO.cs" />
     <Compile Include="DTO\PhanCongGiangDayDTO.cs" />
     <Compile Include="GUI\ChonDoiTuong.cs">
@@ -160,6 +162,12 @@
     <Compile Include="GUI\XoaHocSinh.Designer.cs">
       <DependentUpon>XoaHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\uc_QuanLyHocSinh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\uc_QuanLyHocSinh.Designer.cs">
+      <DependentUpon>uc_QuanLyHocSinh.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\ChonDoiTuong.resx">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
     </EmbeddedResource>
@@ -208,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\XoaHocSinh.resx">
       <DependentUpon>XoaHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\uc_QuanLyHocSinh.resx">
+      <DependentUpon>uc_QuanLyHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
