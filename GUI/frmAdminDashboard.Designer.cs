@@ -58,7 +58,7 @@
             this.pnSidebar.FillColor = System.Drawing.Color.White;
             this.pnSidebar.Location = new System.Drawing.Point(0, 0);
             this.pnSidebar.Name = "pnSidebar";
-            this.pnSidebar.Size = new System.Drawing.Size(298, 848);
+            this.pnSidebar.Size = new System.Drawing.Size(298, 1055);
             this.pnSidebar.TabIndex = 0;
             // 
             // btnDangXuat
@@ -75,7 +75,7 @@
             this.btnDangXuat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnDangXuat.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btnDangXuat.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnDangXuat.Location = new System.Drawing.Point(1, 772);
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 909);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnDangXuat.PressedColor = System.Drawing.Color.Transparent;
@@ -83,10 +83,14 @@
             this.btnDangXuat.TabIndex = 8;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnQuanLyTaiKhoan
             // 
             this.btnQuanLyTaiKhoan.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuanLyTaiKhoan.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnQuanLyTaiKhoan.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnQuanLyTaiKhoan.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyTaiKhoan.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyTaiKhoan.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyTaiKhoan.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -98,7 +102,7 @@
             this.btnQuanLyTaiKhoan.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyTaiKhoan.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyTaiKhoan.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyTaiKhoan.Location = new System.Drawing.Point(1, 570);
+            this.btnQuanLyTaiKhoan.Location = new System.Drawing.Point(1, 527);
             this.btnQuanLyTaiKhoan.Name = "btnQuanLyTaiKhoan";
             this.btnQuanLyTaiKhoan.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyTaiKhoan.Size = new System.Drawing.Size(297, 72);
@@ -110,6 +114,9 @@
             // btnQuanLyDiemSo
             // 
             this.btnQuanLyDiemSo.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuanLyDiemSo.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnQuanLyDiemSo.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnQuanLyDiemSo.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyDiemSo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyDiemSo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyDiemSo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -121,7 +128,7 @@
             this.btnQuanLyDiemSo.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyDiemSo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyDiemSo.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyDiemSo.Location = new System.Drawing.Point(0, 499);
+            this.btnQuanLyDiemSo.Location = new System.Drawing.Point(0, 456);
             this.btnQuanLyDiemSo.Name = "btnQuanLyDiemSo";
             this.btnQuanLyDiemSo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyDiemSo.Size = new System.Drawing.Size(297, 72);
@@ -133,6 +140,9 @@
             // btnPhanCongGiangDay
             // 
             this.btnPhanCongGiangDay.BackColor = System.Drawing.Color.Transparent;
+            this.btnPhanCongGiangDay.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnPhanCongGiangDay.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnPhanCongGiangDay.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnPhanCongGiangDay.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnPhanCongGiangDay.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnPhanCongGiangDay.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -144,7 +154,7 @@
             this.btnPhanCongGiangDay.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnPhanCongGiangDay.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnPhanCongGiangDay.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnPhanCongGiangDay.Location = new System.Drawing.Point(0, 428);
+            this.btnPhanCongGiangDay.Location = new System.Drawing.Point(0, 385);
             this.btnPhanCongGiangDay.Name = "btnPhanCongGiangDay";
             this.btnPhanCongGiangDay.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnPhanCongGiangDay.Size = new System.Drawing.Size(297, 72);
@@ -156,6 +166,9 @@
             // btnQuanLyLopHoc
             // 
             this.btnQuanLyLopHoc.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuanLyLopHoc.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnQuanLyLopHoc.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnQuanLyLopHoc.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyLopHoc.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyLopHoc.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyLopHoc.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -167,7 +180,7 @@
             this.btnQuanLyLopHoc.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyLopHoc.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyLopHoc.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyLopHoc.Location = new System.Drawing.Point(1, 357);
+            this.btnQuanLyLopHoc.Location = new System.Drawing.Point(1, 314);
             this.btnQuanLyLopHoc.Name = "btnQuanLyLopHoc";
             this.btnQuanLyLopHoc.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyLopHoc.Size = new System.Drawing.Size(297, 72);
@@ -179,6 +192,9 @@
             // btnQuanLyGiaoVien
             // 
             this.btnQuanLyGiaoVien.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuanLyGiaoVien.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnQuanLyGiaoVien.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnQuanLyGiaoVien.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyGiaoVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyGiaoVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyGiaoVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -190,7 +206,7 @@
             this.btnQuanLyGiaoVien.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyGiaoVien.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyGiaoVien.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyGiaoVien.Location = new System.Drawing.Point(1, 286);
+            this.btnQuanLyGiaoVien.Location = new System.Drawing.Point(1, 243);
             this.btnQuanLyGiaoVien.Name = "btnQuanLyGiaoVien";
             this.btnQuanLyGiaoVien.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyGiaoVien.Size = new System.Drawing.Size(297, 72);
@@ -202,6 +218,9 @@
             // btnQuanLyHocSinh
             // 
             this.btnQuanLyHocSinh.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuanLyHocSinh.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnQuanLyHocSinh.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnQuanLyHocSinh.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyHocSinh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyHocSinh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnQuanLyHocSinh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -213,7 +232,7 @@
             this.btnQuanLyHocSinh.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnQuanLyHocSinh.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnQuanLyHocSinh.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyHocSinh.Location = new System.Drawing.Point(0, 214);
+            this.btnQuanLyHocSinh.Location = new System.Drawing.Point(0, 171);
             this.btnQuanLyHocSinh.Name = "btnQuanLyHocSinh";
             this.btnQuanLyHocSinh.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnQuanLyHocSinh.Size = new System.Drawing.Size(297, 72);
@@ -225,6 +244,9 @@
             // btnXemHoSo
             // 
             this.btnXemHoSo.BackColor = System.Drawing.Color.Transparent;
+            this.btnXemHoSo.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnXemHoSo.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btnXemHoSo.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnXemHoSo.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnXemHoSo.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnXemHoSo.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -236,7 +258,7 @@
             this.btnXemHoSo.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.btnXemHoSo.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.btnXemHoSo.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnXemHoSo.Location = new System.Drawing.Point(0, 143);
+            this.btnXemHoSo.Location = new System.Drawing.Point(0, 100);
             this.btnXemHoSo.Name = "btnXemHoSo";
             this.btnXemHoSo.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnXemHoSo.Size = new System.Drawing.Size(297, 72);
@@ -252,7 +274,7 @@
             this.guna2PictureBox1.ImageRotate = 0F;
             this.guna2PictureBox1.Location = new System.Drawing.Point(21, 12);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(271, 105);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(271, 80);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -263,14 +285,14 @@
             this.pn_body.FillColor = System.Drawing.Color.White;
             this.pn_body.Location = new System.Drawing.Point(298, 0);
             this.pn_body.Name = "pn_body";
-            this.pn_body.Size = new System.Drawing.Size(1371, 848);
+            this.pn_body.Size = new System.Drawing.Size(1371, 1055);
             this.pn_body.TabIndex = 2;
             // 
             // frmAdminDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1669, 848);
+            this.ClientSize = new System.Drawing.Size(1669, 1055);
             this.Controls.Add(this.pn_body);
             this.Controls.Add(this.pnSidebar);
             this.Name = "frmAdminDashboard";

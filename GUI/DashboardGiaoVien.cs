@@ -57,7 +57,7 @@ namespace QuanLyHocSinhTHPT.GUI
             pn_body.Controls.Clear();
 
             // 2. Khởi tạo User Control
-            uc_QuanLyHocSinh uc = new uc_QuanLyHocSinh();
+            ucQuanLyHocSinh uc = new ucQuanLyHocSinh();
 
             // 3. Thiết lập cho UC lấp đầy vùng chứa
             uc.Dock = DockStyle.Fill;
@@ -65,6 +65,11 @@ namespace QuanLyHocSinhTHPT.GUI
             // 4. Thêm UC vào vùng chứa và đưa lên trên cùng
             pn_body.Controls.Add(uc);
             uc.BringToFront();
+        }
+
+        private void btnPhanCongGiangDay_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

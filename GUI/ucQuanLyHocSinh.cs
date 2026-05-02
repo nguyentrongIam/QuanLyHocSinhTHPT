@@ -11,11 +11,14 @@ using System.Windows.Forms;
 
 namespace QuanLyHocSinhTHPT
 {
-    public partial class uc_QuanLyHocSinh : UserControl
+    public partial class ucQuanLyHocSinh : UserControl
     {
-        public uc_QuanLyHocSinh()
+        public ucQuanLyHocSinh()
         {
             InitializeComponent();
+            pnThongTin.Hide();
+            cbb_namhoc.SelectedIndex = -1;
+            cbb_lophoc.SelectedIndex = -1;
         }
 
         private void btn_lammoi_Click(object sender, EventArgs e)
@@ -58,6 +61,23 @@ namespace QuanLyHocSinhTHPT
         private void gird_danhsach_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
            
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            pnThongTin.Hide();
+            pnThongTin.Show();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            pnThongTin.Hide();
+        }
+
+        private void guna2Button4_Click(object sender, EventArgs e)
+        {
+            pnThongTin.Hide();
+            pnThongTin.Show();
         }
     }
 }

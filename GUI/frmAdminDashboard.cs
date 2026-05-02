@@ -15,6 +15,18 @@ namespace QuanLyHocSinhTHPT.GUI
         public frmAdminDashboard()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.TopMost = false;
+
+            this.FormBorderStyle = FormBorderStyle.Sizable;
+
+            //Tắt thu nhỏ
+            this.MaximizeBox = false;
+            //this.MinimizeBox = false;
+
+            //Bung toàn màn hình
+            this.WindowState = FormWindowState.Maximized;
+            this.DoubleBuffered = true;
         }
         public void addUserControl(UserControl uc)
         {
@@ -27,44 +39,43 @@ namespace QuanLyHocSinhTHPT.GUI
         {
             ucProfile uc = new ucProfile();
             addUserControl(uc);
-            btnXemHoSo.FillColor = Color.FromArgb(239, 246, 255);
-            btnXemHoSo.ForeColor = Color.FromArgb(29, 78, 216);
         }
 
         private void btnQuanLyHocSinh_Click(object sender, EventArgs e)
         {
-            btnQuanLyHocSinh.FillColor = Color.FromArgb(239, 246, 255);
-            btnQuanLyHocSinh.ForeColor = Color.FromArgb(29, 78, 216);
+            ucQuanLyHocSinh uc = new ucQuanLyHocSinh();
+            addUserControl(uc);
         }
 
         private void btnQuanLyGiaoVien_Click(object sender, EventArgs e)
         {
-            btnQuanLyGiaoVien.FillColor = Color.FromArgb(239, 246, 255);
-            btnQuanLyGiaoVien.ForeColor = Color.FromArgb(29, 78, 216);
         }
 
         private void btnQuanLyLopHoc_Click(object sender, EventArgs e)
         {
-            btnQuanLyLopHoc.FillColor = Color.FromArgb(239, 246, 255);
-            btnQuanLyLopHoc.ForeColor = Color.FromArgb(29, 78, 216);
         }
 
         private void btnPhanCongGiangDay_Click(object sender, EventArgs e)
         {
-            btnPhanCongGiangDay.FillColor = Color.FromArgb(239, 246, 255);
-            btnPhanCongGiangDay.ForeColor = Color.FromArgb(29, 78, 216);
         }
 
         private void btnQuanLyDiemSo_Click(object sender, EventArgs e)
         {
-            btnQuanLyDiemSo.FillColor = Color.FromArgb(239, 246, 255);
-            btnQuanLyDiemSo.ForeColor = Color.FromArgb(29, 78, 216);
         }
 
         private void btnQuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
-            btnQuanLyTaiKhoan.FillColor = Color.FromArgb(239, 246, 255);
-            btnQuanLyTaiKhoan.ForeColor = Color.FromArgb(29, 78, 216);
+        }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult dgl = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dgl == DialogResult.Yes)
+            {
+                //Khoi dong lai app
+                Application.Restart();
+            }
         }
     }
 }

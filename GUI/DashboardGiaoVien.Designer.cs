@@ -42,10 +42,8 @@
             this.btnXemHoSo = new Guna.UI2.WinForms.Guna2Button();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pn_body = new Guna.UI2.WinForms.Guna2Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.pn_sidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
-            this.pn_body.SuspendLayout();
             this.SuspendLayout();
             // 
             // imageList1
@@ -168,6 +166,7 @@
             this.btnPhanCongGiangDay.TabIndex = 5;
             this.btnPhanCongGiangDay.Text = "Phân công giảng dạy";
             this.btnPhanCongGiangDay.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnPhanCongGiangDay.Click += new System.EventHandler(this.btnPhanCongGiangDay_Click);
             // 
             // btnQuanLyLopHoc
             // 
@@ -272,25 +271,12 @@
             // 
             // pn_body
             // 
-            this.pn_body.Controls.Add(this.label1);
             this.pn_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_body.FillColor = System.Drawing.Color.White;
             this.pn_body.Location = new System.Drawing.Point(298, 0);
             this.pn_body.Name = "pn_body";
             this.pn_body.Size = new System.Drawing.Size(1193, 743);
             this.pn_body.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Font = new System.Drawing.Font("Arial", 25F);
-            this.label1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.label1.Location = new System.Drawing.Point(47, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(386, 47);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Xin chào, Giáo viên";
             // 
             // DashboardGiaoVien
             // 
@@ -304,8 +290,6 @@
             this.Text = "DashboardGiaoVien";
             this.pn_sidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
-            this.pn_body.ResumeLayout(false);
-            this.pn_body.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -323,6 +307,5 @@
         private Guna.UI2.WinForms.Guna2Button btnXemHoSo;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel pn_body;
-        private System.Windows.Forms.Label label1;
     }
 }

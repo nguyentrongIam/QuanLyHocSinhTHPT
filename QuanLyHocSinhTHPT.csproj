@@ -162,11 +162,11 @@
     <Compile Include="GUI\XoaHocSinh.Designer.cs">
       <DependentUpon>XoaHocSinh.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\uc_QuanLyHocSinh.cs">
+    <Compile Include="GUI\ucQuanLyHocSinh.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="GUI\uc_QuanLyHocSinh.Designer.cs">
-      <DependentUpon>uc_QuanLyHocSinh.cs</DependentUpon>
+    <Compile Include="GUI\ucQuanLyHocSinh.Designer.cs">
+      <DependentUpon>ucQuanLyHocSinh.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="GUI\ChonDoiTuong.resx">
       <DependentUpon>ChonDoiTuong.cs</DependentUpon>
@@ -217,8 +217,8 @@
     <EmbeddedResource Include="GUI\XoaHocSinh.resx">
       <DependentUpon>XoaHocSinh.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\uc_QuanLyHocSinh.resx">
-      <DependentUpon>uc_QuanLyHocSinh.cs</DependentUpon>
+    <EmbeddedResource Include="GUI\ucQuanLyHocSinh.resx">
+      <DependentUpon>ucQuanLyHocSinh.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
