@@ -100,7 +100,7 @@ namespace QuanLyHocSinhTHPT.DAO
                 if (updateQueries.Count == 0) return false;
 
                 // 3. Ghép thành câu lệnh UPDATE hoàn chỉnh
-                // string.Join giúp nối các cột bằng dấu phẩy rất sạch sẽ
+              
                 string sql = "UPDATE HocSinh SET " + string.Join(", ", updateQueries) + " WHERE MaHocSinh = @MaHS";
                 MessageBox.Show(sql);
 
