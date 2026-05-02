@@ -18,9 +18,9 @@ namespace QuanLyHocSinhTHPT.GUI
         }
         public void addUserControl(UserControl uc)
         {
-            pnBody.Controls.Clear();
+            pn_body.Controls.Clear();
             uc.Dock = DockStyle.Fill;
-            pnBody.Controls.Add(uc);
+            pn_body.Controls.Add(uc);
             uc.BringToFront();
         }
         private void btnXemHoSo_Click(object sender, EventArgs e)

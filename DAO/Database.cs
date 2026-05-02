@@ -15,7 +15,7 @@ namespace QuanLyHocSinhTHPT.DAO
 {
     public class Database
     {
-        public string sCon = "Data Source=.; Initial Catalog=QuanLyHocSinhDB;Integrated Security=True";
+        public string sCon = "Data Source=.; Initial Catalog=QuanLyHocSinh_DB;Integrated Security=True";
 
         public Database() { }
        

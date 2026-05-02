@@ -16,12 +16,12 @@ namespace QuanLyHocSinhTHPT.DAO
     public class HocSinhDAO
     {
         private string connectionString = "Server=.;Database=QuanLyHocSinhDB;Integrated Security=True;";
-        public DataSet XemDanhSachHocSinh(string MaLop,string nienkhoa)
+        public DataSet XemDanhSachHocSinh(string tenlop,string namhoc)
         {
             DataSet ds;
             //Chuoi truy van csdl
-            string sSQL= $" select hs.MaHS,nd.HoTen,nd.NgaySinh,nd.GioiTinh,nd.DiaChi,nd.SDT,hs.NienKhoa,hs.MaLop from HocSinh hs join NguoiDung nd on hs.MaHS = nd.MaNguoiDung join Diem d on hs.MaHS=d.MaHS where hs.MaLop = '{MaLop}' and hs.NienKhoa = '{nienkhoa}' ";
-            
+            string sSQL= $" select hs.MaHocSinh,hs.HoTen,hs.NgaySinh,hs.GioiTinh,hs.DiaChi,lh.TenLop,hs.SDTPhuHuynh from HocSinh hs join PhanLopHocSinh plhs on hs.MaHocSinh = plhs.MaHocSinh join LopHoc lh on plhs.MaLopHoc = lh.MaLopHoc join NamHoc nh on lh.MaNamHoc=nh.MaNamHoc where lh.TenLop = '{tenlop}' and nh.TenNamHoc = '{namhoc}'";
+
             //Khoi tao doi tuong
             Database db = new Database();
             
