@@ -10,11 +10,12 @@ using QuanLyHocSinhTHPT.GUI;
 
 namespace QuanLyHocSinhTHPT.DTO
 {
-    internal class TaiKhoanDTO
+    public class TaiKhoanDTO
     {
-        public string TenDangNhap { get; set; } = string.Empty;
-        public string MatKhau { get; set; } = string.Empty;
-        public string VaiTro { get; set; } = string.Empty; // Admin, GiaoVien, HocSinh
-        public bool TrangThai { get; set; } = true;
+        public int MaTaiKhoan { get; set; }
+        public string TenDangNhap { get; set; }
+        public string MatKhau { get; set; }
+        public bool TrangThai { get; set; } // true: Hoạt động, false: Bị khóa
+        public int MaVaiTro { get; set; }   //(1=Admin,2=Giáo viên,3=Học sinh)
     }
 }
