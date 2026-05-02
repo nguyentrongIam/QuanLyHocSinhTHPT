@@ -10,7 +10,31 @@ using QuanLyHocSinhTHPT.GUI;
 
 namespace QuanLyHocSinhTHPT.BUS
 {
-    internal class TaiKhoanBUS
+    public class TaiKhoanBUS
     {
+        private TaiKhoanDAO tkDAO=new TaiKhoanDAO();
+        public TaiKhoanBUS() { }
+        public string DangNhap(string tenDangNhap,string matKhau,out TaiKhoanDTO taiKhoan)
+        {
+            taiKhoan = null;
+            //Kiem tra thieu thong tin
+            if(string.IsNullOrEmpty(tenDangNhap) || string.IsNullOrEmpty(matKhau))
+            {
+                return "Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!";
+            }
+
+            taiKhoan = tkDAO.KiemTraDangNhap(tenDangNhap, matKhau);
+
+            //Kiem tra tai khoan ton tai
+            if(taiKhoan==null)
+                return "Tên đăng nhập hoặc mật khẩu không chính xác!";
+            //Kiem tra tai khoan bi khoa
+            if (taiKhoan.TrangThai == false)
+                return "Tài khoản của bạn đã bị khóa. Vui lòng liên hệ Admin!";
+            //Thanh cong
+            return "Thành công";
+        }
+
+
     }
 }
