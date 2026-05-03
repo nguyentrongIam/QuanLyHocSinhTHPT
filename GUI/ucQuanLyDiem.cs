@@ -13,6 +13,7 @@ namespace QuanLyHocSinhTHPT.GUI
 {
     public partial class ucQuanLyDiem : UserControl
     {
+        string chucNang = "";
         public ucQuanLyDiem()
         {
             InitializeComponent();
@@ -62,6 +63,52 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
+            if (chucNang == "them")
+            {
+                try
+                {
+                    bool kq;
+                    //Lấy dữ liệu textbox
+                    string mahs;
+                    float diemmieng, diem15plan1, diem15plan2, diemgiuaky, diemcuoiky;
+                    mahs = txt_mahs.Text;
+
+                    string malop = cbb_lophoc.SelectedValue.ToString();
+                    int maMon = int.Parse(cbb_monhoc.SelectedValue.ToString());
+                    int hocky = Convert.ToInt32(cbb_hocky.Text);
+                    string nam = cbb_namhoc.Text;
+                    diemmieng = float.Parse(txt_diemmieng.Text);
+                    diem15plan1 = float.Parse(txt_diem15p_lan1.Text);
+                    diem15plan2 = float.Parse(txt_diem15p_lan2.Text);
+                    diemgiuaky = float.Parse(txt_diemgiuaky.Text);
+                    diemcuoiky = float.Parse(txt_diemcuoiky.Text);
+                    DiemBUS bus = new DiemBUS();
+                    kq = bus.ThemDiemBUS(mahs, malop, maMon, hocky, nam, diemmieng, diem15plan1, diem15plan2, diemgiuaky, diemcuoiky);
+                    if (kq)
+                    {
+                        MessageBox.Show("Thêm điểm thành công!", "Thông báo");
+                        btn_lammoi_Click(sender, e);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm điểm thất bại. Có thể học sinh đã có điểm môn này!");
+                    }
+
+
+                    MessageBox.Show("Bạn vừa ấn thêm điểm");
+                }
+                catch(Exception ex) { MessageBox.Show("Lỗi nhập liệu: " + ex.Message); }
+                
+            }
+            if (chucNang == "sua")
+            {
+                MessageBox.Show("Bạn vừa ấn sửa điểm");
+
+            }
+            if (chucNang == "xoa")
+            {
+                MessageBox.Show("Bạn vừa ấn xóa điểm");
+            }
 
         }
 
@@ -110,7 +157,7 @@ namespace QuanLyHocSinhTHPT.GUI
 
                     //ĐỔ dữ liệu vào textbox
                     txt_mahs.Text = row.Cells[0].Value.ToString();
-                    txt_hoten.Text = row.Cells[1].Value.ToString();
+                    //txt_hoten.Text = row.Cells[1].Value.ToString();
                     txt_diemmieng.Text = row.Cells[2].Value.ToString();
                     txt_diem15p_lan1.Text = row.Cells[3].Value.ToString();
                     txt_diem15p_lan2.Text = row.Cells[4].Value.ToString();
@@ -136,6 +183,40 @@ namespace QuanLyHocSinhTHPT.GUI
             }
             catch(Exception ex) { }
             
+        }
+
+        private void btn_them_Click(object sender, EventArgs e)
+        {
+            chucNang = "them";
+        }
+
+        private void btn_sua_Click(object sender, EventArgs e)
+        {
+            chucNang = "sua";
+
+        }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+            chucNang = "xoa";
+
+        }
+
+        private void btn_hocsinhchiacodiem_Click(object sender, EventArgs e)
+        {
+            DiemBUS bus = new DiemBUS();
+            //Lấy dữ liệu combobox
+            string malop = cbb_lophoc.SelectedValue.ToString();
+            int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
+            int hocKy = int.Parse(cbb_hocky.Text);
+            string namHoc = cbb_namhoc.Text;
+
+            DataTable dt = bus.LayDanhSachChuaCoDiemBUS(malop,maMon,hocKy,namHoc);
+            if (dt != null)
+            {
+                gird_danhsach.DataSource = dt;
+
+            }
         }
     }
 }

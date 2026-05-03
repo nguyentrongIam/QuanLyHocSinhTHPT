@@ -97,5 +97,52 @@ namespace QuanLyHocSinhTHPT.DAO
             return ketQua != null && ketQua.ToString() != "0";
         }
 
+        //Hàm lấy dữ liệu có tham số
+        public DataTable LayDuLieuCoThamSo(string sSQL, SqlParameter[] sqlParams)
+        {
+            DataTable dt = new DataTable();
+            using (SqlConnection myConnection = new SqlConnection(sCon))
+            {
+                try
+                {
+                    myConnection.Open();
+                    SqlCommand cmd = new SqlCommand(sSQL, myConnection);
+                    if (sqlParams != null)
+                    {
+                        cmd.Parameters.AddRange(sqlParams); // Nạp các biến @ vào câu lệnh
+                    }
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    sda.Fill(dt);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi lấy dữ liệu: " + ex.Message);
+                    return null;
+                }
+            }
+            return dt;
+        }
+        public int ThucThiCoThamSo(string sSQL,params SqlParameter[] sqlParams)
+        {
+            int ketQua = 0;
+            using (SqlConnection myConnection = new SqlConnection(sCon))
+            {
+                try
+                {
+                    myConnection.Open();
+                    SqlCommand cmd = new SqlCommand(sSQL, myConnection);
+                    if (sqlParams != null)
+                    {
+                        cmd.Parameters.AddRange(sqlParams);
+                    }
+                    ketQua = cmd.ExecuteNonQuery();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("Lỗi. Chi tiết " + ex.Message);
+                }
+            }
+            return ketQua;
+        }
+
     }
 }
