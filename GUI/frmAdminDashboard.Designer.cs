@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdminDashboard));
             this.pnSidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnQuanLyTaiKhoan = new Guna.UI2.WinForms.Guna2Button();
@@ -295,6 +296,7 @@
             this.ClientSize = new System.Drawing.Size(1669, 1055);
             this.Controls.Add(this.pn_body);
             this.Controls.Add(this.pnSidebar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAdminDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StudentMS - Dashboard";

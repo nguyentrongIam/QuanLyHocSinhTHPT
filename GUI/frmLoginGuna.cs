@@ -20,22 +20,32 @@ namespace QuanLyHocSinhTHPT.GUI
             txtMatKhau.PasswordChar = '*';
         }
 
+
+        //xu li dang nhap va luu tai khoan
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            //lay ten dang nhap, mat khau tu textbox
             string tenDangNhap=txtTenDangNhap.Text.Trim();
             string matKhau = txtMatKhau.Text.Trim();
 
             TaiKhoanBUS bus = new TaiKhoanBUS();
 
+            //tao dto de lay du lieu
             TaiKhoanDTO tkDangNhap;
 
             string ketQua = bus.DangNhap(tenDangNhap, matKhau,out tkDangNhap);
 
             if(ketQua=="Thành công")
             {
+                //luu thong tin tai khoan vao bien toan cuc
+                Session.TaiKhoanHienTai=tkDangNhap;
+
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo");
+
+                //dua vao ma vai tro de mo frm tuong ung
                 if (tkDangNhap.MaVaiTro == 1)
                 {
+                    this.Hide();
                     frmAdminDashboard frm =new frmAdminDashboard();
                     frm.ShowDialog();
                     Close();
@@ -47,6 +57,8 @@ namespace QuanLyHocSinhTHPT.GUI
             }
         }
 
+
+        //xu li an/hien mat khau
         private void ckbHienMatKhau_CheckedChanged(object sender, EventArgs e)
         {
             if (ckbHienMatKhau.Checked)

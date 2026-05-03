@@ -20,8 +20,8 @@ namespace QuanLyHocSinhTHPT
         {
             InitializeComponent();
             pnThongTin.Hide();
-            cbb_namhoc.SelectedIndex = -1;
-            cbb_lophoc.SelectedIndex = -1;
+            
+            
         }
 
         private void btn_lammoi_Click(object sender, EventArgs e)
