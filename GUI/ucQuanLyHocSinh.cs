@@ -51,7 +51,7 @@ namespace QuanLyHocSinhTHPT
             
             //Lấy năm học 
             string namhoc = cbb_namhoc.Text;
-            LopBUS bus = new LopBUS();
+            LopBUS bus = new LopBUS();  
             DataSet ds = bus.GetClassBUS(namhoc);
             if (ds == null || ds.Tables[0].Rows.Count==0)
             {
