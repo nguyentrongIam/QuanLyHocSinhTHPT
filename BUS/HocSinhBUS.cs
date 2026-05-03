@@ -58,5 +58,13 @@ namespace QuanLyHocSinhTHPT.BUS
             kq = dao.ThemHocSinh(dto);
             return kq;
         }
+        public int LayMaHocSinhTiepTheo()
+        {
+            HocSinhDAO dao = new HocSinhDAO();
+            int maCuoi = dao.LayMaHSCuoi();
+            return maCuoi + 1;
+
+
+        }
     }
 }

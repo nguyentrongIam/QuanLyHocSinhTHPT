@@ -20,7 +20,7 @@ namespace QuanLyHocSinhTHPT.DAO
         {
             DataSet ds;
             //Chuoi truy van csdl
-            string sSQL = $" select hs.MaHocSinh,hs.HoTen,hs.NgaySinh,hs.GioiTinh,hs.DiaChi,lh.TenLop,hs.SDTPhuHuynh from HocSinh hs join PhanLopHocSinh plhs on hs.MaHocSinh = plhs.MaHocSinh join LopHoc lh on plhs.MaLopHoc = lh.MaLopHoc join NamHoc nh on lh.MaNamHoc=nh.MaNamHoc where lh.TenLop = '{tenlop}' and nh.TenNamHoc = '{namhoc}'";
+            string sSQL = $" select hs.MaHocSinh,hs.HoTen,hs.NgaySinh,hs.GioiTinh,hs.DiaChi,hs.TenPhuHuynh,hs.SDTPhuHuynh from HocSinh hs join PhanLopHocSinh plhs on hs.MaHocSinh = plhs.MaHocSinh join LopHoc lh on plhs.MaLopHoc = lh.MaLopHoc join NamHoc nh on lh.MaNamHoc=nh.MaNamHoc where lh.TenLop = '{tenlop}' and nh.TenNamHoc = '{namhoc}'";
 
             //Khoi tao doi tuong
             Database db = new Database();
@@ -154,6 +154,19 @@ namespace QuanLyHocSinhTHPT.DAO
             MessageBox.Show(sqlLayID);
             MessageBox.Show(sqlHocSinh);
             return db.ThucThi(sqlHocSinh);
+
+        }
+        public int LayMaHSCuoi()
+        {
+            Database db = new Database();
+
+            string sql = "SELECT MAX(MaHocSinh) FROM HocSinh";
+            DataSet ds = db.XemDanhSach(sql);
+            //.table là bảng đầu tiên
+            //.rows[0] là dòng đầu tiên
+            //[0] ở cuối là cột đầu tiên
+            object kq = ds.Tables[0].Rows[0][0];
+            return Convert.ToInt32(kq);
 
         }
     }

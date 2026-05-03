@@ -91,9 +91,24 @@ namespace QuanLyHocSinhTHPT
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            HocSinhBUS bus = new HocSinhBUS();
             chucNang = "them";
             pnThongTin.Hide();
             pnThongTin.Show();
+            //Vô hiệu hóa textbox mã hs
+            txt_mahs.Enabled = false;
+            //Resert textbox cũ
+            txt_mahs.Clear();
+            txt_hoten.Clear();
+            txt_diachi.Clear();
+            txt_sdt_ph.Clear();
+            txt_phuhuynh.Clear();
+
+            //Hiện mã học sinh tiếp theo khi thêm
+            txt_mahs.Text = bus.LayMaHocSinhTiepTheo().ToString();
+
+
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -107,6 +122,15 @@ namespace QuanLyHocSinhTHPT
 
             pnThongTin.Hide();
             pnThongTin.Show();
+
+            //Ngừng Vô hiệu hóa textbox mã hs
+            txt_mahs.Enabled = true;
+
+            //Resert textbox cũ
+            txt_mahs.Clear();
+            txt_hoten.Clear();
+            txt_diachi.Clear();
+            txt_sdt_ph.Clear();
         }
 
         private void btn_luu_Click(object sender, EventArgs e)
@@ -114,6 +138,8 @@ namespace QuanLyHocSinhTHPT
             int kq;
             if (chucNang=="them")
             {
+                //Vô hiệu hóa textbox mã hs
+                txt_mahs.Enabled = true;
                 HocSinhDTO dto = new HocSinhDTO();
                 dto.MaHS = txt_mahs.Text;
                 dto.HoTen = txt_hoten.Text;
@@ -191,6 +217,37 @@ namespace QuanLyHocSinhTHPT
         private void cbb_namhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             HienComBoBoxTenLop();
+        }
+
+        private void gird_danhsach_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex > 0)
+                {
+                    //Lấy hàng vừa click vào
+                    DataGridViewRow row = gird_danhsach.Rows[e.RowIndex];
+
+                    //Đổ dữ liệu ra textbox
+                    txt_mahs.Text = row.Cells[0].Value.ToString();
+                    txt_hoten.Text = row.Cells[1].Value.ToString();
+                    DateTime ngaysinh = Convert.ToDateTime(row.Cells[2].Value);
+                    if (row.Cells[3].Value.ToString() == "Nam")
+                    {
+                        tog_nam.Checked = false;
+                    }
+                    else
+                    {
+                        tog_nam.Checked = true;
+                    }
+                    txt_diachi.Text = row.Cells[4].Value.ToString();
+                    txt_sdt_ph.Text = row.Cells["SDTPhuHuynh"].Value.ToString();
+                    txt_phuhuynh.Text = row.Cells["TenPhuHuynh"].Value.ToString();
+                }
+            }catch(Exception ex)
+            {
+
+            }
         }
     }
 }//
