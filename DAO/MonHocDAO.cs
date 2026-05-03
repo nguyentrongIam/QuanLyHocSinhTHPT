@@ -14,7 +14,7 @@ namespace QuanLyHocSinhTHPT.DAO
 {
     public class MonHocDAO
     {
-        private string connectionString = "Server=.;Database=QuanLyHocSinhDB;Integrated Security=True;";
+        private string connectionString = "Server=.;Database=QuanLyHocSinh_DB;Integrated Security=True;";
         public DataSet HienThiMonHoc()
         {
             //Chuỗi truy vấn SQL

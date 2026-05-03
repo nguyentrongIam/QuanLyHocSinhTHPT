@@ -30,5 +30,17 @@ namespace QuanLyHocSinhTHPT.BUS
             DiemDAO dao = new DiemDAO();
             return dao.ThemDiem(maHS, malop, maMon, hk, nam, diemMieng, diem15plan1, diem15plan2, gk, ck);
         }
+        public bool SuaDiemBUS(string maHS, string malop, int maMon, int hk, string nam, float m, float p1, float p2, float gk, float ck)
+        {
+            DiemDAO dao = new DiemDAO();
+            return dao.SuaDiem(maHS, malop, maMon, hk, nam, m, p1, p2, gk, ck);
+        }
+        public bool XoaDiemBUS(int maDiem   )
+        {
+
+
+            DiemDAO dao = new DiemDAO();
+            return dao.XoaDiemDAO(maDiem);
+        }
     }
 }

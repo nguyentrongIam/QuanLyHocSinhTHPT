@@ -71,5 +71,10 @@ namespace QuanLyHocSinhTHPT.GUI
         {
 
         }
+
+        private void btnQuanLyDiemSo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

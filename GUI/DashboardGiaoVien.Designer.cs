@@ -144,6 +144,7 @@
             this.btnQuanLyDiemSo.TabIndex = 6;
             this.btnQuanLyDiemSo.Text = "Quản lý điểm số";
             this.btnQuanLyDiemSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnQuanLyDiemSo.Click += new System.EventHandler(this.btnQuanLyDiemSo_Click);
             // 
             // btnPhanCongGiangDay
             // 
