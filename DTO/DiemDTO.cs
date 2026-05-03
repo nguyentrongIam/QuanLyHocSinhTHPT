@@ -12,21 +12,21 @@ namespace QuanLyHocSinhTHPT.DTO
 {
     public class DiemDTO
     {
-        public string MaHS { get; set; } = string.Empty;
-        public string HoTen { get; set; } = string.Empty;
-        public string MaMon { get; set; } = string.Empty;
-        public string TenMon { get; set; } = string.Empty;
+        public int MaDiem { get; set; } 
+        public int MaHocSinh  { get; set; }
+        public int MaLopHoc  { get; set; }
+        public int MaMonHoc  { get; set; }
+
         public int HocKy { get; set; }
         public string NamHoc { get; set; } = string.Empty;
 
         public double DiemMieng { get; set; }
-        public double Diem15p { get; set; }
-        public double Diem45p { get; set; }
-        public double DiemThi { get; set; }
-        public double DiemTB { get; set; }
+        public double Diem15p_1 { get; set; }
+        public double Diem15p_2 { get; set; }
+        public double DiemGiuaKy { get; set; }
+        public double DiemCuoiKy { get; set; }
+       
 
-        // Tính tự động điểm trung bình (nếu chưa có)
-        public double TinhDiemTB =>
-            (DiemMieng + Diem15p * 2 + Diem45p * 2 + DiemThi * 3) / 7;
+       
     }
 }

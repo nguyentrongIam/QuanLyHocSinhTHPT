@@ -65,6 +65,8 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btnQuanLyDiemSo_Click(object sender, EventArgs e)
         {
+            ucQuanLyDiem uc = new ucQuanLyDiem();
+            addUserControl(uc);
         }
 
         private void btnQuanLyTaiKhoan_Click(object sender, EventArgs e)

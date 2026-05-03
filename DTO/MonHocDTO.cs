@@ -10,7 +10,7 @@ using QuanLyHocSinhTHPT.GUI;
 
 namespace QuanLyHocSinhTHPT.DTO
 {
-    internal class MonHocDTO
+    public class MonHocDTO
     {
         public string MaMon { get; set; } = string.Empty;
         public string TenMon { get; set; } = string.Empty;

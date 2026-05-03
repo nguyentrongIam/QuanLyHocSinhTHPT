@@ -20,14 +20,14 @@ namespace QuanLyHocSinhTHPT.BUS
             ds = hsDAO.XemDanhSachHocSinh();
             return ds;
         }
-        public int CapNhatDiem(DiemDTO d_dto)
-        {
-            int kq;
-            HocSinhDAO hsDAO = new HocSinhDAO();
+        //public int CapNhatDiem(DiemDTO d_dto)
+        //{
+        //    int kq;
+        //    HocSinhDAO hsDAO = new HocSinhDAO();
 
-            kq = hsDAO.CapNhatDiem(d_dto);
-            return kq;
-        }
+        //    kq = hsDAO.CapNhatDiem(d_dto);
+        //    return kq;
+        //}
         public bool CapNhatHocSinh(HocSinhDTO hs)
         {
             HocSinhDAO hsDAO = new HocSinhDAO();
