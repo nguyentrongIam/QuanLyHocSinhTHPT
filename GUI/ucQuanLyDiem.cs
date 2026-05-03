@@ -1,4 +1,5 @@
 ﻿using QuanLyHocSinhTHPT.BUS;
+using QuanLyHocSinhTHPT.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -63,6 +64,7 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btn_luu_Click(object sender, EventArgs e)
         {
+            
             if (chucNang == "them")
             {
                 try
@@ -102,14 +104,83 @@ namespace QuanLyHocSinhTHPT.GUI
             }
             if (chucNang == "sua")
             {
-                MessageBox.Show("Bạn vừa ấn sửa điểm");
+                
+                
 
+                try
+                {
+                    // 2. Lấy dữ liệu từ giao diện
+                    string mahs = txt_mahs.Text;
+                    string malop = cbb_lophoc.SelectedValue.ToString();
+                    int maMon = int.Parse(cbb_monhoc.SelectedValue.ToString());
+                    int hocky = int.Parse(cbb_hocky.Text); // Đã sửa dùng .Text để chính xác
+                    string nam = cbb_namhoc.Text;
+
+                    // Ép kiểu điểm số
+                    float diemmieng = float.Parse(txt_diemmieng.Text);
+                    float diem15p1 = float.Parse(txt_diem15p_lan1.Text);
+                    float diem15p2 = float.Parse(txt_diem15p_lan2.Text);
+                    float diemgiuaky = float.Parse(txt_diemgiuaky.Text);
+                    float diemcuoiky = float.Parse(txt_diemcuoiky.Text);
+
+                    // 3. Gọi BUS để thực thi
+                    DiemBUS bus = new DiemBUS();
+                    bool kq = bus.SuaDiemBUS(mahs, malop, maMon, hocky, nam, diemmieng, diem15p1, diem15p2, diemgiuaky, diemcuoiky);
+
+                    if (kq)
+                    {
+                        MessageBox.Show("Cập nhật điểm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btn_lammoi_Click(sender, e); // Tải lại bảng để cập nhật dữ liệu mới nhất
+                        chucNang = ""; // Reset trạng thái chức năng
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cập nhật thất bại. Vui lòng kiểm tra lại thông tin!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi dữ liệu: " + ex.Message, "Thông báo lỗi");
+                }
             }
             if (chucNang == "xoa")
             {
-                MessageBox.Show("Bạn vừa ấn xóa điểm");
+                // Lấy giá trị từ Tag mà Vinh đã gán ở CellClick
+                if (txt_mahs.Tag != null)
+                {
+                    int maDiemHienTai = int.Parse(txt_mahs.Tag.ToString());
+
+                    // Debug: Xem số này có khớp với cột MaDiem trong image_f0f877.png không
+                    MessageBox.Show("ID truyền xuống là: " + maDiemHienTai);
+
+                    DiemBUS bus = new DiemBUS();
+                    if (bus.XoaDiemBUS(maDiemHienTai))
+                    {
+                        MessageBox.Show("Xóa thành công!");
+                        btn_lammoi_Click(sender, e);
+                        ResetInputDiem();
+                    }
+                    else
+                    {
+                        // Nếu vào đây là do db.ThucThi trả về 0 (không tìm thấy ID để xóa)
+                        MessageBox.Show("Không tìm thấy dòng điểm này trong hệ thống để xóa!");
+                    }
+                }
             }
 
+        }
+        
+
+        
+        private void ResetInputDiem()
+        {
+            txt_mahs.Clear();
+            txt_diemmieng.Clear();
+            txt_diem15p_lan1.Clear();
+            txt_diem15p_lan2.Clear();
+            txt_diemgiuaky.Clear();
+            txt_diemcuoiky.Clear();
+            lbl_diemtrungbinh.Text = "0.0";
         }
 
         private void cbb_namhoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,47 +217,30 @@ namespace QuanLyHocSinhTHPT.GUI
         }
 
         //Ấn vào dòng trên girdview sẽ hiển thị lên textbox
+
         private void gird_danhsach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
+            // Sửa thành >= 0 để không bỏ sót dòng đầu tiên
+            if (e.RowIndex >= 0)
             {
-                if (e.RowIndex > 0)
+                DataGridViewRow row = gird_danhsach.Rows[e.RowIndex];
+
+             
+                if (row.Cells[0].Value != null)
                 {
-                    //Lấy hàng vừa click vào
-                    DataGridViewRow row = gird_danhsach.Rows[e.RowIndex];
+                    txt_mahs.Tag = row.Cells[0].Value.ToString(); // Lưu ID vào Tag
 
-                    //ĐỔ dữ liệu vào textbox
-                    txt_mahs.Text = row.Cells[0].Value.ToString();
-                    //txt_hoten.Text = row.Cells[1].Value.ToString();
-                    txt_diemmieng.Text = row.Cells[2].Value.ToString();
-                    txt_diem15p_lan1.Text = row.Cells[3].Value.ToString();
-                    txt_diem15p_lan2.Text = row.Cells[4].Value.ToString();
-                    txt_diemgiuaky.Text = row.Cells[5].Value.ToString();
-                    txt_diemcuoiky.Text = row.Cells[6].Value.ToString();
-                    //Lấy điểm ra
-                    string diemmieng = row.Cells[2].Value.ToString();
-                    string diem15p_lan1= row.Cells[3].Value.ToString();
-                    string diem15p_lan2= row.Cells[4].Value.ToString();
-                    string diemgiuaky= row.Cells[5].Value.ToString();
-                    string diemcuoiky= row.Cells[6].Value.ToString();
-
-                    //Tính điểm trung bình hiển thị
-                    try
-                    {
-                        float diemtrungbinh;
-                        diemtrungbinh = (float.Parse(diemmieng) + float.Parse(diem15p_lan1) + float.Parse(diem15p_lan2) + float.Parse(diemgiuaky) * 2 + float.Parse(diemcuoiky) * 3) / 8;
-                        lbl_diemtrungbinh.Text = diemtrungbinh.ToString();
-                    }
-                    catch(Exception ex) { }
-                    
+                  
+                    txt_mahs.Text = row.Cells["MaHocSinh"].Value?.ToString();
+                    txt_diemmieng.Text = row.Cells["DiemMieng"].Value?.ToString();
+                   
                 }
             }
-            catch(Exception ex) { }
-            
         }
 
         private void btn_them_Click(object sender, EventArgs e)
         {
+           
             chucNang = "them";
         }
 
@@ -198,7 +252,22 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btn_xoa_Click(object sender, EventArgs e)
         {
-            chucNang = "xoa";
+            // Kiểm tra xem đã chọn dòng nào chưa
+            if (string.IsNullOrEmpty(txt_mahs.Text))
+            {
+                MessageBox.Show("Vui lòng chọn một dòng điểm trên danh sách để xóa!", "Thông báo");
+                return;
+            }
+
+            // Xác nhận xóa
+            DialogResult confirm = MessageBox.Show($"Bạn có chắc chắn muốn xóa điểm của học sinh {txt_mahs.Text} không?",
+                                                   "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            if (confirm == DialogResult.Yes)
+            {
+                chucNang = "xoa";
+                btn_luu_Click(sender, e); // Gọi sang hàm lưu để thực thi xóa
+            }
 
         }
 
