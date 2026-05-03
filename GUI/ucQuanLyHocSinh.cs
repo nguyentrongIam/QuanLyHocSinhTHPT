@@ -37,42 +37,6 @@ namespace QuanLyHocSinhTHPT
             ds = hsBUS.LayDanhSachTatCaSinhVien();
             gird_danhsach.DataSource = ds.Tables[0];
         }
-        public void HienComBoBoxNamHoc()
-        {
-            NamHocBUS bus = new NamHocBUS();
-            DataSet ds = bus.GetYearBUS();
-            cbb_namhoc.DisplayMember = "TenNamHoc";
-            cbb_namhoc.ValueMember = "MaNamHoc";
-            cbb_namhoc.DataSource = ds.Tables[0];
-            cbb_namhoc.SelectedIndex = -1;
-        }
-        public void HienComBoBoxTenLop()
-        {
-            
-            //Lấy năm học 
-            string namhoc = cbb_namhoc.Text;
-            LopBUS bus = new LopBUS();  
-            DataSet ds = bus.GetClassBUS(namhoc);
-            if (ds == null || ds.Tables[0].Rows.Count==0)
-            {
-                hienthi = "khong";
-                cbb_lophoc.DisplayMember = "";
-                cbb_lophoc.ValueMember = "";
-                cbb_lophoc.DataSource = null;
-                cbb_lophoc.Items.Clear();
-            }
-            else
-            {
-                hienthi = "co";
-
-                cbb_lophoc.DisplayMember = "TenLop";
-                cbb_lophoc.ValueMember = "MaLopHoc";
-                cbb_lophoc.DataSource = ds.Tables[0];
-                cbb_lophoc.SelectedIndex = -1;  
-            }
-                
-        }
-       
 
         private void uc_QuanLyHocSinh_Load(object sender, EventArgs e)
         {

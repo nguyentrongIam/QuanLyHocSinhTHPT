@@ -12,12 +12,13 @@ namespace QuanLyHocSinhTHPT.BUS
     
     public class GiaoVienBUS
     {
-        private GiaoVienDAO dao=new GiaoVienDAO();
+        private GiaoVienDAO gvDao=new GiaoVienDAO();
+        private TaiKhoanDAO tkDAO = new TaiKhoanDAO();
         public GiaoVienBUS() { }
         public GiaoVienDTO LayThongTin(int id)
         {
             GiaoVienDTO gv = null;
-            gv=dao.getGiaoVienByAccountID(id);
+            gv=gvDao.getGiaoVienByAccountID(id);
             return gv;
         }
 
@@ -25,35 +26,53 @@ namespace QuanLyHocSinhTHPT.BUS
         public DataSet LayDanhSach(string timKiem="")
         {
             DataSet ds = null;
-            return dao.LayDanhSach(timKiem);
+            return gvDao.LayDanhSach(timKiem);
         }
-        public string ThemGiaoVien(GiaoVienDTO gv)
+        public bool ThemGiaoVienMoi(GiaoVienDTO gv)
         {
-            //kiem tra chuoi rong
-            if (string.IsNullOrWhiteSpace(gv.HoTen) ||
-                string.IsNullOrWhiteSpace(gv.GioiTinh) ||
-                string.IsNullOrWhiteSpace(gv.DiaChi) ||
-                string.IsNullOrWhiteSpace(gv.SoDienThoai) ||
-                string.IsNullOrWhiteSpace(gv.Email))
+            // 1. Tạo DTO Tài khoản từ thông tin Email của giáo viên
+            string tenDangNhap = "gv_" + gv.Email.Split('@')[0];
+            TaiKhoanDTO tk = new TaiKhoanDTO
             {
-                return "Vui lòng nhập đầy đủ thông tin văn bản";
+                TenDangNhap = tenDangNhap,
+                MatKhau = "123456",
+                TrangThai = true,
+                MaVaiTro = 2
+            };
+
+            // 2. Gọi TaiKhoanDAO để tạo tài khoản và lấy MaTaiKhoan về
+            int maTKMoi = tkDAO.ThemTaiKhoan(tk);
+
+            if (maTKMoi > 0)
+            {
+                // 3. Gán mã tài khoản vừa tạo vào đối tượng giáo viên
+                gv.MaTaiKhoan = maTKMoi;
+
+                // 4. Gọi GiaoVienDAO để lưu thông tin giáo viên
+                return gvDao.ThemGiaoVien(gv);
             }
 
-            //kiem tra ngay sinh
-            if (gv.NgaySinh == DateTime.MinValue || gv.NgaySinh == null)
+            return false;
+        }
+
+        public bool KiemTraLichSu(int maGV) => gvDao.KiemTraPhatSinhDuLieu(maGV);
+        public bool XoaVinhVien(int maGV) => gvDao.XoaCungGiaoVienRac(maGV);
+        public bool KhoaGiaoVien(int maGV)
+        {
+            // Bước 1: Hỏi GiaoVienDAO xem mã tài khoản của ông này là gì?
+            int maTK = gvDao.LayMaTaiKhoan(maGV);
+
+            if (maTK > 0)
             {
-                return "Vui lòng chọn ngày sinh hợp lệ";
+                // Bước 2: Nhờ TaiKhoanDAO khóa cái mã tài khoản đó lại
+                return tkDAO.KhoaTaiKhoan(maTK);
             }
 
-            //kiem tra ma tai khoan
-            if (gv.MaTaiKhoan <= 0)
-            {
-                return "Mã tài khoản không hợp lệ";
-            }
-
-            GiaoVienDAO dao = new GiaoVienDAO();
-            bool ketQua = dao.ThemGiaoVien(gv);
-            return ketQua ? "Thành công" : "Thất bại";
+            return false;
+        }
+        public bool CapNhatGiaoVien(GiaoVienDTO gv)
+        {
+            return gvDao.SuaGiaoVien(gv);
         }
     }
 }

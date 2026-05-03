@@ -44,8 +44,8 @@ namespace QuanLyHocSinhTHPT.BUS
                 return "Vui lòng nhập đầy đủ thông tin văn bản";
             }
             TaiKhoanDAO dao=new TaiKhoanDAO();
-            bool ketQua = dao.ThemTaiKhoan(tk);
-            return ketQua ? "Thành công" : "Thất bại";
+            int ketQua = dao.ThemTaiKhoan(tk);
+            return(ketQua > 0) ? "Thành công" : "Thất bại";
         }
 
     }
