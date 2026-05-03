@@ -45,6 +45,7 @@ namespace QuanLyHocSinhTHPT
             cbb_namhoc.DisplayMember = "TenNamHoc";
             cbb_namhoc.ValueMember = "MaNamHoc";
             cbb_namhoc.DataSource = ds.Tables[0];
+            cbb_namhoc.SelectedIndex = -1;
         }
         public void HienComBoBoxTenLop()
         {
@@ -68,6 +69,7 @@ namespace QuanLyHocSinhTHPT
                 cbb_lophoc.DisplayMember = "TenLop";
                 cbb_lophoc.ValueMember = "MaLopHoc";
                 cbb_lophoc.DataSource = ds.Tables[0];
+                cbb_lophoc.SelectedIndex = -1;  
             }
                 
         }

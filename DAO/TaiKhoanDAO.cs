@@ -8,6 +8,7 @@ using QuanLyHocSinhTHPT.DAO;
 using QuanLyHocSinhTHPT.BUS;
 using QuanLyHocSinhTHPT.GUI;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace QuanLyHocSinhTHPT.DAO
 {
@@ -15,15 +16,25 @@ namespace QuanLyHocSinhTHPT.DAO
         public TaiKhoanDAO(){}
         public TaiKhoanDTO KiemTraDangNhap(string tenDangNhap, string matKhau)
         {
-            Database db = new Database();
+            DataProvider db = new DataProvider();
             TaiKhoanDTO tk = null;
-            string sSQL = $"SELECT * FROM TaiKhoan WHERE TenDangNhap=N'{tenDangNhap}' AND MatKhau=N'{matKhau}'";
-            DataSet ds = db.XemDanhSach(sSQL);
+
+            string sSQL = "SELECT * FROM TaiKhoan WHERE TenDangNhap = @tenDangNhap AND MatKhau = @matKhau";
+
+            //tao mang tham so
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@tenDangNhap", tenDangNhap),
+                new SqlParameter("@matKhau", matKhau)
+            };
+
+            DataSet ds = db.XemDanhSach(sSQL, parameters);
+
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
 
-                // Đổ dữ liệu từ Database vào DTO
+                //do du lieu vao dto
                 tk = new TaiKhoanDTO();
                 tk.MaTaiKhoan = Convert.ToInt32(row["MaTaiKhoan"]);
                 tk.TenDangNhap = row["TenDangNhap"].ToString();
@@ -33,6 +44,21 @@ namespace QuanLyHocSinhTHPT.DAO
             }
             return tk;
         }
+
+        public bool ThemTaiKhoan(TaiKhoanDTO tk)
+        {
+            DataProvider db = new DataProvider();
+            string sSQL = "INSERT INTO TaiKhoan(TenDangNhap,MatKhau,TrangThai,MaVaiTro) VALUES (@tenDangNhap,@matKkhau,1,@maVaiTro)";
+            SqlParameter[] parameters = new SqlParameter[]
+            {
+                new SqlParameter("@hoTen", tk.TenDangNhap),
+                new SqlParameter("@ngaySinh", tk.MatKhau),
+                new SqlParameter("@gioiTinh", tk.MaVaiTro)
+            };
+            return db.ThucThi(sSQL, parameters);
+        }
+
+
     }
     
 }

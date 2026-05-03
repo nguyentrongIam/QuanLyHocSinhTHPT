@@ -18,7 +18,7 @@ namespace QuanLyHocSinhTHPT.BUS
         {
             taiKhoan = null;
             //Kiem tra thieu thong tin
-            if(string.IsNullOrEmpty(tenDangNhap) || string.IsNullOrEmpty(matKhau))
+            if(string.IsNullOrWhiteSpace(tenDangNhap) || string.IsNullOrWhiteSpace(matKhau))
             {
                 return "Vui lòng nhập đầy đủ Tên đăng nhập và Mật khẩu!";
             }
@@ -35,6 +35,18 @@ namespace QuanLyHocSinhTHPT.BUS
             return "Thành công";
         }
 
+
+        //them tai khoan
+        public string ThemTaiKhoan(TaiKhoanDTO tk)
+        {
+            if (string.IsNullOrWhiteSpace(tk.TenDangNhap) || string.IsNullOrWhiteSpace(tk.MatKhau))
+            {
+                return "Vui lòng nhập đầy đủ thông tin văn bản";
+            }
+            TaiKhoanDAO dao=new TaiKhoanDAO();
+            bool ketQua = dao.ThemTaiKhoan(tk);
+            return ketQua ? "Thành công" : "Thất bại";
+        }
 
     }
 }
