@@ -15,6 +15,7 @@ namespace QuanLyHocSinhTHPT
     public partial class ucQuanLyHocSinh : UserControl
     {
         string chucNang = "";
+        string hienthi = "";
         public ucQuanLyHocSinh()
         {
             InitializeComponent();
@@ -37,14 +38,6 @@ namespace QuanLyHocSinhTHPT
             ds = hsBUS.LayDanhSachTatCaSinhVien(tenlop, namhoc);
             gird_danhsach.DataSource = ds.Tables[0];
         }
-        public void HienComBoBoxTenLop()
-        {
-            LopBUS bus = new LopBUS();
-            DataSet ds = bus.GetClassBUS();
-            cbb_lophoc.DisplayMember = "TenLop";
-            cbb_lophoc.ValueMember = "MaLopHoc";
-            cbb_lophoc.DataSource = ds.Tables[0];
-        }
         public void HienComBoBoxNamHoc()
         {
             NamHocBUS bus = new NamHocBUS();
@@ -53,11 +46,42 @@ namespace QuanLyHocSinhTHPT
             cbb_namhoc.ValueMember = "MaNamHoc";
             cbb_namhoc.DataSource = ds.Tables[0];
         }
+        public void HienComBoBoxTenLop()
+        {
+            
+            //Lấy năm học 
+            string namhoc = cbb_namhoc.Text;
+            LopBUS bus = new LopBUS();
+            DataSet ds = bus.GetClassBUS(namhoc);
+            if (ds == null || ds.Tables[0].Rows.Count==0)
+            {
+                hienthi = "khong";
+                cbb_lophoc.DisplayMember = "";
+                cbb_lophoc.ValueMember = "";
+                cbb_lophoc.DataSource = null;
+                cbb_lophoc.Items.Clear();
+            }
+            else
+            {
+                hienthi = "co";
+
+                cbb_lophoc.DisplayMember = "TenLop";
+                cbb_lophoc.ValueMember = "MaLopHoc";
+                cbb_lophoc.DataSource = ds.Tables[0];
+            }
+                
+        }
+       
 
         private void uc_QuanLyHocSinh_Load(object sender, EventArgs e)
         {
-            HienComBoBoxTenLop();
             HienComBoBoxNamHoc();
+            // Mặc định chọn năm đầu tiên nếu có dữ liệu để kích hoạt load lớp
+            if (cbb_namhoc.Items.Count > 0)
+            {
+                cbb_namhoc.SelectedIndex = 0;
+                HienComBoBoxTenLop();
+            }
         }
 
         private void gird_danhsach_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -158,6 +182,15 @@ namespace QuanLyHocSinhTHPT
                 MessageBox.Show("Đã ấn nút sửa !");
 
             }
+        }
+
+        private void cbb_lophoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void cbb_namhoc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            HienComBoBoxTenLop();
         }
     }
 }//

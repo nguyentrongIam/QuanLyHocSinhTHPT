@@ -13,11 +13,11 @@ namespace QuanLyHocSinhTHPT.BUS
 {
     public class LopBUS
     {
-        public DataSet GetClassBUS()
+        public DataSet GetClassBUS(string namhoc)
         {
             DataSet ds;
             LopDAO lopDAO = new LopDAO();
-            ds = lopDAO.GetClassDAO();
+            ds = lopDAO.GetClassDAO(namhoc);
             return ds;
         }
     }

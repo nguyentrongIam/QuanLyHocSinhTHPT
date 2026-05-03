@@ -40,4 +40,4 @@ namespace QuanLyHocSinhTHPT.DTO
         public string NienKhoa { get; set; }
     }
 }
-//Update
+//Update/

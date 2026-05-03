@@ -15,11 +15,11 @@ namespace QuanLyHocSinhTHPT.DAO
     public class LopDAO
     {
         private string connectionString = "Server=.;Database=QuanLyHocSinh_DB;Integrated Security=True;";
-        public DataSet GetClassDAO()
+        public DataSet GetClassDAO(string namhoc)
         {
             DataSet ds;
             //Chuỗi truy vấn
-            string sSQL = "select * from LopHoc";
+            string sSQL = $"select * from LopHoc join NamHoc on LopHoc.MaNamHoc = NamHoc.MaNamHoc where TenNamHoc = '{namhoc}'";
             //Khởi tạo đối tượng
             Database db = new Database();
             ds = db.XemDanhSach(sSQL);

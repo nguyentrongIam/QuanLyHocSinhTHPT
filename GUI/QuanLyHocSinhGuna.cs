@@ -83,13 +83,13 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void QuanLyHocSinhGuna_Load(object sender, EventArgs e)
         {
-            //cbb_lop
-            DataSet ds;
-            LopDAO lopDAO = new LopDAO();
-            ds = lopDAO.GetClassDAO();
-            cbb_lop.DisplayMember = "TenLop";
-            cbb_lop.ValueMember = "MaLop";
-            cbb_lop.DataSource = ds.Tables[0];
+            ////cbb_lop
+            //DataSet ds;
+            //LopDAO lopDAO = new LopDAO();
+            //ds = lopDAO.GetClassDAO();
+            //cbb_lop.DisplayMember = "TenLop";
+            //cbb_lop.ValueMember = "MaLop";
+            //cbb_lop.DataSource = ds.Tables[0];
         }
 
         private void gird_danhsach_CellClick(object sender, DataGridViewCellEventArgs e)
