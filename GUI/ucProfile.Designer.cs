@@ -29,28 +29,30 @@
         private void InitializeComponent()
         {
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.lblSDTPhuHuynh_GiaTri = new System.Windows.Forms.Label();
-            this.lblSDTPhuHuynh = new System.Windows.Forms.Label();
-            this.lblPhuHuynh_GiaTri = new System.Windows.Forms.Label();
-            this.lblTenPhuHuynh = new System.Windows.Forms.Label();
-            this.lblGVCN_GiaTri = new System.Windows.Forms.Label();
-            this.lblGVCN = new System.Windows.Forms.Label();
-            this.lblLop_GiaTri = new System.Windows.Forms.Label();
-            this.lblSoDienThoai = new System.Windows.Forms.Label();
+            this.lblTenDangNhap_GiaTri = new System.Windows.Forms.Label();
+            this.lblTenDangNhap = new System.Windows.Forms.Label();
+            this.lblTrangThai_GiaTri = new System.Windows.Forms.Label();
+            this.lblTrangThai = new System.Windows.Forms.Label();
+            this.lblMaTaiKhoan_GiaTri = new System.Windows.Forms.Label();
+            this.lblMaTaiKhoan = new System.Windows.Forms.Label();
             this.lblGioiTinh_GiaTri = new System.Windows.Forms.Label();
             this.lblGioiTinh = new System.Windows.Forms.Label();
             this.lblDiaChi_GiaTri = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
-            this.lblTenHocSinh_GiaTri = new System.Windows.Forms.Label();
+            this.chipThongTinTaiKhoan = new Guna.UI2.WinForms.Guna2Chip();
+            this.lblTen_GiaTri = new System.Windows.Forms.Label();
             this.lblHoTen = new System.Windows.Forms.Label();
             this.lblNgaySinh_GiaTri = new System.Windows.Forms.Label();
             this.lblNgaySinh = new System.Windows.Forms.Label();
             this.lblMa_GiaTri = new System.Windows.Forms.Label();
             this.lblMa = new System.Windows.Forms.Label();
-            this.chipThongTinChung = new Guna.UI2.WinForms.Guna2Chip();
-            this.chipThongTinTaiKhoan = new Guna.UI2.WinForms.Guna2Chip();
+            this.chipThongTinHoSo = new Guna.UI2.WinForms.Guna2Chip();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblSoDienThoai = new System.Windows.Forms.Label();
+            this.lblSoDienThoai_GiaTri = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblEmail_GiaTri = new System.Windows.Forms.Label();
             this.guna2ShadowPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -59,26 +61,28 @@
             // 
             this.guna2ShadowPanel1.AutoScroll = true;
             this.guna2ShadowPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ShadowPanel1.Controls.Add(this.lblSDTPhuHuynh_GiaTri);
-            this.guna2ShadowPanel1.Controls.Add(this.lblSDTPhuHuynh);
-            this.guna2ShadowPanel1.Controls.Add(this.lblPhuHuynh_GiaTri);
-            this.guna2ShadowPanel1.Controls.Add(this.lblTenPhuHuynh);
-            this.guna2ShadowPanel1.Controls.Add(this.lblGVCN_GiaTri);
-            this.guna2ShadowPanel1.Controls.Add(this.lblGVCN);
-            this.guna2ShadowPanel1.Controls.Add(this.lblLop_GiaTri);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTenDangNhap_GiaTri);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTenDangNhap);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTrangThai_GiaTri);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTrangThai);
+            this.guna2ShadowPanel1.Controls.Add(this.lblMaTaiKhoan_GiaTri);
+            this.guna2ShadowPanel1.Controls.Add(this.lblMaTaiKhoan);
+            this.guna2ShadowPanel1.Controls.Add(this.lblEmail_GiaTri);
+            this.guna2ShadowPanel1.Controls.Add(this.lblEmail);
+            this.guna2ShadowPanel1.Controls.Add(this.lblSoDienThoai_GiaTri);
             this.guna2ShadowPanel1.Controls.Add(this.lblSoDienThoai);
             this.guna2ShadowPanel1.Controls.Add(this.lblGioiTinh_GiaTri);
             this.guna2ShadowPanel1.Controls.Add(this.lblGioiTinh);
             this.guna2ShadowPanel1.Controls.Add(this.lblDiaChi_GiaTri);
             this.guna2ShadowPanel1.Controls.Add(this.lblDiaChi);
             this.guna2ShadowPanel1.Controls.Add(this.chipThongTinTaiKhoan);
-            this.guna2ShadowPanel1.Controls.Add(this.lblTenHocSinh_GiaTri);
+            this.guna2ShadowPanel1.Controls.Add(this.lblTen_GiaTri);
             this.guna2ShadowPanel1.Controls.Add(this.lblHoTen);
             this.guna2ShadowPanel1.Controls.Add(this.lblNgaySinh_GiaTri);
             this.guna2ShadowPanel1.Controls.Add(this.lblNgaySinh);
             this.guna2ShadowPanel1.Controls.Add(this.lblMa_GiaTri);
             this.guna2ShadowPanel1.Controls.Add(this.lblMa);
-            this.guna2ShadowPanel1.Controls.Add(this.chipThongTinChung);
+            this.guna2ShadowPanel1.Controls.Add(this.chipThongTinHoSo);
             this.guna2ShadowPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.guna2ShadowPanel1.FillColor = System.Drawing.Color.White;
             this.guna2ShadowPanel1.Location = new System.Drawing.Point(0, 101);
@@ -87,88 +91,68 @@
             this.guna2ShadowPanel1.Padding = new System.Windows.Forms.Padding(20);
             this.guna2ShadowPanel1.Radius = 10;
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(1453, 874);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(1453, 793);
             this.guna2ShadowPanel1.TabIndex = 2;
             // 
-            // lblSDTPhuHuynh_GiaTri
+            // lblTenDangNhap_GiaTri
             // 
-            this.lblSDTPhuHuynh_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lblSDTPhuHuynh_GiaTri.ForeColor = System.Drawing.Color.Black;
-            this.lblSDTPhuHuynh_GiaTri.Location = new System.Drawing.Point(1025, 393);
-            this.lblSDTPhuHuynh_GiaTri.Name = "lblSDTPhuHuynh_GiaTri";
-            this.lblSDTPhuHuynh_GiaTri.Size = new System.Drawing.Size(395, 26);
-            this.lblSDTPhuHuynh_GiaTri.TabIndex = 18;
-            this.lblSDTPhuHuynh_GiaTri.Text = "label2";
+            this.lblTenDangNhap_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTenDangNhap_GiaTri.ForeColor = System.Drawing.Color.Black;
+            this.lblTenDangNhap_GiaTri.Location = new System.Drawing.Point(588, 601);
+            this.lblTenDangNhap_GiaTri.Name = "lblTenDangNhap_GiaTri";
+            this.lblTenDangNhap_GiaTri.Size = new System.Drawing.Size(395, 26);
+            this.lblTenDangNhap_GiaTri.TabIndex = 20;
+            this.lblTenDangNhap_GiaTri.Text = "userName";
             // 
-            // lblSDTPhuHuynh
+            // lblTenDangNhap
             // 
-            this.lblSDTPhuHuynh.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblSDTPhuHuynh.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblSDTPhuHuynh.Location = new System.Drawing.Point(1026, 359);
-            this.lblSDTPhuHuynh.Name = "lblSDTPhuHuynh";
-            this.lblSDTPhuHuynh.Size = new System.Drawing.Size(369, 23);
-            this.lblSDTPhuHuynh.TabIndex = 17;
-            this.lblSDTPhuHuynh.Text = "Số điện thoại Phụ huynh";
+            this.lblTenDangNhap.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblTenDangNhap.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblTenDangNhap.Location = new System.Drawing.Point(589, 567);
+            this.lblTenDangNhap.Name = "lblTenDangNhap";
+            this.lblTenDangNhap.Size = new System.Drawing.Size(354, 23);
+            this.lblTenDangNhap.TabIndex = 19;
+            this.lblTenDangNhap.Text = "Tên đăng nhập";
             // 
-            // lblPhuHuynh_GiaTri
+            // lblTrangThai_GiaTri
             // 
-            this.lblPhuHuynh_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lblPhuHuynh_GiaTri.ForeColor = System.Drawing.Color.Black;
-            this.lblPhuHuynh_GiaTri.Location = new System.Drawing.Point(588, 393);
-            this.lblPhuHuynh_GiaTri.Name = "lblPhuHuynh_GiaTri";
-            this.lblPhuHuynh_GiaTri.Size = new System.Drawing.Size(395, 26);
-            this.lblPhuHuynh_GiaTri.TabIndex = 16;
-            this.lblPhuHuynh_GiaTri.Text = "label2";
+            this.lblTrangThai_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTrangThai_GiaTri.ForeColor = System.Drawing.Color.Black;
+            this.lblTrangThai_GiaTri.Location = new System.Drawing.Point(162, 719);
+            this.lblTrangThai_GiaTri.Name = "lblTrangThai_GiaTri";
+            this.lblTrangThai_GiaTri.Size = new System.Drawing.Size(395, 26);
+            this.lblTrangThai_GiaTri.TabIndex = 18;
+            this.lblTrangThai_GiaTri.Text = "Khoá/Hoạt động";
             // 
-            // lblTenPhuHuynh
+            // lblTrangThai
             // 
-            this.lblTenPhuHuynh.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblTenPhuHuynh.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblTenPhuHuynh.Location = new System.Drawing.Point(589, 359);
-            this.lblTenPhuHuynh.Name = "lblTenPhuHuynh";
-            this.lblTenPhuHuynh.Size = new System.Drawing.Size(393, 23);
-            this.lblTenPhuHuynh.TabIndex = 15;
-            this.lblTenPhuHuynh.Text = "Tên Phụ huynh";
+            this.lblTrangThai.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblTrangThai.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblTrangThai.Location = new System.Drawing.Point(163, 685);
+            this.lblTrangThai.Name = "lblTrangThai";
+            this.lblTrangThai.Size = new System.Drawing.Size(354, 23);
+            this.lblTrangThai.TabIndex = 17;
+            this.lblTrangThai.Text = "Trạng thái";
             // 
-            // lblGVCN_GiaTri
+            // lblMaTaiKhoan_GiaTri
             // 
-            this.lblGVCN_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lblGVCN_GiaTri.ForeColor = System.Drawing.Color.Black;
-            this.lblGVCN_GiaTri.Location = new System.Drawing.Point(162, 393);
-            this.lblGVCN_GiaTri.Name = "lblGVCN_GiaTri";
-            this.lblGVCN_GiaTri.Size = new System.Drawing.Size(395, 26);
-            this.lblGVCN_GiaTri.TabIndex = 14;
-            this.lblGVCN_GiaTri.Text = "label2";
+            this.lblMaTaiKhoan_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.lblMaTaiKhoan_GiaTri.ForeColor = System.Drawing.Color.Black;
+            this.lblMaTaiKhoan_GiaTri.Location = new System.Drawing.Point(162, 601);
+            this.lblMaTaiKhoan_GiaTri.Name = "lblMaTaiKhoan_GiaTri";
+            this.lblMaTaiKhoan_GiaTri.Size = new System.Drawing.Size(395, 26);
+            this.lblMaTaiKhoan_GiaTri.TabIndex = 16;
+            this.lblMaTaiKhoan_GiaTri.Text = "0123";
             // 
-            // lblGVCN
+            // lblMaTaiKhoan
             // 
-            this.lblGVCN.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblGVCN.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblGVCN.Location = new System.Drawing.Point(163, 359);
-            this.lblGVCN.Name = "lblGVCN";
-            this.lblGVCN.Size = new System.Drawing.Size(419, 23);
-            this.lblGVCN.TabIndex = 13;
-            this.lblGVCN.Text = "Giáo viên chủ nhiệm";
-            // 
-            // lblLop_GiaTri
-            // 
-            this.lblLop_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lblLop_GiaTri.ForeColor = System.Drawing.Color.Black;
-            this.lblLop_GiaTri.Location = new System.Drawing.Point(1025, 270);
-            this.lblLop_GiaTri.Name = "lblLop_GiaTri";
-            this.lblLop_GiaTri.Size = new System.Drawing.Size(395, 26);
-            this.lblLop_GiaTri.TabIndex = 12;
-            this.lblLop_GiaTri.Text = "label2";
-            // 
-            // lblSoDienThoai
-            // 
-            this.lblSoDienThoai.Font = new System.Drawing.Font("Arial", 12F);
-            this.lblSoDienThoai.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblSoDienThoai.Location = new System.Drawing.Point(1026, 236);
-            this.lblSoDienThoai.Name = "lblSoDienThoai";
-            this.lblSoDienThoai.Size = new System.Drawing.Size(354, 23);
-            this.lblSoDienThoai.TabIndex = 11;
-            this.lblSoDienThoai.Text = "Số điện thoại";
+            this.lblMaTaiKhoan.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblMaTaiKhoan.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblMaTaiKhoan.Location = new System.Drawing.Point(163, 567);
+            this.lblMaTaiKhoan.Name = "lblMaTaiKhoan";
+            this.lblMaTaiKhoan.Size = new System.Drawing.Size(354, 23);
+            this.lblMaTaiKhoan.TabIndex = 15;
+            this.lblMaTaiKhoan.Text = "ID";
             // 
             // lblGioiTinh_GiaTri
             // 
@@ -178,7 +162,7 @@
             this.lblGioiTinh_GiaTri.Name = "lblGioiTinh_GiaTri";
             this.lblGioiTinh_GiaTri.Size = new System.Drawing.Size(395, 26);
             this.lblGioiTinh_GiaTri.TabIndex = 10;
-            this.lblGioiTinh_GiaTri.Text = "label2";
+            this.lblGioiTinh_GiaTri.Text = "Nam/Nữ";
             // 
             // lblGioiTinh
             // 
@@ -198,7 +182,7 @@
             this.lblDiaChi_GiaTri.Name = "lblDiaChi_GiaTri";
             this.lblDiaChi_GiaTri.Size = new System.Drawing.Size(395, 26);
             this.lblDiaChi_GiaTri.TabIndex = 8;
-            this.lblDiaChi_GiaTri.Text = "label2";
+            this.lblDiaChi_GiaTri.Text = "123 anhd,judh ha";
             // 
             // lblDiaChi
             // 
@@ -210,15 +194,29 @@
             this.lblDiaChi.TabIndex = 7;
             this.lblDiaChi.Text = "Địa chỉ";
             // 
-            // lblTenHocSinh_GiaTri
+            // chipThongTinTaiKhoan
             // 
-            this.lblTenHocSinh_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
-            this.lblTenHocSinh_GiaTri.ForeColor = System.Drawing.Color.Black;
-            this.lblTenHocSinh_GiaTri.Location = new System.Drawing.Point(588, 152);
-            this.lblTenHocSinh_GiaTri.Name = "lblTenHocSinh_GiaTri";
-            this.lblTenHocSinh_GiaTri.Size = new System.Drawing.Size(395, 26);
-            this.lblTenHocSinh_GiaTri.TabIndex = 6;
-            this.lblTenHocSinh_GiaTri.Text = "label2";
+            this.chipThongTinTaiKhoan.BorderColor = System.Drawing.Color.Transparent;
+            this.chipThongTinTaiKhoan.BorderRadius = 10;
+            this.chipThongTinTaiKhoan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.chipThongTinTaiKhoan.Font = new System.Drawing.Font("Arial", 12F);
+            this.chipThongTinTaiKhoan.ForeColor = System.Drawing.Color.Black;
+            this.chipThongTinTaiKhoan.IsClosable = false;
+            this.chipThongTinTaiKhoan.Location = new System.Drawing.Point(56, 484);
+            this.chipThongTinTaiKhoan.Name = "chipThongTinTaiKhoan";
+            this.chipThongTinTaiKhoan.Size = new System.Drawing.Size(311, 41);
+            this.chipThongTinTaiKhoan.TabIndex = 0;
+            this.chipThongTinTaiKhoan.Text = "Thông tin tài khoản";
+            // 
+            // lblTen_GiaTri
+            // 
+            this.lblTen_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.lblTen_GiaTri.ForeColor = System.Drawing.Color.Black;
+            this.lblTen_GiaTri.Location = new System.Drawing.Point(588, 152);
+            this.lblTen_GiaTri.Name = "lblTen_GiaTri";
+            this.lblTen_GiaTri.Size = new System.Drawing.Size(395, 26);
+            this.lblTen_GiaTri.TabIndex = 6;
+            this.lblTen_GiaTri.Text = "hoVaTen";
             // 
             // lblHoTen
             // 
@@ -238,7 +236,7 @@
             this.lblNgaySinh_GiaTri.Name = "lblNgaySinh_GiaTri";
             this.lblNgaySinh_GiaTri.Size = new System.Drawing.Size(395, 26);
             this.lblNgaySinh_GiaTri.TabIndex = 4;
-            this.lblNgaySinh_GiaTri.Text = "label2";
+            this.lblNgaySinh_GiaTri.Text = "1/1/1999";
             // 
             // lblNgaySinh
             // 
@@ -258,7 +256,7 @@
             this.lblMa_GiaTri.Name = "lblMa_GiaTri";
             this.lblMa_GiaTri.Size = new System.Drawing.Size(395, 26);
             this.lblMa_GiaTri.TabIndex = 2;
-            this.lblMa_GiaTri.Text = "label2";
+            this.lblMa_GiaTri.Text = "0123";
             // 
             // lblMa
             // 
@@ -270,33 +268,19 @@
             this.lblMa.TabIndex = 1;
             this.lblMa.Text = "ID";
             // 
-            // chipThongTinChung
+            // chipThongTinHoSo
             // 
-            this.chipThongTinChung.BorderColor = System.Drawing.Color.Transparent;
-            this.chipThongTinChung.BorderRadius = 10;
-            this.chipThongTinChung.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.chipThongTinChung.Font = new System.Drawing.Font("Arial", 12F);
-            this.chipThongTinChung.ForeColor = System.Drawing.Color.Black;
-            this.chipThongTinChung.IsClosable = false;
-            this.chipThongTinChung.Location = new System.Drawing.Point(56, 48);
-            this.chipThongTinChung.Name = "chipThongTinChung";
-            this.chipThongTinChung.Size = new System.Drawing.Size(311, 41);
-            this.chipThongTinChung.TabIndex = 0;
-            this.chipThongTinChung.Text = "Thông tin chung";
-            // 
-            // chipThongTinTaiKhoan
-            // 
-            this.chipThongTinTaiKhoan.BorderColor = System.Drawing.Color.Transparent;
-            this.chipThongTinTaiKhoan.BorderRadius = 10;
-            this.chipThongTinTaiKhoan.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
-            this.chipThongTinTaiKhoan.Font = new System.Drawing.Font("Arial", 12F);
-            this.chipThongTinTaiKhoan.ForeColor = System.Drawing.Color.Black;
-            this.chipThongTinTaiKhoan.IsClosable = false;
-            this.chipThongTinTaiKhoan.Location = new System.Drawing.Point(56, 484);
-            this.chipThongTinTaiKhoan.Name = "chipThongTinTaiKhoan";
-            this.chipThongTinTaiKhoan.Size = new System.Drawing.Size(311, 41);
-            this.chipThongTinTaiKhoan.TabIndex = 0;
-            this.chipThongTinTaiKhoan.Text = "Thông tin tài khoản";
+            this.chipThongTinHoSo.BorderColor = System.Drawing.Color.Transparent;
+            this.chipThongTinHoSo.BorderRadius = 10;
+            this.chipThongTinHoSo.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(244)))), ((int)(((byte)(255)))));
+            this.chipThongTinHoSo.Font = new System.Drawing.Font("Arial", 12F);
+            this.chipThongTinHoSo.ForeColor = System.Drawing.Color.Black;
+            this.chipThongTinHoSo.IsClosable = false;
+            this.chipThongTinHoSo.Location = new System.Drawing.Point(56, 48);
+            this.chipThongTinHoSo.Name = "chipThongTinHoSo";
+            this.chipThongTinHoSo.Size = new System.Drawing.Size(311, 41);
+            this.chipThongTinHoSo.TabIndex = 0;
+            this.chipThongTinHoSo.Text = "Thông tin hồ sơ";
             // 
             // lblTieuDe
             // 
@@ -319,6 +303,46 @@
             this.panel1.Size = new System.Drawing.Size(1453, 101);
             this.panel1.TabIndex = 14;
             // 
+            // lblSoDienThoai
+            // 
+            this.lblSoDienThoai.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblSoDienThoai.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblSoDienThoai.Location = new System.Drawing.Point(1026, 236);
+            this.lblSoDienThoai.Name = "lblSoDienThoai";
+            this.lblSoDienThoai.Size = new System.Drawing.Size(354, 23);
+            this.lblSoDienThoai.TabIndex = 11;
+            this.lblSoDienThoai.Text = "Số điện thoại";
+            // 
+            // lblSoDienThoai_GiaTri
+            // 
+            this.lblSoDienThoai_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.lblSoDienThoai_GiaTri.ForeColor = System.Drawing.Color.Black;
+            this.lblSoDienThoai_GiaTri.Location = new System.Drawing.Point(1025, 270);
+            this.lblSoDienThoai_GiaTri.Name = "lblSoDienThoai_GiaTri";
+            this.lblSoDienThoai_GiaTri.Size = new System.Drawing.Size(395, 26);
+            this.lblSoDienThoai_GiaTri.TabIndex = 12;
+            this.lblSoDienThoai_GiaTri.Text = "0123456789";
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.Font = new System.Drawing.Font("Arial", 12F);
+            this.lblEmail.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblEmail.Location = new System.Drawing.Point(163, 362);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(419, 23);
+            this.lblEmail.TabIndex = 13;
+            this.lblEmail.Text = "Email";
+            // 
+            // lblEmail_GiaTri
+            // 
+            this.lblEmail_GiaTri.Font = new System.Drawing.Font("Arial", 13F, System.Drawing.FontStyle.Bold);
+            this.lblEmail_GiaTri.ForeColor = System.Drawing.Color.Black;
+            this.lblEmail_GiaTri.Location = new System.Drawing.Point(162, 396);
+            this.lblEmail_GiaTri.Name = "lblEmail_GiaTri";
+            this.lblEmail_GiaTri.Size = new System.Drawing.Size(395, 26);
+            this.lblEmail_GiaTri.TabIndex = 14;
+            this.lblEmail_GiaTri.Text = "example@gmail.com";
+            // 
             // ucProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -328,6 +352,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ucProfile";
             this.Size = new System.Drawing.Size(1453, 1121);
+            this.Load += new System.EventHandler(this.ucProfile_Load);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -338,27 +363,29 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2ShadowPanel guna2ShadowPanel1;
-        private Guna.UI2.WinForms.Guna2Chip chipThongTinChung;
+        private Guna.UI2.WinForms.Guna2Chip chipThongTinHoSo;
         private System.Windows.Forms.Label lblMa_GiaTri;
         private System.Windows.Forms.Label lblMa;
         private System.Windows.Forms.Label lblDiaChi_GiaTri;
         private System.Windows.Forms.Label lblDiaChi;
-        private System.Windows.Forms.Label lblTenHocSinh_GiaTri;
+        private System.Windows.Forms.Label lblTen_GiaTri;
         private System.Windows.Forms.Label lblHoTen;
         private System.Windows.Forms.Label lblNgaySinh_GiaTri;
         private System.Windows.Forms.Label lblNgaySinh;
-        private System.Windows.Forms.Label lblLop_GiaTri;
-        private System.Windows.Forms.Label lblSoDienThoai;
         private System.Windows.Forms.Label lblGioiTinh_GiaTri;
         private System.Windows.Forms.Label lblGioiTinh;
         private Guna.UI2.WinForms.Guna2Chip chipThongTinTaiKhoan;
         private System.Windows.Forms.Label lblTieuDe;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblSDTPhuHuynh_GiaTri;
-        private System.Windows.Forms.Label lblSDTPhuHuynh;
-        private System.Windows.Forms.Label lblPhuHuynh_GiaTri;
-        private System.Windows.Forms.Label lblTenPhuHuynh;
-        private System.Windows.Forms.Label lblGVCN_GiaTri;
-        private System.Windows.Forms.Label lblGVCN;
+        private System.Windows.Forms.Label lblTenDangNhap_GiaTri;
+        private System.Windows.Forms.Label lblTenDangNhap;
+        private System.Windows.Forms.Label lblTrangThai_GiaTri;
+        private System.Windows.Forms.Label lblTrangThai;
+        private System.Windows.Forms.Label lblMaTaiKhoan_GiaTri;
+        private System.Windows.Forms.Label lblMaTaiKhoan;
+        private System.Windows.Forms.Label lblEmail_GiaTri;
+        private System.Windows.Forms.Label lblEmail;
+        private System.Windows.Forms.Label lblSoDienThoai_GiaTri;
+        private System.Windows.Forms.Label lblSoDienThoai;
     }
 }

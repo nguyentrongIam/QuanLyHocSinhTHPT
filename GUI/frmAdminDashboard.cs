@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyHocSinhTHPT.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace QuanLyHocSinhTHPT.GUI
         public frmAdminDashboard()
         {
             InitializeComponent();
+
             this.StartPosition = FormStartPosition.CenterScreen;
             this.TopMost = false;
 
@@ -49,6 +51,8 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btnQuanLyGiaoVien_Click(object sender, EventArgs e)
         {
+            ucQuanLyGiaoVien uc = new ucQuanLyGiaoVien();
+            addUserControl(uc);
         }
 
         private void btnQuanLyLopHoc_Click(object sender, EventArgs e)

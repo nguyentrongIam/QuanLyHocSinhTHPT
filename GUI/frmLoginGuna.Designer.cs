@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginGuna));
             this.lblXinChao = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblHuongDan = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtTenDangNhap = new Guna.UI2.WinForms.Guna2TextBox();
@@ -201,9 +202,9 @@
             this.Controls.Add(this.lblHuongDan);
             this.Controls.Add(this.lblXinChao);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "frmLoginGuna";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLoginGuna";
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();

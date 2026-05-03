@@ -17,8 +17,8 @@ namespace QuanLyHocSinhTHPT
         {
             InitializeComponent();
             pnThongTin.Hide();
-            cbb_namhoc.SelectedIndex = -1;
-            cbb_lophoc.SelectedIndex = -1;
+            
+            
         }
 
         private void btn_lammoi_Click(object sender, EventArgs e)
@@ -42,6 +42,8 @@ namespace QuanLyHocSinhTHPT
             cbb_lophoc.DisplayMember = "TenLop";
             cbb_lophoc.ValueMember = "MaLopHoc";
             cbb_lophoc.DataSource = ds.Tables[0];
+            cbb_lophoc.SelectedIndex = -1;
+
         }
         public void HienComBoBoxNamHoc()
         {
@@ -50,6 +52,7 @@ namespace QuanLyHocSinhTHPT
             cbb_namhoc.DisplayMember = "TenNamHoc";
             cbb_namhoc.ValueMember = "MaNamHoc";
             cbb_namhoc.DataSource = ds.Tables[0];
+            cbb_namhoc.SelectedIndex = -1;
         }
 
         private void uc_QuanLyHocSinh_Load(object sender, EventArgs e)
