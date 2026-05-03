@@ -16,11 +16,11 @@ namespace QuanLyHocSinhTHPT.DAO
     public class HocSinhDAO
     {
         private string connectionString = "Server=.;Database=QuanLyHocSinh_DB;Integrated Security=True;";
-        public DataSet XemDanhSachHocSinh(string tenlop, string namhoc)
+        public DataSet XemDanhSachHocSinh()
         {
             DataSet ds;
             //Chuoi truy van csdl
-            string sSQL = $" select hs.MaHocSinh,hs.HoTen,hs.NgaySinh,hs.GioiTinh,hs.DiaChi,hs.TenPhuHuynh,hs.SDTPhuHuynh from HocSinh hs join PhanLopHocSinh plhs on hs.MaHocSinh = plhs.MaHocSinh join LopHoc lh on plhs.MaLopHoc = lh.MaLopHoc join NamHoc nh on lh.MaNamHoc=nh.MaNamHoc where lh.TenLop = '{tenlop}' and nh.TenNamHoc = '{namhoc}'";
+            string sSQL = $" select hs.MaHocSinh,hs.HoTen,hs.NgaySinh,hs.GioiTinh,hs.DiaChi,hs.TenPhuHuynh,hs.SDTPhuHuynh from HocSinh hs  ";
 
             //Khoi tao doi tuong
             Database db = new Database();
@@ -168,6 +168,20 @@ namespace QuanLyHocSinhTHPT.DAO
             object kq = ds.Tables[0].Rows[0][0];
             return Convert.ToInt32(kq);
 
+        }
+        public DataSet TimKiemHocSinh(string name)
+        {
+            DataSet ds;
+            Database db = new Database();
+            string sSQL = $"\r\nselect * from HocSinh where HoTen like '%{name}%'";
+            ds = db.XemDanhSach(sSQL);
+            if (ds == null)
+            {
+                MessageBox.Show("Loi truy van ! ");
+                return null;
+            }
+            return ds;
+        
         }
     }
 }

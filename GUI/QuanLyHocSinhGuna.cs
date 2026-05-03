@@ -53,7 +53,7 @@ namespace QuanLyHocSinhTHPT.GUI
                 {
                     HocSinhBUS hsBUS = new HocSinhBUS();
                     DataSet ds;
-                    ds = hsBUS.LayDanhSachTatCaSinhVien(malop,nienkhoa);
+                    ds = hsBUS.LayDanhSachTatCaSinhVien();
                     gird_danhsach.DataSource = ds.Tables[0];
                     //Hiển thị lên top
                     lbl_malop_top.Text = malop;

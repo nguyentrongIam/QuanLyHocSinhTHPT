@@ -13,11 +13,11 @@ namespace QuanLyHocSinhTHPT.BUS
 {
     public class HocSinhBUS
     {
-        public DataSet LayDanhSachTatCaSinhVien(string tenlop, string namhoc)
+        public DataSet LayDanhSachTatCaSinhVien()
         {
             DataSet ds;
             HocSinhDAO hsDAO = new HocSinhDAO();
-            ds = hsDAO.XemDanhSachHocSinh(tenlop, namhoc);
+            ds = hsDAO.XemDanhSachHocSinh();
             return ds;
         }
         public int CapNhatDiem(DiemDTO d_dto)
@@ -65,6 +65,13 @@ namespace QuanLyHocSinhTHPT.BUS
             return maCuoi + 1;
 
 
+        }
+        public DataSet TimKiemHocSinhBUS(string name)
+        {
+            HocSinhDAO dao = new HocSinhDAO();
+            DataSet ds;
+            ds = dao.TimKiemHocSinh(name);
+            return ds;
         }
     }
 }
