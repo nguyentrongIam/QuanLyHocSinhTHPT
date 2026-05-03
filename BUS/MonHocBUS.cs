@@ -7,10 +7,17 @@ using QuanLyHocSinhTHPT.GUI;
 using QuanLyHocSinhTHPT.DTO;
 using QuanLyHocSinhTHPT.DAO;
 using QuanLyHocSinhTHPT.BUS;
+using System.Data;
 
 namespace QuanLyHocSinhTHPT.BUS
 {
-    internal class MonHocBUS
+    public class MonHocBUS
     {
+        public DataSet GetSubJect()
+        {
+            MonHocDAO dao = new MonHocDAO();
+            DataSet ds = dao.HienThiMonHoc();
+            return ds;
+        }
     }
 }

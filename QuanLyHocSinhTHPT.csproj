@@ -41,6 +41,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -129,6 +130,12 @@
     <Compile Include="GUI\ucProfile.Designer.cs">
       <DependentUpon>ucProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucQuanLyDiem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucQuanLyDiem.Designer.cs">
+      <DependentUpon>ucQuanLyDiem.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucQuanLyGiaoVien.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -169,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucProfile.resx">
       <DependentUpon>ucProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucQuanLyDiem.resx">
+      <DependentUpon>ucQuanLyDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucQuanLyGiaoVien.resx">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>

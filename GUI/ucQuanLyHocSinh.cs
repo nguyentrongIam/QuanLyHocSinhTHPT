@@ -30,12 +30,11 @@ namespace QuanLyHocSinhTHPT
         }
         public void HienDanhSach()
         {
-            string tenlop, namhoc;
-            tenlop = cbb_lophoc.Text;
-            namhoc = cbb_namhoc.Text;
+            
+           
             DataSet ds;
             HocSinhBUS hsBUS = new HocSinhBUS();
-            ds = hsBUS.LayDanhSachTatCaSinhVien(tenlop, namhoc);
+            ds = hsBUS.LayDanhSachTatCaSinhVien();
             gird_danhsach.DataSource = ds.Tables[0];
         }
         public void HienComBoBoxNamHoc()
@@ -77,13 +76,7 @@ namespace QuanLyHocSinhTHPT
 
         private void uc_QuanLyHocSinh_Load(object sender, EventArgs e)
         {
-            HienComBoBoxNamHoc();
-            // Mặc định chọn năm đầu tiên nếu có dữ liệu để kích hoạt load lớp
-            if (cbb_namhoc.Items.Count > 0)
-            {
-                cbb_namhoc.SelectedIndex = 0;
-                HienComBoBoxTenLop();
-            }
+            
         }
 
         private void gird_danhsach_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -212,14 +205,7 @@ namespace QuanLyHocSinhTHPT
             }
         }
 
-        private void cbb_lophoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void cbb_namhoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            HienComBoBoxTenLop();
-        }
+       
 
         private void gird_danhsach_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -250,6 +236,19 @@ namespace QuanLyHocSinhTHPT
             {
 
             }
+        }
+
+        private void btn_xoa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button2_Click_1(object sender, EventArgs e)
+        {
+            HocSinhBUS bus = new HocSinhBUS();
+            DataSet ds;
+            ds = bus.TimKiemHocSinhBUS(txt_timkiem.Text);
+            gird_danhsach.DataSource = ds.Tables[0];
         }
     }
 }//
