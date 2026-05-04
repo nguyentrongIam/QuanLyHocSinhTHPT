@@ -75,6 +75,56 @@ namespace QuanLyHocSinhTHPT.DAO
         }
 
 
+        public DataSet LayDanhSachTaiKhoan(string timKiem)
+        {
+            string query = @"
+                SELECT MaTaiKhoan, TenDangNhap, MatKhau, MaVaiTro, TrangThai,
+                       CASE MaVaiTro 
+                           WHEN 1 THEN N'Quản trị viên'
+                           WHEN 2 THEN N'Giáo viên'
+                           WHEN 3 THEN N'Học sinh'
+                           ELSE N'Không xác định'
+                       END AS TenVaiTro
+                FROM TaiKhoan 
+                WHERE TenDangNhap LIKE @timKiem";
+
+            // 1. Khởi tạo class DataProvider của bạn
+            DataProvider db = new DataProvider();
+
+            // 2. Tạo mảng tham số đúng chuẩn SqlParameter
+            SqlParameter[] pars = {
+                new SqlParameter("@timKiem", "%" + timKiem + "%")
+            };
+
+            // 3. Gọi hàm XemDanhSach (hàm này đã trả về sẵn DataSet rồi)
+            return db.XemDanhSach(query, pars);
+        }
+
+        public bool CapNhatTaiKhoan(int maTaiKhoan, string matKhau, int maVaiTro, bool trangThai)
+        {
+            string query = "UPDATE TaiKhoan SET MatKhau = @MatKhau, MaVaiTro = @MaVaiTro, TrangThai = @TrangThai WHERE MaTaiKhoan = @MaTaiKhoan";
+            DataProvider db = new DataProvider();
+            SqlParameter[] pars = {
+                new SqlParameter("@MaTaiKhoan", maTaiKhoan),
+                new SqlParameter("@MatKhau", matKhau),
+                new SqlParameter("@MaVaiTro", maVaiTro),
+                new SqlParameter("@TrangThai", trangThai)
+            };
+            return db.ThucThi(query, pars);
+        }
+
+        // Hàm xóa tài khoản
+        public bool XoaTaiKhoan(int maTaiKhoan)
+        {
+            string query = "DELETE FROM TaiKhoan WHERE MaTaiKhoan = @MaTaiKhoan";
+            DataProvider db = new DataProvider();
+            SqlParameter[] pars = {
+                new SqlParameter("@MaTaiKhoan", maTaiKhoan)
+            };
+            return db.ThucThi(query, pars);
+        }
+
+
     }
     
 }

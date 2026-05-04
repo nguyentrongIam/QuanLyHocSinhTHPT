@@ -73,6 +73,8 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btnQuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
+            ucQuanLyTaiKhoan uc = new ucQuanLyTaiKhoan();
+            addUserControl(uc);
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
