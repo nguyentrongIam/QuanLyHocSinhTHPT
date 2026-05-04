@@ -138,19 +138,11 @@
     <Compile Include="GUI\ucQuanLyGiaoVien.Designer.cs">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="GUI\ucQuanLyLopHoc_GV.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\ucQuanLyLopHoc_GV.Designer.cs">
-      <DependentUpon>ucQuanLyLopHoc_GV.cs</DependentUpon>
-=======
     <Compile Include="GUI\ucQuanLyTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="GUI\ucQuanLyTaiKhoan.Designer.cs">
       <DependentUpon>ucQuanLyTaiKhoan.cs</DependentUpon>
->>>>>>> 9b8a1937aa6688336151ad3553aa2b56f0dce985
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
