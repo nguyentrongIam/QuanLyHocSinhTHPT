@@ -18,7 +18,7 @@ namespace QuanLyHocSinhTHPT.DAO
             GiaoVienDTO gv = null;
             string sSQL = $"SELECT * FROM GiaoVien WHERE MaTaiKhoan='{id}'";
             Database db = new Database();
-            DataSet ds = db.XemDanhSach(sSQL);
+            DataSet ds = db.XemDanhSach1(sSQL);
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
@@ -176,6 +176,43 @@ namespace QuanLyHocSinhTHPT.DAO
             // SỬA TẠI ĐÂY: Dùng XemDanhSach thay vì ThucThiCoThamSo
             return db.XemDanhSach(sql, parameters);
         }
-     
+        public int LayMaGVTuMaTK(int maTK)
+        {
+            Database db = new Database();
+            int maGV = -1; // Giá trị mặc định nếu không tìm thấy
+
+            // Câu lệnh SQL chuẩn theo ảnh database của bạn
+            string sql = "SELECT MaGiaoVien FROM GiaoVien WHERE MaTaiKhoan = @MaTK";
+
+            SqlParameter[] sqlParameters = new SqlParameter[1];
+            sqlParameters[0] = new SqlParameter("@MaTK", SqlDbType.Int);
+            sqlParameters[0].Value = maTK;
+
+            try
+            {
+                // Gọi hàm XemDanhSach trả về DataSet
+                DataSet ds = db.XemDanhSach2(sql, sqlParameters);
+
+                // Kiểm tra DataSet có dữ liệu không trước khi truy cập
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    object result = ds.Tables[0].Rows[0]["MaGiaoVien"];
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        maGV = Convert.ToInt32(result);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Bạn có thể dùng MessageBox.Show(ex.Message) ở đây để debug nhanh nếu muốn
+                throw ex;
+            }
+
+            return maGV; // QUAN TRỌNG: Phải có dòng này để trả về kết quả
+        }
+       
+
     }
     }

@@ -287,5 +287,10 @@ namespace QuanLyHocSinhTHPT.GUI
 
             }
         }
+
+        private void gird_danhsach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

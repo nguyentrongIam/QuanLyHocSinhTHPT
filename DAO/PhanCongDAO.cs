@@ -23,7 +23,7 @@ namespace QuanLyHocSinhTHPT.DAO
                          "JOIN MonHoc M ON PC.MaMonHoc = M.MaMonHoc " +
                          "JOIN GiaoVien GV ON PC.MaGiaoVien = GV.MaGiaoVien";
 
-            DataSet ds = db.XemDanhSach(sql);
+            DataSet ds = db.XemDanhSach1(sql);
             return ds.Tables[0];
 }
 

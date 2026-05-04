@@ -49,6 +49,14 @@ namespace QuanLyHocSinhTHPT.GUI
                     frmAdminDashboard frm =new frmAdminDashboard();
                     frm.ShowDialog();
                     Close();
+                    
+                }
+                if (tkDangNhap.MaVaiTro == 2)
+                {
+                    this.Hide();
+                    DashboardGiaoVien frm = new DashboardGiaoVien();
+                    frm.ShowDialog();
+                    Close();
                 }
             } 
             else

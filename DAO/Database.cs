@@ -21,7 +21,7 @@ namespace QuanLyHocSinhTHPT.DAO
        
 
         // Lấy DataTable (dùng cho SELECT)
-        public DataSet XemDanhSach(string sSQL)
+        public DataSet XemDanhSach1(string sSQL)
         {
             DataSet ds = new DataSet();
             SqlConnection myConnection = new SqlConnection(sCon);
@@ -41,27 +41,18 @@ namespace QuanLyHocSinhTHPT.DAO
             return ds;
         }
         // Hàm XemDanhSach mới hỗ trợ truyền tham số (Dùng cho SELECT có điều kiện WHERE)
-        public DataSet XemDanhSach(string sSQL, SqlParameter[] sqlParams)
+        public DataSet XemDanhSach2(string query, SqlParameter[] parameters = null)
         {
             DataSet ds = new DataSet();
-            using (SqlConnection myConnection = new SqlConnection(sCon))
+            using (SqlConnection conn = new SqlConnection(sCon))
             {
-                try
+                SqlCommand cmd = new SqlCommand(query, conn);
+                if (parameters != null)
                 {
-                    myConnection.Open();
-                    SqlCommand cmd = new SqlCommand(sSQL, myConnection);
-                    if (sqlParams != null)
-                    {
-                        cmd.Parameters.AddRange(sqlParams); // Nạp các biến @maLop, @maMon... vào câu lệnh
-                    }
-                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
-                    sda.Fill(ds);
+                    cmd.Parameters.AddRange(parameters); // QUAN TRỌNG: Phải có dòng này
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi! Chi tiết: " + ex.Message);
-                    ds = null;
-                }
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(ds);
             }
             return ds;
         }

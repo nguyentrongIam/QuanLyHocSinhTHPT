@@ -1,13 +1,14 @@
-﻿using System;
+﻿using QuanLyHocSinhTHPT.BUS;
+using QuanLyHocSinhTHPT.DAO;
+using QuanLyHocSinhTHPT.DTO;
+using QuanLyHocSinhTHPT.GUI;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyHocSinhTHPT.GUI;
-using QuanLyHocSinhTHPT.DTO;
-using QuanLyHocSinhTHPT.DAO;
-using QuanLyHocSinhTHPT.BUS;
-using System.Data;
+using System.Windows.Forms;
 
 namespace QuanLyHocSinhTHPT.BUS
 {
@@ -18,6 +19,12 @@ namespace QuanLyHocSinhTHPT.BUS
             MonHocDAO dao = new MonHocDAO();
             DataSet ds = dao.HienThiMonHoc();
             return ds;
+        }
+        public DataSet LayMonDayCuaGV(int maGV)
+        {
+            MonHocDAO dao = new MonHocDAO();
+
+            return dao.LayMonDayCuaGV(maGV);
         }
     }
 }

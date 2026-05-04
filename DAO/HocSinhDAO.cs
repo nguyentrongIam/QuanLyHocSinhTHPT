@@ -25,7 +25,7 @@ namespace QuanLyHocSinhTHPT.DAO
             //Khoi tao doi tuong
             Database db = new Database();
 
-            ds = db.XemDanhSach(sSQL);
+            ds = db.XemDanhSach1(sSQL);
             if (ds == null)
             {
                 MessageBox.Show("Loi truy van ! ");
@@ -161,7 +161,7 @@ namespace QuanLyHocSinhTHPT.DAO
             Database db = new Database();
 
             string sql = "SELECT MAX(MaHocSinh) FROM HocSinh";
-            DataSet ds = db.XemDanhSach(sql);
+            DataSet ds = db.XemDanhSach1(sql);
             //.table là bảng đầu tiên
             //.rows[0] là dòng đầu tiên
             //[0] ở cuối là cột đầu tiên
@@ -174,7 +174,7 @@ namespace QuanLyHocSinhTHPT.DAO
             DataSet ds;
             Database db = new Database();
             string sSQL = $"\r\nselect * from HocSinh where HoTen like '%{name}%'";
-            ds = db.XemDanhSach(sSQL);
+            ds = db.XemDanhSach1(sSQL);
             if (ds == null)
             {
                 MessageBox.Show("Loi truy van ! ");
