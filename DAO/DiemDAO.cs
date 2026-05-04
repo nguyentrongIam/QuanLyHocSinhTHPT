@@ -132,6 +132,29 @@ namespace QuanLyHocSinhTHPT.DAO
                 return false;
             }
         }
+        public DataSet LayBangDiemTheoLop(string maLop, int maMon, int hocky, string namHoc)
+        {
+            Database db = new Database();
+            // Câu lệnh SQL lấy học sinh của lớp và điểm môn tương ứng
+            string sql = @"SELECT hs.MaHocSinh, hs.HoTen, d.DiemMieng, d.Diem15PhutLan1, 
+                          d.Diem15PhutLan2, d.DiemGiuKy, d.DiemCuoiKy 
+                   FROM HocSinh hs
+                   LEFT JOIN Diem d ON hs.MaHocSinh = d.MaHocSinh 
+                   WHERE hs.MaLopHoc = @maLop 
+                     AND d.MaMonHoc = @maMon 
+                     AND d.HocKy = @hocky 
+                     AND d.NamHoc = @namHoc";
+
+            SqlParameter[] parameters = {
+            new SqlParameter("@maLop", maLop),
+            new SqlParameter("@maMon", maMon),
+            new SqlParameter("@hocky", hocky),
+            new SqlParameter("@namHoc", namHoc)
+    };
+
+            // Sử dụng hàm XemDanhSach trả về DataSet mà bạn đã sửa lỗi trước đó
+            return db.XemDanhSach(sql, parameters);
+        }
 
 
     }

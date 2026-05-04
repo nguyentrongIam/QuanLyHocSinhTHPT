@@ -42,5 +42,12 @@ namespace QuanLyHocSinhTHPT.BUS
             DiemDAO dao = new DiemDAO();
             return dao.XoaDiemDAO(maDiem);
         }
+        public DataSet LayBangDiemTheoLop(string maLop, int maMon, int hocky, string namHoc)
+        {
+            DiemDAO dao = new DiemDAO();
+
+            // BUS đóng vai trò trung chuyển, gọi trực tiếp hàm từ DAO
+            return dao.LayBangDiemTheoLop(maLop, maMon, hocky, namHoc);
+        }
     }
 }

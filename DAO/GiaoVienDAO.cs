@@ -18,7 +18,7 @@ namespace QuanLyHocSinhTHPT.DAO
             GiaoVienDTO gv = null;
             string sSQL = $"SELECT * FROM GiaoVien WHERE MaTaiKhoan='{id}'";
             Database db = new Database();
-            DataSet ds=db.XemDanhSach(sSQL);
+            DataSet ds = db.XemDanhSach(sSQL);
             if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
@@ -27,10 +27,10 @@ namespace QuanLyHocSinhTHPT.DAO
                 gv.HoTen = row["HoTen"].ToString();
                 gv.NgaySinh = Convert.ToDateTime(row["NgaySinh"]);
                 gv.GioiTinh = row["GioiTinh"].ToString();
-                gv.DiaChi = row["DiaChi"].ToString() ;
+                gv.DiaChi = row["DiaChi"].ToString();
                 gv.SoDienThoai = row["SoDienThoai"].ToString();
-                gv.Email=row["Email"].ToString();
-            }    
+                gv.Email = row["Email"].ToString();
+            }
             return gv;
         }
         public bool SuaGiaoVien(GiaoVienDTO gv)
@@ -78,7 +78,7 @@ namespace QuanLyHocSinhTHPT.DAO
                 };
 
                 // Truyền cả câu lệnh và Parameter vào hàm xemdanhsach
-                return db.XemDanhSach(sSQL,parameters);
+                return db.XemDanhSach(sSQL, parameters);
             }
         }
 
@@ -162,5 +162,20 @@ namespace QuanLyHocSinhTHPT.DAO
             return null;
         }
 
+        // Lấy ra các lớp mà giáo viên này được phân công dạy
+        public DataSet LayLopHocTheoGiaoVien(int maGV)
+        {
+            // Sử dụng đối tượng db (DataProvider) đã khai báo ở đầu Class thay vì tạo mới Database db
+            string sql = "SELECT DISTINCT pc.MaLopHoc, l.TenLop FROM PhanCongGiangDay pc " +
+                         "JOIN LopHoc l ON pc.MaLopHoc = l.MaLopHoc WHERE pc.MaGiaoVien = @maGV";
+
+            SqlParameter[] parameters = {
+        new SqlParameter("@maGV", maGV)
+    };
+
+            // SỬA TẠI ĐÂY: Dùng XemDanhSach thay vì ThucThiCoThamSo
+            return db.XemDanhSach(sql, parameters);
+        }
+     
     }
-}
+    }

@@ -40,6 +40,31 @@ namespace QuanLyHocSinhTHPT.DAO
 
             return ds;
         }
+        // Hàm XemDanhSach mới hỗ trợ truyền tham số (Dùng cho SELECT có điều kiện WHERE)
+        public DataSet XemDanhSach(string sSQL, SqlParameter[] sqlParams)
+        {
+            DataSet ds = new DataSet();
+            using (SqlConnection myConnection = new SqlConnection(sCon))
+            {
+                try
+                {
+                    myConnection.Open();
+                    SqlCommand cmd = new SqlCommand(sSQL, myConnection);
+                    if (sqlParams != null)
+                    {
+                        cmd.Parameters.AddRange(sqlParams); // Nạp các biến @maLop, @maMon... vào câu lệnh
+                    }
+                    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                    sda.Fill(ds);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi! Chi tiết: " + ex.Message);
+                    ds = null;
+                }
+            }
+            return ds;
+        }
         // Thực thi lệnh INSERT, UPDATE, DELETE
         public int ThucThi(string sSQL)
         {
