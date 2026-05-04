@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace QuanLyHocSinhTHPT.DTO
 {
     public static class Session
-    {
+    {//
         public static TaiKhoanDTO TaiKhoanHienTai { get; set; }
     }
 }

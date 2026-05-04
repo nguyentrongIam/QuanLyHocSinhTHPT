@@ -1,11 +1,12 @@
-﻿using System;
+﻿using QuanLyHocSinhTHPT.DAO;
+using QuanLyHocSinhTHPT.DTO;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuanLyHocSinhTHPT.DTO;
-using QuanLyHocSinhTHPT.DAO;
-using System.Data;
 
 namespace QuanLyHocSinhTHPT.BUS
 {
@@ -81,6 +82,55 @@ namespace QuanLyHocSinhTHPT.BUS
 
             // Trả về DataTable để GUI gán vào DataSource của ComboBox
             return dao.LayDS();
+        }
+        private GiaoVienDAO gvDAO = new GiaoVienDAO();
+
+        // Lấy thông tin giáo viên dựa vào ID tài khoản (dùng khi vừa đăng nhập xong)
+        public GiaoVienDTO LayThongTinGiaoVienQuaTaiKhoan(int accountID)
+        {
+            return gvDAO.getGiaoVienByAccountID(accountID);
+        }
+
+        // Lấy danh sách lớp học mà giáo viên đó phụ trách
+        public DataSet LayLopHocCuaGiaoVien(int maGV)
+        {
+            // Có thể thêm logic kiểm tra maGV > 0 ở đây
+            return gvDAO.LayLopHocTheoGiaoVien(maGV);
+        }
+
+        // Cập nhật thông tin cá nhân của giáo viên
+        public bool CapNhatThongTin(GiaoVienDTO gv)
+        {
+            // Logic nghiệp vụ: Ví dụ không cho phép để trống họ tên
+            if (string.IsNullOrEmpty(gv.HoTen))
+            {
+                return false;
+            }
+            return gvDAO.SuaGiaoVien(gv);
+        }
+
+        // Lấy toàn bộ danh sách giáo viên (cho Admin)
+        public DataSet LayTatCaGiaoVien(string query = "")
+        {
+            return gvDAO.LayDanhSach(query);
+        }
+
+        // Kiểm tra xem giáo viên có đang chủ nhiệm hay dạy lớp nào không trước khi xóa
+        public bool CoTheXoaGiaoVien(int maGV)
+        {
+            return !gvDAO.KiemTraPhatSinhDuLieu(maGV);
+        }
+       
+        public DataSet LayBangDiemTheoLop(string maLop, int maMon, int hocky, string namHoc)
+        {
+            DiemDAO dao = new DiemDAO();
+            // Tầng BUS gọi tầng DAO xử lý
+            return dao.LayBangDiemTheoLop(maLop, maMon, hocky, namHoc);
+        }
+        public int LayMaGVHienTai(int maTK)
+        {
+            GiaoVienDAO dao = new GiaoVienDAO();
+            return dao.LayMaGVTuMaTK(maTK);
         }
     }
 }

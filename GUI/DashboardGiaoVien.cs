@@ -1,4 +1,6 @@
-﻿using System;
+﻿using QuanLyHocSinhTHPT.BUS;
+using QuanLyHocSinhTHPT.DTO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,6 +76,33 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btnQuanLyDiemSo_Click(object sender, EventArgs e)
         {
+
+        }
+
+       
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            if (Session.TaiKhoanHienTai != null)
+            {
+                // Lấy MaTaiKhoan (giả sử trong TaiKhoanDTO của bạn có thuộc tính này)
+                int maTK = Session.TaiKhoanHienTai.MaTaiKhoan;
+
+                GiaoVienBUS busGV = new GiaoVienBUS();
+                int maGV = busGV.LayMaGVHienTai(maTK);
+
+                if (maGV != -1)
+                {
+                    ucQuanLyLopHoc__GV uc = new ucQuanLyLopHoc__GV(maGV);
+                    pn_body.Controls.Clear();
+                    uc.Dock = DockStyle.Fill;
+                    pn_body.Controls.Add(uc);
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản này chưa được gán cho giáo viên nào!");
+                }
+            }
 
         }
     }
