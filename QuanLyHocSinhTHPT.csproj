@@ -176,13 +176,9 @@
     <EmbeddedResource Include="GUI\ucQuanLyGiaoVien.resx">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="GUI\ucQuanLyLopHoc_GV.resx">
-      <DependentUpon>ucQuanLyLopHoc_GV.cs</DependentUpon>
-=======
+
     <EmbeddedResource Include="GUI\ucQuanLyTaiKhoan.resx">
       <DependentUpon>ucQuanLyTaiKhoan.cs</DependentUpon>
->>>>>>> 9b8a1937aa6688336151ad3553aa2b56f0dce985
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
