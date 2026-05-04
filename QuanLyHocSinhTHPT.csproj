@@ -138,6 +138,10 @@
     <Compile Include="GUI\ucQuanLyGiaoVien.Designer.cs">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucQuanLyLopHoc_GV.cs" />
+    <Compile Include="GUI\ucQuanLyLopHoc_GV.Designer.cs">
+      <DependentUpon>ucQuanLyLopHoc_GV.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucQuanLyTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -176,7 +180,9 @@
     <EmbeddedResource Include="GUI\ucQuanLyGiaoVien.resx">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
-
+    <EmbeddedResource Include="GUI\ucQuanLyLopHoc_GV.resx">
+      <DependentUpon>ucQuanLyLopHoc_GV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucQuanLyTaiKhoan.resx">
       <DependentUpon>ucQuanLyTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
