@@ -30,5 +30,16 @@ namespace QuanLyHocSinhTHPT.DAO
             }
             return ds;
         }
+        public DataTable LayDS()
+        {
+            string sql = "SELECT MaLopHoc, TenLop FROM LopHoc";
+            Database db = new Database();
+            DataSet ds = db.XemDanhSach(sql); 
+
+            // Kiểm tra null và trả về Table đầu tiên
+            if (ds != null && ds.Tables.Count > 0)
+                return ds.Tables[0];
+            return null;
+        }
     }
 }

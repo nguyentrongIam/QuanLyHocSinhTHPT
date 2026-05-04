@@ -61,6 +61,8 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btnPhanCongGiangDay_Click(object sender, EventArgs e)
         {
+            ucPhanCongGiangDay uc = new ucPhanCongGiangDay();
+            addUserControl(uc);
         }
 
         private void btnQuanLyDiemSo_Click(object sender, EventArgs e)

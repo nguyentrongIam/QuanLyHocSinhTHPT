@@ -151,6 +151,16 @@ namespace QuanLyHocSinhTHPT.DAO
             SqlParameter[] pars = { new SqlParameter("@MaGV", maGiaoVien) };
             return db.ThucThi(query, pars);
         }
-        
+        public DataTable LayDS()
+        {
+            string sql = "SELECT MaGiaoVien, HoTen FROM GiaoVien";
+            DataSet ds = db.XemDanhSach(sql); // Hàm gốc của bạn trả về DataSet
+
+            // Sửa lỗi CS0029: Chuyển từ DataSet sang DataTable
+            if (ds != null && ds.Tables.Count > 0)
+                return ds.Tables[0];
+            return null;
+        }
+
     }
 }

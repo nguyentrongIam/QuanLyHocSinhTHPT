@@ -74,5 +74,13 @@ namespace QuanLyHocSinhTHPT.BUS
         {
             return gvDao.SuaGiaoVien(gv);
         }
+
+        public DataTable LayDanhSach()
+        {
+            GiaoVienDAO dao = new GiaoVienDAO();
+
+            // Trả về DataTable để GUI gán vào DataSource của ComboBox
+            return dao.LayDS();
+        }
     }
 }

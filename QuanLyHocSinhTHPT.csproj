@@ -60,10 +60,12 @@
     <Compile Include="BUS\MonHocBUS.cs" />
     <Compile Include="BUS\NamHocBUS.cs" />
     <Compile Include="BUS\NhanVienBUS.cs" />
+    <Compile Include="BUS\PhanCongBUS.cs" />
     <Compile Include="BUS\TaiKhoanBUS.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\GiaoVienDAO.cs" />
     <Compile Include="DAO\NamHocDAO.cs" />
+    <Compile Include="DAO\PhanCongDAO.cs" />
     <Compile Include="DTO\GiaoVienDTO.cs" />
     <Compile Include="DTO\NguoiDungDTO.cs" />
     <Compile Include="DTO\PhanCongGiangDayDTO.cs" />
@@ -124,6 +126,12 @@
     <Compile Include="GUI\QuanLyHocSinhGuna.Designer.cs">
       <DependentUpon>QuanLyHocSinhGuna.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucPhanCongGiangDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucPhanCongGiangDay.Designer.cs">
+      <DependentUpon>ucPhanCongGiangDay.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucProfile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\QuanLyHocSinhGuna.resx">
       <DependentUpon>QuanLyHocSinhGuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucPhanCongGiangDay.resx">
+      <DependentUpon>ucPhanCongGiangDay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucProfile.resx">
       <DependentUpon>ucProfile.cs</DependentUpon>
