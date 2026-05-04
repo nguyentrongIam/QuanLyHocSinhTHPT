@@ -18,49 +18,47 @@ namespace QuanLyHocSinhTHPT.DAO
         private string connectionString = "Server=.;Database=QuanLyHocSinh_DB;Integrated Security=True;";
         public DataSet XemDiem(string tenmonhoc, string lophoc, string namhoc, string hocky)
         {
-            string sSQL = $@"SELECT d.MaDiem, hs.MaHocSinh, hs.HoTen, d.DiemMieng, d.Diem15Phut_1, 
-                            d.Diem15Phut_2, d.DiemGiuaKy, d.DiemCuoiKy, 
-                            mh.TenMonHoc, d.HocKy 
-                     FROM Diem d 
-                     JOIN MonHoc mh ON d.MaMonHoc = mh.MaMonHoc 
-                     JOIN HocSinh hs ON d.MaHocSinh = hs.MaHocSinh 
-                     JOIN LopHoc lh ON d.MaLopHoc = lh.MaLopHoc 
-                     WHERE mh.TenMonHoc LIKE N'%{tenmonhoc}%' 
-                       AND d.NamHoc = '{namhoc}' 
-                       AND lh.TenLop LIKE N'{lophoc}' 
+            string sSQL = $@"SELECT ... 
+                     WHERE ...
+                       AND REPLACE(d.NamHoc, ' ', '') = '{namhoc.Replace(" ", "")}' 
+                       AND WHERE lh.TenLop LIKE N'%' + @tenLop + '%'
                        AND d.HocKy = {hocky}
-                     ORDER BY hs.MaHocSinh ASC"; // Thêm dòng này để sắp xếp tăng dần
+                     ORDER BY hs.MaHocSinh ASC";
 
             Database db = new Database();
-            return db.XemDanhSach(sSQL);
+            return db.XemDanhSach1(sSQL);
         }
-        public DataTable LayDanhSachChuaCoDiem(string maLop,int maMon,int hocKy,string namHoc )
+        public DataTable LayDanhSachChuaCoDiem(string maLop, int maMon, int hocKy, string namHoc)
         {
+            string namHocClean = namHoc.Replace(" ", "").Trim();
+            Database db = new Database();
+
+            // Dùng LEFT JOIN để tìm học sinh có trong lớp nhưng KHÔNG có dòng điểm tương ứng
             string sSQL = @"SELECT 
                         NULL AS MaDiem, 
                         hs.MaHocSinh, 
                         hs.HoTen, 
-                        d.DiemMieng, 
-                        d.Diem15Phut_1, 
-                        d.Diem15Phut_2, 
-                        d.DiemGiuaKy, 
-                        d.DiemCuoiKy
+                        NULL AS DiemMieng, 
+                        NULL AS Diem15Phut_1, 
+                        NULL AS Diem15Phut_2, 
+                        NULL AS DiemGiuaKy, 
+                        NULL AS DiemCuoiKy
                     FROM HocSinh hs
-                    JOIN PhanLopHocSinh pl ON hs.MaHocSinh = pl.MaHocSinh
+                    INNER JOIN PhanLopHocSinh pl ON hs.MaHocSinh = pl.MaHocSinh
                     LEFT JOIN Diem d ON hs.MaHocSinh = d.MaHocSinh 
                         AND d.MaMonHoc = @MaMon 
                         AND d.HocKy = @HK 
-                        AND d.NamHoc = @Nam
+                        AND REPLACE(CAST(d.NamHoc AS NVARCHAR), ' ', '') = @Nam
                     WHERE pl.MaLopHoc = @MaLop 
-                      AND d.MaDiem IS NULL";
+                      AND d.MaDiem IS NULL"; // Chỉ lấy những người chưa có mã điểm
 
             SqlParameter[] sqlParams = {
-                new SqlParameter("@MaLop", maLop),
-                new SqlParameter("@MaMon", maMon),
-                new SqlParameter("@HK", hocKy),
-                new SqlParameter("@Nam", namHoc)
-            };
-            Database db = new Database();
+        new SqlParameter("@MaLop", maLop),
+        new SqlParameter("@MaMon", maMon),
+        new SqlParameter("@HK", hocKy),
+        new SqlParameter("@Nam", namHocClean)
+    };
+
             return db.LayDuLieuCoThamSo(sSQL, sqlParams);
         }
         public bool ThemDiem(string maHS, string malop, int maMon, int hk, string nam, float diemMieng, float diem15plan1, float diem15plan2, float gk, float ck)
@@ -132,28 +130,29 @@ namespace QuanLyHocSinhTHPT.DAO
                 return false;
             }
         }
-        public DataSet LayBangDiemTheoLop(string maLop, int maMon, int hocky, string namHoc)
+        public DataSet LayBangDiemTheoLop(string tenLop, int maMon, int hocky, string namHoc)
         {
             Database db = new Database();
-            // Câu lệnh SQL lấy học sinh của lớp và điểm môn tương ứng
-            string sql = @"SELECT hs.MaHocSinh, hs.HoTen, d.DiemMieng, d.Diem15PhutLan1, 
-                          d.Diem15PhutLan2, d.DiemGiuKy, d.DiemCuoiKy 
-                   FROM HocSinh hs
-                   LEFT JOIN Diem d ON hs.MaHocSinh = d.MaHocSinh 
-                   WHERE hs.MaLopHoc = @maLop 
+            // Thêm d.MaDiem vào đầu danh sách SELECT
+            string sql = @"SELECT d.MaDiem, hs.MaHocSinh, hs.HoTen, 
+                          d.DiemMieng, d.Diem15Phut_1, d.Diem15Phut_2, 
+                          d.DiemGiuaKy, d.DiemCuoiKy
+                   FROM Diem d
+                   INNER JOIN HocSinh hs ON d.MaHocSinh = hs.MaHocSinh
+                   INNER JOIN LopHoc lh ON d.MaLopHoc = lh.MaLopHoc
+                   WHERE lh.TenLop = @tenLop 
                      AND d.MaMonHoc = @maMon 
                      AND d.HocKy = @hocky 
-                     AND d.NamHoc = @namHoc";
+                     AND REPLACE(CAST(d.NamHoc AS NVARCHAR), ' ', '') = @namHoc";
 
             SqlParameter[] parameters = {
-            new SqlParameter("@maLop", maLop),
-            new SqlParameter("@maMon", maMon),
-            new SqlParameter("@hocky", hocky),
-            new SqlParameter("@namHoc", namHoc)
+        new SqlParameter("@tenLop", SqlDbType.NVarChar) { Value = tenLop.Trim() },
+        new SqlParameter("@maMon", SqlDbType.Int) { Value = maMon },
+        new SqlParameter("@hocky", SqlDbType.Int) { Value = hocky },
+        new SqlParameter("@namHoc", SqlDbType.NVarChar) { Value = namHoc.Replace(" ", "").Trim() }
     };
 
-            // Sử dụng hàm XemDanhSach trả về DataSet mà bạn đã sửa lỗi trước đó
-            return db.XemDanhSach(sql, parameters);
+            return db.XemDanhSach2(sql, parameters);
         }
 
 

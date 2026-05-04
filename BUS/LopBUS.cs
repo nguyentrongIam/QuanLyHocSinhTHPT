@@ -27,5 +27,10 @@ namespace QuanLyHocSinhTHPT.BUS
             // Gọi hàm LayDS từ LopDAO (hàm đã sửa ở bước trước)
             return dao.LayDS();
         }
+        public DataSet GetDanhSachLop(int maGV)
+        {
+            LopDAO dao = new LopDAO();
+            return dao.LayDanhSachLopTheoGV(maGV);
+        }
     }
 }

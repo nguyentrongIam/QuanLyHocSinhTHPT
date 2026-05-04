@@ -28,11 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.cbb_hocky = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btn_lammoi = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_hocsinhchiacodiem = new Guna.UI2.WinForms.Guna2Button();
             this.cbb_monhoc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblDanhSach = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -65,9 +68,6 @@
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTieuDe = new System.Windows.Forms.Label();
-            this.cbb_hocky = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btn_hocsinhchiacodiem = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gird_danhsach)).BeginInit();
             this.pnThongTin.SuspendLayout();
@@ -103,6 +103,34 @@
             this.guna2GradientPanel1.TabIndex = 1;
             this.guna2GradientPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2GradientPanel1_Paint);
             // 
+            // cbb_hocky
+            // 
+            this.cbb_hocky.BackColor = System.Drawing.Color.White;
+            this.cbb_hocky.BorderRadius = 10;
+            this.cbb_hocky.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_hocky.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_hocky.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_hocky.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_hocky.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbb_hocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbb_hocky.ItemHeight = 30;
+            this.cbb_hocky.Location = new System.Drawing.Point(978, 100);
+            this.cbb_hocky.Name = "cbb_hocky";
+            this.cbb_hocky.Size = new System.Drawing.Size(116, 36);
+            this.cbb_hocky.TabIndex = 31;
+            // 
+            // guna2HtmlLabel11
+            // 
+            this.guna2HtmlLabel11.AutoSize = false;
+            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel11.Location = new System.Drawing.Point(886, 85);
+            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
+            this.guna2HtmlLabel11.Size = new System.Drawing.Size(185, 62);
+            this.guna2HtmlLabel11.TabIndex = 30;
+            this.guna2HtmlLabel11.Text = "Học kỳ:";
+            this.guna2HtmlLabel11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // btn_lammoi
             // 
             this.btn_lammoi.BorderRadius = 10;
@@ -119,6 +147,23 @@
             this.btn_lammoi.TabIndex = 29;
             this.btn_lammoi.Text = "Làm mới";
             this.btn_lammoi.Click += new System.EventHandler(this.btn_lammoi_Click);
+            // 
+            // btn_hocsinhchiacodiem
+            // 
+            this.btn_hocsinhchiacodiem.BorderRadius = 10;
+            this.btn_hocsinhchiacodiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_hocsinhchiacodiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_hocsinhchiacodiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_hocsinhchiacodiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_hocsinhchiacodiem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(107)))));
+            this.btn_hocsinhchiacodiem.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_hocsinhchiacodiem.ForeColor = System.Drawing.SystemColors.Window;
+            this.btn_hocsinhchiacodiem.Location = new System.Drawing.Point(959, 691);
+            this.btn_hocsinhchiacodiem.Name = "btn_hocsinhchiacodiem";
+            this.btn_hocsinhchiacodiem.Size = new System.Drawing.Size(172, 53);
+            this.btn_hocsinhchiacodiem.TabIndex = 28;
+            this.btn_hocsinhchiacodiem.Text = "Học sinh chưa có điểm";
+            this.btn_hocsinhchiacodiem.Click += new System.EventHandler(this.btn_hocsinhchiacodiem_Click);
             // 
             // cbb_monhoc
             // 
@@ -229,27 +274,27 @@
             // 
             // gird_danhsach
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.gird_danhsach.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.gird_danhsach.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.gird_danhsach.BackgroundColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gird_danhsach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gird_danhsach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.gird_danhsach.ColumnHeadersHeight = 20;
             this.gird_danhsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gird_danhsach.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gird_danhsach.DefaultCellStyle = dataGridViewCellStyle3;
             this.gird_danhsach.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gird_danhsach.Location = new System.Drawing.Point(29, 164);
             this.gird_danhsach.Name = "gird_danhsach";
@@ -281,6 +326,7 @@
             this.gird_danhsach.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.gird_danhsach.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.gird_danhsach.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gird_danhsach_CellClick);
+            this.gird_danhsach.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gird_danhsach_CellContentClick);
             // 
             // cbb_lophoc
             // 
@@ -659,51 +705,6 @@
             this.lblTieuDe.Size = new System.Drawing.Size(376, 66);
             this.lblTieuDe.TabIndex = 14;
             this.lblTieuDe.Text = "Quản lý điểm";
-            // 
-            // cbb_hocky
-            // 
-            this.cbb_hocky.BackColor = System.Drawing.Color.White;
-            this.cbb_hocky.BorderRadius = 10;
-            this.cbb_hocky.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_hocky.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_hocky.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_hocky.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_hocky.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbb_hocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbb_hocky.ItemHeight = 30;
-            this.cbb_hocky.Location = new System.Drawing.Point(978, 100);
-            this.cbb_hocky.Name = "cbb_hocky";
-            this.cbb_hocky.Size = new System.Drawing.Size(116, 36);
-            this.cbb_hocky.TabIndex = 31;
-            // 
-            // guna2HtmlLabel11
-            // 
-            this.guna2HtmlLabel11.AutoSize = false;
-            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(886, 85);
-            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(185, 62);
-            this.guna2HtmlLabel11.TabIndex = 30;
-            this.guna2HtmlLabel11.Text = "Học kỳ:";
-            this.guna2HtmlLabel11.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // btn_hocsinhchiacodiem
-            // 
-            this.btn_hocsinhchiacodiem.BorderRadius = 10;
-            this.btn_hocsinhchiacodiem.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_hocsinhchiacodiem.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_hocsinhchiacodiem.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_hocsinhchiacodiem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_hocsinhchiacodiem.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(107)))));
-            this.btn_hocsinhchiacodiem.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_hocsinhchiacodiem.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_hocsinhchiacodiem.Location = new System.Drawing.Point(959, 691);
-            this.btn_hocsinhchiacodiem.Name = "btn_hocsinhchiacodiem";
-            this.btn_hocsinhchiacodiem.Size = new System.Drawing.Size(172, 53);
-            this.btn_hocsinhchiacodiem.TabIndex = 28;
-            this.btn_hocsinhchiacodiem.Text = "Học sinh chưa có điểm";
-            this.btn_hocsinhchiacodiem.Click += new System.EventHandler(this.btn_hocsinhchiacodiem_Click);
             // 
             // ucQuanLyDiem
             // 

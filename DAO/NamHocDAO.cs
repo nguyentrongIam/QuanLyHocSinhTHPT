@@ -18,7 +18,7 @@ namespace QuanLyHocSinhTHPT.DAO
             string sSQL = "select * from NamHoc";
             //Khởi tạo đối tượng
             Database db = new Database();
-            ds = db.XemDanhSach(sSQL);
+            ds = db.XemDanhSach1(sSQL);
             if (ds == null)
             {
                 MessageBox.Show("Lỗi truy vấn !");
