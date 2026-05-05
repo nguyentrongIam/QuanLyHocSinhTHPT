@@ -1,4 +1,5 @@
 ﻿using QuanLyHocSinhTHPT.DAO;
+using QuanLyHocSinhTHPT.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -40,6 +41,34 @@ namespace QuanLyHocSinhTHPT.BUS
         {
             return pcDAO.XoaPhanCong(maPC);
         }
-     
+
+
+        public int LayMaGiaoVienTuTaiKhoan(int maTaiKhoan)
+        {
+            return pcDAO.LayMaGiaoVienTuTaiKhoan(maTaiKhoan);
+        }
+
+        // --- ĐỔI SANG DATASET ---
+
+        public DataSet LayDanhSachThu(int maGV)
+        {
+            return pcDAO.LayDanhSachThu(maGV);
+        }
+
+        public DataSet LayDanhSachLop(int maGV)
+        {
+            return pcDAO.LayDanhSachLop(maGV);
+        }
+
+        public DataSet LayDanhSachMon(int maGV)
+        {
+            return pcDAO.LayDanhSachMon(maGV);
+        }
+
+        public DataSet LayDanhSachTheoDieuKien(PhanCongGiangDayDTO dk)
+        {
+            return pcDAO.LayDanhSachTheoDieuKien(dk);
+        }
+
     }
 }

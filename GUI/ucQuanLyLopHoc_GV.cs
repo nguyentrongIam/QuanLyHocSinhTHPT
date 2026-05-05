@@ -1,64 +1,76 @@
-﻿    using QuanLyHocSinhTHPT.BUS;
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows.Forms;
+﻿using QuanLyHocSinhTHPT.BUS;
+using QuanLyHocSinhTHPT.DTO;
+using System;
+using System.Data;
+using System.Windows.Forms;
 
-    namespace QuanLyHocSinhTHPT.GUI
+namespace QuanLyHocSinhTHPT.GUI
+{
+    public partial class ucQuanLyLopHoc__GV : UserControl
     {
-        public partial class ucQuanLyLopHoc__GV : UserControl
-        {
-        private int maDiemHienTai = -1; // Khai báo biến để lưu ID điểm đang chọn
-        private bool isAdding = false; // Biến cờ để theo dõi trạng thái nút Thêm/Lưu
+        private int maDiemHienTai = -1;
+        private bool isAdding = false;
 
-        // Hàm kiểm tra điểm hợp lệ (từ 0 đến 10)
-        private bool KiemTraDiemHopLe(string diemStr)
-        {
-            // Nếu để trống thì hợp lệ (coi như chưa có điểm)
-            if (string.IsNullOrWhiteSpace(diemStr)) return true;
+        private GiaoVienBUS busGiaoVien = new GiaoVienBUS();
+        private DiemBUS busDiem = new DiemBUS();
+        private int maGiaoVienHienTai;
 
-            // Kiểm tra xem có phải số không và có nằm trong khoảng 0 - 10 không
-            if (float.TryParse(diemStr, out float diem))
-            {
-                return diem >= 0 && diem <= 10;
-            }
-            return false; // Không phải số hợp lệ
+        // Mã GV truyền vào: -1 nếu là Admin, > 0 nếu là Giáo viên
+        public ucQuanLyLopHoc__GV(int maGV)
+        {
+            InitializeComponent();
+            this.maGiaoVienHienTai = maGV;
         }
 
-        // Khai báo các đối tượng nghiệp vụ
-        private GiaoVienBUS busGiaoVien = new GiaoVienBUS();
-            private DiemBUS busDiem = new DiemBUS();
+        private void ucQuanLyLopHoc_GV_Load(object sender, EventArgs e)
+        {
+            LoadDanhSachNamHoc();
+            LoadDanhSachLop();
+            LoadDanhSachMonHoc();
 
-            // Biến lưu mã giáo viên hiện tại (Sửa lỗi CS1061)
-            private int maGiaoVienHienTai;
-
-            // Constructor nhận mã giáo viên khi đăng nhập
-            public ucQuanLyLopHoc__GV(int maGV)
+            if (cbb_hk.Items.Count == 0)
             {
-                InitializeComponent();
-                this.maGiaoVienHienTai = maGV;
+                cbb_hk.Items.AddRange(new object[] { "--- Tất cả ---", "1", "2" });
+                cbb_hk.SelectedIndex = 0;
             }
+        }
 
-        
-
-            private void ucQuanLyLopHoc_GV_Load(object sender, EventArgs e)
+        private void LoadDanhSachNamHoc()
+        {
+            NamHocBUS busNam = new NamHocBUS();
+            DataSet ds = busNam.GetYearBUS();
+            if (ds != null && ds.Tables.Count > 0)
             {
-                LoadDanhSachLop();
-                LoadDanhSachMonHoc(); // Thêm mới
-                LoadDanhSachNamHoc(); // Thêm mới
+                DataTable dt = ds.Tables[0];
+                DataRow dr = dt.NewRow();
+                dr["MaNamHoc"] = 0; // Tùy theo kiểu dữ liệu của bạn
+                dr["TenNamHoc"] = "--- Tất cả ---";
+                dt.Rows.InsertAt(dr, 0);
 
-                // Thiết lập Học kỳ mặc định
-                if (cbb_hk.Items.Count == 0)
-                {
-                    cbb_hk.Items.AddRange(new object[] { "1", "2" });
-                    cbb_hk.SelectedIndex = 0; // Chọn sẵn HK 1
-                }
+                cbb_namhoc.DataSource = dt;
+                cbb_namhoc.DisplayMember = "TenNamHoc";
+                cbb_namhoc.ValueMember = "TenNamHoc"; // Value dùng Text luôn để dễ query
             }
+        }
+
+        private void LoadDanhSachLop()
+        {
+            // Tạm dùng hàm cũ, nhưng phải sửa bên BUS/DAO trả ra tất cả nếu maGiaoVienHienTai = -1
+            DataSet ds = busGiaoVien.LayLopHocCuaGiaoVien(this.maGiaoVienHienTai);
+            if (ds != null && ds.Tables.Count > 0)
+            {
+                DataTable dt = ds.Tables[0];
+                DataRow dr = dt.NewRow();
+                dr["MaLopHoc"] = -1;
+                dr["TenLop"] = "--- Tất cả ---";
+                dt.Rows.InsertAt(dr, 0);
+
+                cbb_lop.DataSource = dt;
+                cbb_lop.DisplayMember = "TenLop";
+                cbb_lop.ValueMember = "MaLopHoc";
+            }
+        }
+
         private void LoadDanhSachMonHoc()
         {
             try
@@ -66,89 +78,48 @@
                 MonHocBUS busMon = new MonHocBUS();
                 DataSet ds = busMon.LayMonDayCuaGV(this.maGiaoVienHienTai);
 
-                // Xóa liên kết cũ để tránh giữ lại dữ liệu cũ
                 cbb_monhoc.DataSource = null;
                 cbb_monhoc.Items.Clear();
 
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
-                    cbb_monhoc.DataSource = ds.Tables[0];
+                    DataTable dt = ds.Tables[0];
+                    DataRow dr = dt.NewRow();
+                    dr["MaMonHoc"] = -1;
+                    dr["TenMonHoc"] = "--- Tất cả ---";
+                    dt.Rows.InsertAt(dr, 0);
+
+                    cbb_monhoc.DataSource = dt;
                     cbb_monhoc.DisplayMember = "TenMonHoc";
                     cbb_monhoc.ValueMember = "MaMonHoc";
-                }
-                else
-                {
-                    // Nếu không có môn nào ở năm/học kỳ này
-                    cbb_monhoc.Text = "-- Không có môn --";
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi: " + ex.Message);
+                MessageBox.Show("Lỗi tải môn học: " + ex.Message);
             }
         }
 
-        private void LoadDanhSachNamHoc()
-            {
-                // Tương tự cho Năm học
-                NamHocBUS busNam = new NamHocBUS();
-                DataSet ds = busNam.GetYearBUS();
-
-                if (ds != null && ds.Tables.Count > 0)
-                {
-                    cbb_namhoc.DataSource = ds.Tables[0];
-                    cbb_namhoc.DisplayMember = "TenNamHoc";
-                    cbb_namhoc.ValueMember = "MaNamHoc";
-                }
-            }
-      
-            private void LoadDanhSachLop()
-            {
-                DataSet ds = busGiaoVien.LayLopHocCuaGiaoVien(this.maGiaoVienHienTai);
-
-                if (ds != null && ds.Tables.Count > 0)
-                {
-                    cbb_lop.DataSource = ds.Tables[0];
-                    cbb_lop.DisplayMember = "TenLop";
-                    cbb_lop.ValueMember = "MaLopHoc";
-                }
-            }
-
-        // Sự kiện Click của nút "Làm mới" (dùng để lọc danh sách)
         private void btn_lammoi_Click(object sender, EventArgs e)
         {
             maDiemHienTai = -1;
-            // Xóa sạch nguồn dữ liệu cũ của Grid NGAY LẬP TỨC
             gridDanhSach.DataSource = null;
 
-            // 1. Kiểm tra đầu vào
-            if (cbb_lop.SelectedValue == null || cbb_monhoc.SelectedValue == null ||
-                cbb_namhoc.SelectedValue == null || string.IsNullOrEmpty(cbb_hk.Text))
-            {
-                MessageBox.Show("Vui lòng chọn đầy đủ thông tin (Lớp, Môn, Năm, Học kỳ)!", "Thông báo");
-                return;
-            }
+            if (cbb_lop.SelectedValue == null || cbb_monhoc.SelectedValue == null) return;
 
             try
             {
-                string tenLop = cbb_lop.Text;
+                string maLop = cbb_lop.SelectedValue.ToString();
                 int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
-                int hocKy = Convert.ToInt32(cbb_hk.Text);
+                int hocKy = cbb_hk.Text == "--- Tất cả ---" ? -1 : Convert.ToInt32(cbb_hk.Text);
                 string namHoc = cbb_namhoc.Text;
 
-                // Bỏ dòng MessageBox.Show ở đây để đỡ phiền người dùng
-                DataSet ds = busDiem.LayBangDiemTheoLop(tenLop, maMon, hocKy, namHoc);
+                DataSet ds = busDiem.LayBangDiem(namHoc, hocKy, maLop, maMon, maGiaoVienHienTai);
 
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                 {
                     gridDanhSach.DataSource = ds.Tables[0];
                     DinhDangLuoi();
-                }
-                else
-                {
-                    // Nếu KHÔNG CÓ dữ liệu, Grid đã được set DataSource = null ở trên
-                    // Chỉ cần thông báo nhẹ cho người dùng biết (nếu bạn muốn)
-                    // MessageBox.Show($"Không có dữ liệu điểm cho Lớp {tenLop} - Năm {namHoc} - Học kỳ {hocKy}", "Thông báo");
                 }
             }
             catch (Exception ex)
@@ -159,65 +130,47 @@
 
         private void DinhDangLuoi()
         {
-            if (gridDanhSach.Columns.Contains("MaHocSinh"))
-                gridDanhSach.Columns["MaHocSinh"].HeaderText = "Mã HS";
-            if (gridDanhSach.Columns.Contains("HoTen"))
-                gridDanhSach.Columns["HoTen"].HeaderText = "Họ Tên";
-            if (gridDanhSach.Columns.Contains("DiemMieng"))
-                gridDanhSach.Columns["DiemMieng"].HeaderText = "Miệng";
-
-            // Sửa lại cho đúng tên cột từ câu SQL: Diem15phut_1 và Diem15phut_2
-            if (gridDanhSach.Columns.Contains("Diem15phut_1"))
-                gridDanhSach.Columns["Diem15phut_1"].HeaderText = "15P Lần 1";
-            if (gridDanhSach.Columns.Contains("Diem15phut_2"))
-                gridDanhSach.Columns["Diem15phut_2"].HeaderText = "15P Lần 2";
-            if (gridDanhSach.Columns.Contains("DiemGiuaKy"))
-                gridDanhSach.Columns["DiemGiuaKy"].HeaderText = "Giữa Kỳ";
-            if (gridDanhSach.Columns.Contains("DiemCuoiKy"))
-                gridDanhSach.Columns["DiemCuoiKy"].HeaderText = "Cuối Kỳ";
-        }
-
-        private void btn_HienThiLopGiaoVienDay_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cbb_namhoc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            gridDanhSach.DataSource = null; 
-            LoadDanhSachMonHoc();
-        }
-
-        private void cbb_hk_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ResetLuoiVaLọcLai();
-
-        }
-        private void ResetLuoiVaLọcLai()
-        {
-            gridDanhSach.DataSource = null;
+            if (gridDanhSach.Columns.Contains("MaHocSinh")) gridDanhSach.Columns["MaHocSinh"].HeaderText = "Mã HS";
+            if (gridDanhSach.Columns.Contains("HoTen")) gridDanhSach.Columns["HoTen"].HeaderText = "Họ Tên";
+            if (gridDanhSach.Columns.Contains("DiemMieng")) gridDanhSach.Columns["DiemMieng"].HeaderText = "Miệng";
+            if (gridDanhSach.Columns.Contains("Diem15phut_1")) gridDanhSach.Columns["Diem15phut_1"].HeaderText = "15P Lần 1";
+            if (gridDanhSach.Columns.Contains("Diem15phut_2")) gridDanhSach.Columns["Diem15phut_2"].HeaderText = "15P Lần 2";
+            if (gridDanhSach.Columns.Contains("DiemGiuaKy")) gridDanhSach.Columns["DiemGiuaKy"].HeaderText = "Giữa Kỳ";
+            if (gridDanhSach.Columns.Contains("DiemCuoiKy")) gridDanhSach.Columns["DiemCuoiKy"].HeaderText = "Cuối Kỳ";
         }
 
         private void btn_ChuaCoDiem_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cbb_lop.SelectedValue == null) return;
+                if (cbb_lop.SelectedValue == null || cbb_lop.SelectedValue.ToString() == "--- Tất cả ---")
+                {
+                    MessageBox.Show("Vui lòng chọn 1 Lớp cụ thể để xem danh sách chưa có điểm!"); return;
+                }
+                if (Convert.ToInt32(cbb_monhoc.SelectedValue) == -1)
+                {
+                    MessageBox.Show("Vui lòng chọn 1 Môn học cụ thể!"); return;
+                }
+                if (cbb_hk.Text == "--- Tất cả ---")
+                {
+                    MessageBox.Show("Vui lòng chọn Học kỳ cụ thể!"); return;
+                }
 
-                DiemBUS bus = new DiemBUS();
                 string malop = cbb_lop.SelectedValue.ToString();
                 int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
                 int hocKy = int.Parse(cbb_hk.Text);
                 string namHoc = cbb_namhoc.Text;
 
-                DataTable dt = bus.LayDanhSachChuaCoDiemBUS(malop, maMon, hocKy, namHoc);
+                DataTable dt = busDiem.LayDanhSachChuaCoDiemBUS(malop, maMon, hocKy, namHoc);
 
-                gridDanhSach.DataSource = dt;
-
-                // Thêm dòng này để kiểm tra xem có lấy được dòng nào không
-                if (dt == null || dt.Rows.Count == 0)
+                if (dt != null && dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("Tất cả học sinh lớp này đã có điểm hoặc không có học sinh!");
+                    gridDanhSach.DataSource = dt;
+                }
+                else
+                {
+                    gridDanhSach.DataSource = null;
+                    MessageBox.Show("Tất cả học sinh lớp này đã có điểm môn học này!");
                 }
             }
             catch (Exception ex)
@@ -232,195 +185,162 @@
             {
                 DataGridViewRow row = gridDanhSach.Rows[e.RowIndex];
 
-                // 1. Kiểm tra xem cột "MaDiem" có tồn tại trong Grid không
-                if (gridDanhSach.Columns.Contains("MaDiem"))
+                if (gridDanhSach.Columns.Contains("MaDiem") && row.Cells["MaDiem"].Value != DBNull.Value)
                 {
-                    object value = row.Cells["MaDiem"].Value;
-                    if (value != null && value != DBNull.Value)
-                    {
-                        maDiemHienTai = Convert.ToInt32(value);
-                    }
-                    else
-                    {
-                        MessageBox.Show("Dòng này có cột MaDiem nhưng giá trị bị trống (NULL)!");
-                    }
+                    maDiemHienTai = Convert.ToInt32(row.Cells["MaDiem"].Value);
+                }
+
+                txt_mahs.Text = row.Cells["MaHocSinh"].Value?.ToString();
+
+                // Tránh lỗi null khi ấn vào danh sách chưa có điểm
+                if (gridDanhSach.Columns.Contains("DiemMieng"))
+                {
+                    txt_diemmieng.Text = row.Cells["DiemMieng"].Value?.ToString();
+                    txt_diem15p_lan1.Text = row.Cells["Diem15phut_1"].Value?.ToString();
+                    txt_diem15p_lan2.Text = row.Cells["Diem15phut_2"].Value?.ToString();
+                    txt_diemgiuaky.Text = row.Cells["DiemGiuaKy"].Value?.ToString();
+                    txt_diemcuoiky.Text = row.Cells["DiemCuoiKy"].Value?.ToString();
                 }
                 else
                 {
-                    // Nếu chạy vào đây, nghĩa là SQL của Vinh chưa trả về cột tên là "MaDiem"
-                    MessageBox.Show("Lỗi: Grid không tìm thấy cột nào tên là 'MaDiem'. Hãy kiểm tra lại câu lệnh SELECT trong DAO!");
+                    txt_diemmieng.Clear(); txt_diem15p_lan1.Clear(); txt_diem15p_lan2.Clear();
+                    txt_diemgiuaky.Clear(); txt_diemcuoiky.Clear();
                 }
-
-                // 2. Đổ dữ liệu ra TextBox (giữ nguyên của Vinh)
-                txt_mahs.Text = row.Cells["MaHocSinh"].Value?.ToString();
-                txt_diemmieng.Text = row.Cells["DiemMieng"].Value?.ToString();
-                txt_diem15p_lan1.Text = row.Cells["Diem15phut_1"].Value?.ToString();
-                txt_diem15p_lan2.Text = row.Cells["Diem15phut_2"].Value?.ToString();
-                txt_diemgiuaky.Text = row.Cells["DiemGiuaKy"].Value?.ToString();
-                txt_diemcuoiky.Text = row.Cells["DiemCuoiKy"].Value?.ToString();
             }
         }
 
+        // NÚT THÊM / LƯU
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            if (!isAdding) // NẾU ĐANG Ở TRẠNG THÁI "THÊM"
+            if (!isAdding)
             {
                 isAdding = true;
-                guna2Button2.Text = "Lưu"; // Tạm đổi Text của nút (nhớ đổi thuộc tính Text ban đầu của nút này là "Thêm" trong giao diện)
-
-                // Khóa lưới danh sách để tránh click nhầm sang dòng khác khi đang nhập
+                guna2Button2.Text = "Lưu";
                 gridDanhSach.Enabled = false;
 
-                // Xóa trắng các TextBox để chuẩn bị nhập
-                txt_mahs.Clear();
-                txt_diemmieng.Clear();
-                txt_diem15p_lan1.Clear();
-                txt_diem15p_lan2.Clear();
-                txt_diemgiuaky.Clear();
-                txt_diemcuoiky.Clear();
+                txt_mahs.Clear(); txt_diemmieng.Clear(); txt_diem15p_lan1.Clear();
+                txt_diem15p_lan2.Clear(); txt_diemgiuaky.Clear(); txt_diemcuoiky.Clear();
 
-                MessageBox.Show("Đã chuyển sang chế độ Thêm. Vui lòng gõ mã học sinh và điểm, sau đó ấn 'Lưu'!", "Hướng dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                txt_mahs.Focus(); // Trỏ chuột vào ô nhập Mã HS
+                MessageBox.Show("Đã chuyển sang chế độ Thêm. Vui lòng nhập thông tin rồi ấn Lưu!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_mahs.Focus();
             }
-            else // NẾU ĐANG Ở TRẠNG THÁI "LƯU"
+            else
             {
-                // Kiểm tra trống Mã HS
-                if (string.IsNullOrEmpty(txt_mahs.Text))
-                {
-                    MessageBox.Show("Vui lòng nhập mã học sinh!", "Thông báo");
-                    return;
-                }
-
-                // Kiểm tra tính hợp lệ của tất cả các cột điểm (từ 0 - 10)
-                if (!KiemTraDiemHopLe(txt_diemmieng.Text) || !KiemTraDiemHopLe(txt_diem15p_lan1.Text) ||
-                    !KiemTraDiemHopLe(txt_diem15p_lan2.Text) || !KiemTraDiemHopLe(txt_diemgiuaky.Text) ||
-                    !KiemTraDiemHopLe(txt_diemcuoiky.Text))
-                {
-                    MessageBox.Show("Điểm nhập vào phải là một số và nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-
-                try
-                {
-                    string maHS = txt_mahs.Text.Trim();
-                    string maLop = cbb_lop.SelectedValue.ToString();
-                    int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
-                    int hk = Convert.ToInt32(cbb_hk.Text);
-                    string nam = cbb_namhoc.Text.Replace(" ", "");
-
-                    // Chuyển đổi điểm an toàn (nếu TextBox rỗng thì mặc định là 0)
-                    float dMieng = string.IsNullOrWhiteSpace(txt_diemmieng.Text) ? 0 : float.Parse(txt_diemmieng.Text);
-                    float d15p1 = string.IsNullOrWhiteSpace(txt_diem15p_lan1.Text) ? 0 : float.Parse(txt_diem15p_lan1.Text);
-                    float d15p2 = string.IsNullOrWhiteSpace(txt_diem15p_lan2.Text) ? 0 : float.Parse(txt_diem15p_lan2.Text);
-                    float dGK = string.IsNullOrWhiteSpace(txt_diemgiuaky.Text) ? 0 : float.Parse(txt_diemgiuaky.Text);
-                    float dCK = string.IsNullOrWhiteSpace(txt_diemcuoiky.Text) ? 0 : float.Parse(txt_diemcuoiky.Text);
-
-                    // Gọi BUS thêm
-                    if (busDiem.ThemDiemBUS(maHS, maLop, maMon, hk, nam, dMieng, d15p1, d15p2, dGK, dCK))
-                    {
-                        MessageBox.Show("Thêm/Lưu điểm thành công!", "Thông báo");
-
-                        // Trả lại trạng thái ban đầu
-                        isAdding = false;
-                        guna2Button2.Text = "Thêm";
-                        gridDanhSach.Enabled = true;
-
-                        btn_lammoi_Click(sender, e); // Load lại danh sách
-                    }
-                    else
-                    {
-                        MessageBox.Show("Thêm điểm thất bại! Kiểm tra lại học sinh này có thể đã có điểm hoặc sai mã.", "Lỗi");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Lỗi hệ thống: " + ex.Message);
-                }
+                ThucHienLuuDiem(isUpdate: false);
             }
         }
 
+        // NÚT SỬA
         private void guna2Button4_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txt_mahs.Text))
             {
-                MessageBox.Show("Vui lòng chọn học sinh cần sửa điểm trên danh sách trước!");
+                MessageBox.Show("Vui lòng click chọn học sinh cần sửa điểm trên danh sách!");
                 return;
             }
+            ThucHienLuuDiem(isUpdate: true);
+        }
 
-            // Kiểm tra tính hợp lệ của tất cả các cột điểm (từ 0 - 10)
-            if (!KiemTraDiemHopLe(txt_diemmieng.Text) || !KiemTraDiemHopLe(txt_diem15p_lan1.Text) ||
-                !KiemTraDiemHopLe(txt_diem15p_lan2.Text) || !KiemTraDiemHopLe(txt_diemgiuaky.Text) ||
-                !KiemTraDiemHopLe(txt_diemcuoiky.Text))
+        private void ThucHienLuuDiem(bool isUpdate)
+        {
+            // Đã cập nhật lại: Kiểm tra cbb_lop bằng "-1" thay vì chữ "--- Tất cả ---"
+            if (cbb_lop.SelectedValue == null || cbb_lop.SelectedValue.ToString() == "-1" ||
+                cbb_monhoc.SelectedValue == null || Convert.ToInt32(cbb_monhoc.SelectedValue) == -1)
             {
-                MessageBox.Show("Điểm sửa phải là một số và nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn 1 Lớp và 1 Môn học cụ thể để nhập/sửa điểm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                string maHS = txt_mahs.Text;
-                string maLop = cbb_lop.SelectedValue.ToString();
+                // 1. Dùng TryParse để ép kiểu an toàn, bắt chính xác ô nào nhập sai định dạng
+                int maHS = 0;
+                if (!int.TryParse(txt_mahs.Text.Trim(), out maHS)) { MessageBox.Show("Mã Học Sinh không hợp lệ (không phải là số)!"); return; }
+
+                int maLop = 0;
+                if (!int.TryParse(cbb_lop.SelectedValue.ToString(), out maLop)) { MessageBox.Show("Lỗi lấy Mã Lớp: Giá trị không phải là số!"); return; }
+
                 int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
-                int hk = Convert.ToInt32(cbb_hk.Text);
-                string nam = cbb_namhoc.Text.Trim();
 
-                float dM = string.IsNullOrWhiteSpace(txt_diemmieng.Text) ? 0 : float.Parse(txt_diemmieng.Text);
-                float d15_1 = string.IsNullOrWhiteSpace(txt_diem15p_lan1.Text) ? 0 : float.Parse(txt_diem15p_lan1.Text);
-                float d15_2 = string.IsNullOrWhiteSpace(txt_diem15p_lan2.Text) ? 0 : float.Parse(txt_diem15p_lan2.Text);
-                float dGK = string.IsNullOrWhiteSpace(txt_diemgiuaky.Text) ? 0 : float.Parse(txt_diemgiuaky.Text);
-                float dCK = string.IsNullOrWhiteSpace(txt_diemcuoiky.Text) ? 0 : float.Parse(txt_diemcuoiky.Text);
+                int hk = 0;
+                if (!int.TryParse(cbb_hk.Text.Trim(), out hk)) { MessageBox.Show("Học kỳ không hợp lệ!"); return; }
 
-                if (busDiem.SuaDiemBUS(maHS, maLop, maMon, hk, nam, dM, d15_1, d15_2, dGK, dCK))
+                // 2. Kiểm tra an toàn cho toàn bộ các ô điểm
+                double m = 0, p1 = 0, p2 = 0, gk = 0, ck = 0;
+                if (!string.IsNullOrWhiteSpace(txt_diemmieng.Text) && !double.TryParse(txt_diemmieng.Text, out m)) { MessageBox.Show("Điểm miệng không hợp lệ (kiểm tra lại dấu phẩy/chấm)!"); return; }
+                if (!string.IsNullOrWhiteSpace(txt_diem15p_lan1.Text) && !double.TryParse(txt_diem15p_lan1.Text, out p1)) { MessageBox.Show("Điểm 15 phút lần 1 không hợp lệ!"); return; }
+                if (!string.IsNullOrWhiteSpace(txt_diem15p_lan2.Text) && !double.TryParse(txt_diem15p_lan2.Text, out p2)) { MessageBox.Show("Điểm 15 phút lần 2 không hợp lệ!"); return; }
+                if (!string.IsNullOrWhiteSpace(txt_diemgiuaky.Text) && !double.TryParse(txt_diemgiuaky.Text, out gk)) { MessageBox.Show("Điểm giữa kỳ không hợp lệ!"); return; }
+                if (!string.IsNullOrWhiteSpace(txt_diemcuoiky.Text) && !double.TryParse(txt_diemcuoiky.Text, out ck)) { MessageBox.Show("Điểm cuối kỳ không hợp lệ!"); return; }
+
+                // 3. Sau khi đã qua mọi cửa kiểm duyệt an toàn, mới gán vào đối tượng DTO
+                DiemDTO d = new DiemDTO
                 {
-                    MessageBox.Show("Cập nhật điểm thành công!");
-                    btn_lammoi_Click(sender, e);
-                }
-                else
+                    MaHocSinh = maHS,
+                    MaLopHoc = maLop,
+                    MaMonHoc = maMon,
+                    HocKy = hk,
+                    NamHoc = cbb_namhoc.Text.Trim(),
+                    DiemMieng = m,
+                    Diem15p_1 = p1,
+                    Diem15p_2 = p2,
+                    DiemGiuaKy = gk,
+                    DiemCuoiKy = ck
+                };
+
+                // Gọi logic lưu xuống Database
+                string result = busDiem.LuuDiem(d, isUpdate);
+                MessageBox.Show(result, "Thông báo");
+
+                // Nếu thành công thì reset lại form
+                if (result == "Thành công")
                 {
-                    MessageBox.Show("Cập nhật thất bại. Kiểm tra lại dữ liệu!");
+                    if (isAdding)
+                    {
+                        isAdding = false;
+                        guna2Button2.Text = "Thêm";
+                        gridDanhSach.Enabled = true;
+                    }
+                    btn_lammoi_Click(null, null); // Load lại danh sách lên lưới
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi định dạng số: " + ex.Message);
+                // Bắt các lỗi hệ thống khác nếu có
+                MessageBox.Show("Lỗi nhập liệu hệ thống: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e)
-        {
-          
-        }
-
+        // NÚT XÓA
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            // Nếu biến ID vẫn là -1 hoặc TextBox mã học sinh trống thì báo lỗi
-            if (maDiemHienTai == -1 || string.IsNullOrEmpty(txt_mahs.Text))
+            if (maDiemHienTai == -1)
             {
-                MessageBox.Show("Bạn chưa chọn dòng nào trong danh sách. Vui lòng click chuột vào một dòng trên bảng trước khi bấm Xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng click chọn dòng điểm cần xóa!");
                 return;
             }
 
-            DialogResult dr = MessageBox.Show($"Bạn có chắc chắn muốn xóa điểm của học sinh {txt_mahs.Text} không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
+            if (MessageBox.Show("Bạn có chắc chắn muốn xóa?", "Xác nhận", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 if (busDiem.XoaDiemBUS(maDiemHienTai))
                 {
-                    MessageBox.Show("Xóa thành công!", "Thông báo");
-                    maDiemHienTai = -1; // Reset
-                    txt_mahs.Clear();   // Xóa trắng TextBox sau khi xóa xong
-                    btn_lammoi_Click(sender, e); // Load lại lưới
+                    MessageBox.Show("Xóa thành công!");
+                    maDiemHienTai = -1;
+                    txt_mahs.Clear();
+                    btn_lammoi_Click(null, null);
                 }
                 else
                 {
-                    MessageBox.Show("Xóa thất bại! Có thể do kết nối cơ sở dữ liệu.", "Lỗi");
+                    MessageBox.Show("Xóa thất bại!");
                 }
             }
         }
 
-        private void btn_luu_Click(object sender, EventArgs e)
-        {
-
-        }
+        // Reset dữ liệu lưới khi đổi combobox
+        private void cbb_namhoc_SelectedIndexChanged(object sender, EventArgs e) { gridDanhSach.DataSource = null; }
+        private void cbb_hk_SelectedIndexChanged(object sender, EventArgs e) { gridDanhSach.DataSource = null; }
+        private void btn_HienThiLopGiaoVienDay_Click(object sender, EventArgs e) { }
+        private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e) { }
+        private void btn_luu_Click(object sender, EventArgs e) { }
     }
-    }
+}

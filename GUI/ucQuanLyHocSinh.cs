@@ -20,8 +20,8 @@ namespace QuanLyHocSinhTHPT
         {
             InitializeComponent();
             pnThongTin.Hide();
-            
-            
+            HienDanhSach();
+
         }
 
         private void btn_lammoi_Click(object sender, EventArgs e)
@@ -113,8 +113,8 @@ namespace QuanLyHocSinhTHPT
             pnThongTin.Hide();
             pnThongTin.Show();
 
-            //Ngừng Vô hiệu hóa textbox mã hs
-            txt_mahs.Enabled = true;
+            //Vô hiệu hóa textbox mã hs
+            txt_mahs.Enabled = false;
 
             //Resert textbox cũ
             txt_mahs.Clear();

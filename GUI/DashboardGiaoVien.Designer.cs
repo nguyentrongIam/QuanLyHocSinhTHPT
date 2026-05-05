@@ -69,7 +69,7 @@
             this.pn_sidebar.FillColor = System.Drawing.Color.White;
             this.pn_sidebar.Location = new System.Drawing.Point(0, 0);
             this.pn_sidebar.Name = "pn_sidebar";
-            this.pn_sidebar.Size = new System.Drawing.Size(298, 743);
+            this.pn_sidebar.Size = new System.Drawing.Size(298, 1055);
             this.pn_sidebar.TabIndex = 1;
             // 
             // guna2Button3
@@ -132,7 +132,7 @@
             this.guna2Button1.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.guna2Button1.Location = new System.Drawing.Point(3, 455);
+            this.guna2Button1.Location = new System.Drawing.Point(3, 383);
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.guna2Button1.Size = new System.Drawing.Size(297, 72);
@@ -155,7 +155,7 @@
             this.btnDangXuat.HoverState.CustomBorderColor = System.Drawing.Color.Transparent;
             this.btnDangXuat.HoverState.FillColor = System.Drawing.Color.Transparent;
             this.btnDangXuat.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnDangXuat.Location = new System.Drawing.Point(1, 772);
+            this.btnDangXuat.Location = new System.Drawing.Point(2, 923);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnDangXuat.PressedColor = System.Drawing.Color.Transparent;
@@ -163,6 +163,7 @@
             this.btnDangXuat.TabIndex = 8;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnXemHoSo
             // 
@@ -205,14 +206,14 @@
             this.pn_body.FillColor = System.Drawing.Color.White;
             this.pn_body.Location = new System.Drawing.Point(298, 0);
             this.pn_body.Name = "pn_body";
-            this.pn_body.Size = new System.Drawing.Size(1193, 743);
+            this.pn_body.Size = new System.Drawing.Size(1193, 1055);
             this.pn_body.TabIndex = 3;
             // 
             // DashboardGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1491, 743);
+            this.ClientSize = new System.Drawing.Size(1491, 1055);
             this.Controls.Add(this.pn_body);
             this.Controls.Add(this.pn_sidebar);
             this.DoubleBuffered = true;

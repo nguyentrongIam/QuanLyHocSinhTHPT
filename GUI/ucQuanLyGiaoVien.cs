@@ -19,6 +19,12 @@ namespace QuanLyHocSinhTHPT.GUI
         {
             InitializeComponent();
             pnThongTin.Hide();
+            string timKiem = "";
+            if (!string.IsNullOrWhiteSpace(txtTenTimKiem.Text))
+                timKiem = txtTenTimKiem.Text;
+            GiaoVienBUS bus = new GiaoVienBUS();
+            DataSet ds = bus.LayDanhSach(timKiem);
+            gridDanhSach.DataSource = ds.Tables[0];
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)

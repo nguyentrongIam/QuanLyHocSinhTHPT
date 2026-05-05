@@ -313,7 +313,7 @@
             this.lblKhoa.BackColor = System.Drawing.Color.White;
             this.lblKhoa.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.lblKhoa.ForeColor = System.Drawing.Color.Red;
-            this.lblKhoa.Location = new System.Drawing.Point(378, 291);
+            this.lblKhoa.Location = new System.Drawing.Point(227, 293);
             this.lblKhoa.Name = "lblKhoa";
             this.lblKhoa.Size = new System.Drawing.Size(84, 25);
             this.lblKhoa.TabIndex = 22;
@@ -462,7 +462,7 @@
             this.lblHoatDong.BackColor = System.Drawing.Color.White;
             this.lblHoatDong.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Bold);
             this.lblHoatDong.ForeColor = System.Drawing.Color.SeaGreen;
-            this.lblHoatDong.Location = new System.Drawing.Point(185, 291);
+            this.lblHoatDong.Location = new System.Drawing.Point(379, 293);
             this.lblHoatDong.Name = "lblHoatDong";
             this.lblHoatDong.Size = new System.Drawing.Size(115, 25);
             this.lblHoatDong.TabIndex = 20;
@@ -497,7 +497,6 @@
             this.pnThongTin.Controls.Add(this.lblThongTinChiTiet);
             this.pnThongTin.Controls.Add(this.btnHuy);
             this.pnThongTin.Controls.Add(this.btnLuu);
-            this.pnThongTin.Controls.Add(this.lblKhoa);
             this.pnThongTin.Controls.Add(this.togTrangThai);
             this.pnThongTin.Controls.Add(this.txtMatKhau);
             this.pnThongTin.Controls.Add(this.txtTenDangNhap);
@@ -507,6 +506,7 @@
             this.pnThongTin.Controls.Add(this.lblVaiTro);
             this.pnThongTin.Controls.Add(this.lblMaTaiKhoan);
             this.pnThongTin.Controls.Add(this.lblHoatDong);
+            this.pnThongTin.Controls.Add(this.lblKhoa);
             this.pnThongTin.Controls.Add(this.lblTrangThai);
             this.pnThongTin.FillColor = System.Drawing.Color.White;
             this.pnThongTin.FillColor2 = System.Drawing.Color.White;

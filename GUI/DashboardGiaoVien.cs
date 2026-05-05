@@ -170,5 +170,16 @@ namespace QuanLyHocSinhTHPT.GUI
             }
 
         }
+
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult dgl = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dgl == DialogResult.Yes)
+            {
+                //Khoi dong lai app
+                Application.Restart();
+            }
+        }
     }
 }

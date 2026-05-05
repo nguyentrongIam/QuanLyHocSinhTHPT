@@ -16,5 +16,8 @@ namespace QuanLyHocSinhTHPT.DTO
         public string TenMon { get; set; } = string.Empty;
         public int HocKy { get; set; }
         public string NamHoc { get; set; } = string.Empty;
+
+        public int ThuTrongTuan { get; set; }
+        public int TietHoc { get; set; }
     }
 }

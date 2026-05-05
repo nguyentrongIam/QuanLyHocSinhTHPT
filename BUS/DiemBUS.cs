@@ -1,53 +1,46 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using QuanLyHocSinhTHPT.DTO;
-using QuanLyHocSinhTHPT.DAO;
-using QuanLyHocSinhTHPT.BUS;
-using QuanLyHocSinhTHPT.GUI;
 using System.Data;
+using QuanLyHocSinhTHPT.DAO;
+using QuanLyHocSinhTHPT.DTO;
 
 namespace QuanLyHocSinhTHPT.BUS
 {
     public class DiemBUS
     {
-        public DataSet XemDiem(string tenmonhoc,string lophoc,string namhoc,string hocky)
+        private DiemDAO dao = new DiemDAO();
+
+        public DataSet LayBangDiem(string namHoc, int hocKy, string maLop, int maMon, int maGV)
         {
-            DataSet ds;
-            DiemDAO dao = new DiemDAO();
-            ds = dao.XemDiem(tenmonhoc, lophoc, namhoc, hocky);
-            return ds;
+            return dao.LayBangDiem(namHoc, hocKy, maLop, maMon, maGV);
         }
+
         public DataTable LayDanhSachChuaCoDiemBUS(string maLop, int maMon, int hocKy, string namHoc)
         {
-            DiemDAO dao = new DiemDAO();
             return dao.LayDanhSachChuaCoDiem(maLop, maMon, hocKy, namHoc);
         }
-        public bool ThemDiemBUS(string maHS, string malop, int maMon, int hk, string nam, float diemMieng, float diem15plan1, float diem15plan2, float gk, float ck)
-        {
-            DiemDAO dao = new DiemDAO();
-            return dao.ThemDiem(maHS, malop, maMon, hk, nam, diemMieng, diem15plan1, diem15plan2, gk, ck);
-        }
-        public bool SuaDiemBUS(string maHS, string malop, int maMon, int hk, string nam, float m, float p1, float p2, float gk, float ck)
-        {
-            DiemDAO dao = new DiemDAO();
-            return dao.SuaDiem(maHS, malop, maMon, hk, nam, m, p1, p2, gk, ck);
-        }
-        public bool XoaDiemBUS(int maDiem   )
-        {
 
-
-            DiemDAO dao = new DiemDAO();
-            return dao.XoaDiemDAO(maDiem);
-        }
-        public DataSet LayBangDiemTheoLop(string maLop, int maMon, int hocky, string namHoc)
+        public string LuuDiem(DiemDTO d, bool isUpdate)
         {
-            DiemDAO dao = new DiemDAO();
+            // Kiểm tra ràng buộc điểm số (0 - 10)
+            if (!KiemTraDiem(d.DiemMieng) || !KiemTraDiem(d.Diem15p_1) || !KiemTraDiem(d.Diem15p_2) ||
+                !KiemTraDiem(d.DiemGiuaKy) || !KiemTraDiem(d.DiemCuoiKy))
+            {
+                return "Điểm số nhập vào phải nằm trong khoảng từ 0 đến 10!";
+            }
 
-            // BUS đóng vai trò trung chuyển, gọi trực tiếp hàm từ DAO
-            return dao.LayBangDiemTheoLop(maLop, maMon, hocky, namHoc);
+            bool kq = isUpdate ? dao.SuaDiem(d) : dao.ThemDiem(d);
+            return kq ? "Thành công" : "Lỗi: Không thể lưu vào CSDL. Kiểm tra lại dữ liệu học sinh/lớp!";
         }
+
+        public bool XoaDiemBUS(int maDiem)
+        {
+            return dao.XoaDiem(maDiem);
+        }
+
+        private bool KiemTraDiem(double diem)
+        {
+            return diem >= 0 && diem <= 10;
+        }
+        
     }
 }

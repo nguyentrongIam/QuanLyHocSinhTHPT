@@ -113,12 +113,6 @@
     <Compile Include="GUI\frmLoginGuna.Designer.cs">
       <DependentUpon>frmLoginGuna.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\QuanLyHocSinhGuna.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\QuanLyHocSinhGuna.Designer.cs">
-      <DependentUpon>QuanLyHocSinhGuna.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\ucQuanLyDiemDanh.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -136,12 +130,6 @@
     </Compile>
     <Compile Include="GUI\ucProfile.Designer.cs">
       <DependentUpon>ucProfile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\ucQuanLyDiem.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="GUI\ucQuanLyDiem.Designer.cs">
-      <DependentUpon>ucQuanLyDiem.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\ucQuanLyGiaoVien.cs">
       <SubType>UserControl</SubType>
@@ -184,9 +172,6 @@
     <EmbeddedResource Include="GUI\frmLoginGuna.resx">
       <DependentUpon>frmLoginGuna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\QuanLyHocSinhGuna.resx">
-      <DependentUpon>QuanLyHocSinhGuna.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucQuanLyDiemDanh.resx">
       <DependentUpon>ucQuanLyDiemDanh.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,9 +180,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucProfile.resx">
       <DependentUpon>ucProfile.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\ucQuanLyDiem.resx">
-      <DependentUpon>ucQuanLyDiem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucQuanLyGiaoVien.resx">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>

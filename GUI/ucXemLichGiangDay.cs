@@ -1,118 +1,136 @@
 ﻿using QuanLyHocSinhTHPT.BUS;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyHocSinhTHPT
 {
     public partial class ucXemLichGiangDay : UserControl
-
     {
         private int _maGV;
-        LichGiangDayBUS bus = new LichGiangDayBUS();
-        DataTable dtLichDay; // Biến tạm lưu toàn bộ lịch để lọc nhanh
+        private LichGiangDayBUS bus = new LichGiangDayBUS(); // Khởi tạo BUS
+        private DataTable dtLichDay; // Biến tạm lưu toàn bộ lịch để lọc cục bộ (rất tối ưu)
+
+        // Biến cờ để ngăn ComboBox kích hoạt sự kiện lọc khi đang nạp dữ liệu
+        private bool isInitializing = true;
+
         public ucXemLichGiangDay(int maGV)
         {
             InitializeComponent();
             this._maGV = maGV;
-        }
-
-        private void btn_lammoi_Click(object sender, EventArgs e)
-        {
-            cbb_thu.SelectedIndex = 0;
-            cbb_lop.SelectedIndex = 0;
-            cbb_monhoc.SelectedIndex = 0;
-
-            // 2. Tải lại dữ liệu mới nhất từ Database
-            LoadData();
-
-            // 3. Cập nhật lại danh sách trong ComboBox (phòng trường hợp lịch dạy vừa thay đổi)
-            LoadComboBoxes();
-
-            MessageBox.Show("Đã làm mới dữ liệu lịch giảng dạy!");
+            this.Load += ucXemLichGiangDay_Load;
         }
 
         private void ucXemLichGiangDay_Load(object sender, EventArgs e)
         {
-            LoadData();
-            LoadComboBoxes();
+            LoadDataFromDatabase();
         }
-        public void LoadData()
-        {
-            DataSet ds = bus.LayLichDayTheoGiaoVien(_maGV);
-            if (ds != null && ds.Tables.Count > 0)
-            {
-                dtLichDay = ds.Tables[0];
-                gridDanhSach.DataSource = dtLichDay;
 
-                // Cấu hình Header (Đảm bảo tên cột khớp với image_e80b12.png)
-                if (gridDanhSach.Columns.Contains("TenLop")) gridDanhSach.Columns["TenLop"].HeaderText = "Lớp";
-                if (gridDanhSach.Columns.Contains("TenMonHoc")) gridDanhSach.Columns["TenMonHoc"].HeaderText = "Môn Học";
-                if (gridDanhSach.Columns.Contains("ThuTrongTuan")) gridDanhSach.Columns["ThuTrongTuan"].HeaderText = "Thứ";
-                if (gridDanhSach.Columns.Contains("TietHoc")) gridDanhSach.Columns["TietHoc"].HeaderText = "Tiết";
+        // 1. Hàm nạp dữ liệu gốc từ Database
+        public void LoadDataFromDatabase()
+        {
+            try
+            {
+                isInitializing = true; // Bật cờ ngăn sự kiện SelectedIndexChanged
+
+                DataSet ds = bus.LayLichDayTheoGiaoVien(_maGV);
+
+                if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                {
+                    dtLichDay = ds.Tables[0];
+                    gridDanhSach.DataSource = dtLichDay;
+
+                    // Cấu hình Header hiển thị Tiếng Việt
+                    if (gridDanhSach.Columns.Contains("TenLop")) gridDanhSach.Columns["TenLop"].HeaderText = "Lớp";
+                    if (gridDanhSach.Columns.Contains("TenMonHoc")) gridDanhSach.Columns["TenMonHoc"].HeaderText = "Môn Học";
+                    if (gridDanhSach.Columns.Contains("ThuTrongTuan")) gridDanhSach.Columns["ThuTrongTuan"].HeaderText = "Thứ";
+                    if (gridDanhSach.Columns.Contains("TietHoc")) gridDanhSach.Columns["TietHoc"].HeaderText = "Tiết";
+
+                    // Nạp dữ liệu vào ComboBox dựa trên DataTable vừa lấy được
+                    LoadComboBoxes();
+                }
+                else
+                {
+                    gridDanhSach.DataSource = null;
+                    MessageBox.Show("Giáo viên này hiện tại chưa có lịch giảng dạy!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-                
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                isInitializing = false; // Tắt cờ, cho phép lọc
+                ThucHienLoc(); // Áp dụng lọc ngay với các giá trị index = 0
+            }
         }
+
+        // 2. Hàm trích xuất dữ liệu từ DataTable đưa vào ComboBox (Sử dụng LINQ)
         private void LoadComboBoxes()
         {
-            if (dtLichDay == null) return;
+            if (dtLichDay == null || dtLichDay.Rows.Count == 0) return;
 
-            // Load Thứ
             cbb_thu.Items.Clear();
+            cbb_lop.Items.Clear();
+            cbb_monhoc.Items.Clear();
+
+            // Thêm option Tất cả cho Thứ
             cbb_thu.Items.Add("--- Tất cả ---");
-            var distinctThus = dtLichDay.AsEnumerable().Select(r => r["ThuTrongTuan"].ToString()).Distinct().OrderBy(s => s);
-            foreach (var thu in distinctThus)
-                cbb_thu.Items.Add(thu); // SỬA: cbb_monhoc -> cbb_thu
+            var distinctThus = dtLichDay.AsEnumerable()
+                                        .Select(r => r["ThuTrongTuan"].ToString())
+                                        .Distinct()
+                                        .OrderBy(s => s);
+            foreach (var thu in distinctThus) cbb_thu.Items.Add(thu);
             cbb_thu.SelectedIndex = 0;
 
-            // Load Lớp
-            cbb_lop.Items.Clear();
+            // Thêm option Tất cả cho Lớp
             cbb_lop.Items.Add("--- Tất cả ---");
-            var distinctLops = dtLichDay.AsEnumerable().Select(r => r["TenLop"].ToString()).Distinct();
-            foreach (var lop in distinctLops)
-                cbb_lop.Items.Add(lop); // SỬA: cbb_monhoc -> cbb_lop
+            var distinctLops = dtLichDay.AsEnumerable()
+                                        .Select(r => r["TenLop"].ToString())
+                                        .Distinct()
+                                        .OrderBy(s => s);
+            foreach (var lop in distinctLops) cbb_lop.Items.Add(lop);
             cbb_lop.SelectedIndex = 0;
 
-            // Load Môn (Phần này bạn đang viết đúng)
-            cbb_monhoc.Items.Clear();
+            // Thêm option Tất cả cho Môn Học
             cbb_monhoc.Items.Add("--- Tất cả ---");
-            var distinctMons = dtLichDay.AsEnumerable().Select(r => r["TenMonHoc"].ToString()).Distinct();
-            foreach (var mon in distinctMons)
-                cbb_monhoc.Items.Add(mon);
+            var distinctMons = dtLichDay.AsEnumerable()
+                                         .Select(r => r["TenMonHoc"].ToString())
+                                         .Distinct()
+                                         .OrderBy(s => s);
+            foreach (var mon in distinctMons) cbb_monhoc.Items.Add(mon);
             cbb_monhoc.SelectedIndex = 0;
         }
 
-        // Hàm thực hiện lọc dữ liệu
         private void ThucHienLoc()
         {
-            if (dtLichDay == null) return;
+            if (isInitializing || dtLichDay == null) return;
 
-            string filter = "";
-
-            if (cbb_thu.SelectedIndex > 0)
-                filter += string.Format("Convert(ThuTrongTuan, 'System.String') = '{0}'", cbb_thu.SelectedItem);
-
-            if (cbb_lop.SelectedIndex > 0)
+            try
             {
-                if (filter != "") filter += " AND ";
-                filter += string.Format("TenLop = '{0}'", cbb_lop.SelectedItem);
-            }
+                string filter = "1=1";
 
-            if (cbb_monhoc.SelectedIndex > 0)
+                // Chỉ nối thêm chuỗi lọc khi Index > 0 (tức là không chọn "--- Tất cả ---")
+                if (cbb_thu.SelectedIndex > 0 && cbb_thu.SelectedItem != null)
+                    filter += string.Format(" AND Convert(ThuTrongTuan, 'System.String') = '{0}'", cbb_thu.SelectedItem);
+
+                if (cbb_lop.SelectedIndex > 0 && cbb_lop.SelectedItem != null)
+                    filter += string.Format(" AND TenLop = '{0}'", cbb_lop.SelectedItem);
+
+                if (cbb_monhoc.SelectedIndex > 0 && cbb_monhoc.SelectedItem != null)
+                    filter += string.Format(" AND TenMonHoc = '{0}'", cbb_monhoc.SelectedItem);
+
+                dtLichDay.DefaultView.RowFilter = filter;
+            }
+            catch (Exception ex)
             {
-                if (filter != "") filter += " AND ";
-                filter += string.Format("TenMonHoc = '{0}'", cbb_monhoc.SelectedItem);
+                MessageBox.Show("Lỗi khi lọc dữ liệu: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            dtLichDay.DefaultView.RowFilter = filter;
         }
 
+        // 4. Các sự kiện thay đổi ComboBox (Thay đổi là lưới tự lọc luôn, rất hiện đại)
         private void cbb_thu_SelectedIndexChanged(object sender, EventArgs e)
         {
             ThucHienLoc();
@@ -126,6 +144,13 @@ namespace QuanLyHocSinhTHPT
         private void cbb_monhoc_SelectedIndexChanged(object sender, EventArgs e)
         {
             ThucHienLoc();
+        }
+
+        // 5. Nút Làm Mới sẽ làm nhiệm vụ lấy lại dữ liệu mới nhất từ CSDL đề phòng có ai đó vừa cập nhật lịch
+        private void btn_lammoi_Click(object sender, EventArgs e)
+        {
+            LoadDataFromDatabase();
+            MessageBox.Show("Đã cập nhật dữ liệu lịch giảng dạy mới nhất!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

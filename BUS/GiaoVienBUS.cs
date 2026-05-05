@@ -120,12 +120,12 @@ namespace QuanLyHocSinhTHPT.BUS
         {
             return !gvDAO.KiemTraPhatSinhDuLieu(maGV);
         }
-       
+
         public DataSet LayBangDiemTheoLop(string maLop, int maMon, int hocky, string namHoc)
         {
             DiemDAO dao = new DiemDAO();
-            // Tầng BUS gọi tầng DAO xử lý
-            return dao.LayBangDiemTheoLop(maLop, maMon, hocky, namHoc);
+            // Gọi thẳng sang hàm LayBangDiem mới được tối ưu (truyền -1 để lấy quyền Admin xem tất cả)
+            return dao.LayBangDiem(namHoc, hocky, maLop, maMon, -1);
         }
         public int LayMaGVHienTai(int maTK)
         {
