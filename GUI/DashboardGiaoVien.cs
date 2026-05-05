@@ -129,5 +129,46 @@ namespace QuanLyHocSinhTHPT.GUI
                 }
             }
         }
+
+        private void btnXemHoSo_Click(object sender, EventArgs e)
+        {
+            // 1. Xóa các control cũ đang hiển thị trong vùng chứa
+            pn_body.Controls.Clear();
+
+            // 2. Khởi tạo User Control
+            ucProfile uc = new ucProfile();
+
+            // 3. Thiết lập cho UC lấp đầy vùng chứa
+            uc.Dock = DockStyle.Fill;
+
+            // 4. Thêm UC vào vùng chứa và đưa lên trên cùng
+            pn_body.Controls.Add(uc);
+            uc.BringToFront();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if (Session.TaiKhoanHienTai != null)
+            {
+                // Lấy MaTaiKhoan (giả sử trong TaiKhoanDTO của bạn có thuộc tính này)
+                int maTK = Session.TaiKhoanHienTai.MaTaiKhoan;
+
+                GiaoVienBUS busGV = new GiaoVienBUS();
+                int maGV = busGV.LayMaGVHienTai(maTK);
+
+                if (maGV != -1)
+                {
+                    ucXemLichGiangDay uc = new ucXemLichGiangDay(maGV);
+                    pn_body.Controls.Clear();
+                    uc.Dock = DockStyle.Fill;
+                    pn_body.Controls.Add(uc);
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản này chưa được gán cho giáo viên nào!");
+                }
+            }
+
+        }
     }
 }

@@ -58,6 +58,7 @@
     <Compile Include="BUS\DiemDanhBUS.cs" />
     <Compile Include="BUS\GiaoVienBUS.cs" />
     <Compile Include="BUS\HocSinhBUS.cs" />
+    <Compile Include="BUS\LichGiangDayBUS.cs" />
     <Compile Include="BUS\LopBUS.cs" />
     <Compile Include="BUS\MonHocBUS.cs" />
     <Compile Include="BUS\NamHocBUS.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\DiemDanhDAO.cs" />
     <Compile Include="DAO\GiaoVienDAO.cs" />
+    <Compile Include="DAO\LichGiangDayDAO.cs" />
     <Compile Include="DAO\NamHocDAO.cs" />
     <Compile Include="DAO\PhanCongDAO.cs" />
     <Compile Include="DTO\GiaoVienDTO.cs" />
@@ -167,6 +169,12 @@
     <Compile Include="GUI\ucQuanLyHocSinh.Designer.cs">
       <DependentUpon>ucQuanLyHocSinh.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucXemLichGiangDay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucXemLichGiangDay.Designer.cs">
+      <DependentUpon>ucXemLichGiangDay.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\DashboardGiaoVien.resx">
       <DependentUpon>DashboardGiaoVien.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +220,9 @@
     </Compile>
     <EmbeddedResource Include="GUI\ucQuanLyHocSinh.resx">
       <DependentUpon>ucQuanLyHocSinh.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucXemLichGiangDay.resx">
+      <DependentUpon>ucXemLichGiangDay.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

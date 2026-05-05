@@ -139,6 +139,7 @@
             this.guna2Button1.TabIndex = 9;
             this.guna2Button1.Text = "Xem lịch giảng dạy";
             this.guna2Button1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnDangXuat
             // 
@@ -184,6 +185,7 @@
             this.btnXemHoSo.TabIndex = 1;
             this.btnXemHoSo.Text = "Profile";
             this.btnXemHoSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnXemHoSo.Click += new System.EventHandler(this.btnXemHoSo_Click);
             // 
             // guna2PictureBox1
             // 
