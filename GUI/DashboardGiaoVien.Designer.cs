@@ -33,7 +33,7 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pn_sidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.btn_diemdanh = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
             this.btnXemHoSo = new Guna.UI2.WinForms.Guna2Button();
@@ -60,7 +60,7 @@
             // pn_sidebar
             // 
             this.pn_sidebar.Controls.Add(this.guna2Button3);
-            this.pn_sidebar.Controls.Add(this.guna2Button2);
+            this.pn_sidebar.Controls.Add(this.btn_diemdanh);
             this.pn_sidebar.Controls.Add(this.guna2Button1);
             this.pn_sidebar.Controls.Add(this.btnDangXuat);
             this.pn_sidebar.Controls.Add(this.btnXemHoSo);
@@ -95,27 +95,28 @@
             this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
-            // guna2Button2
+            // btn_diemdanh
             // 
-            this.guna2Button2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.guna2Button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.White;
-            this.guna2Button2.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.guna2Button2.Location = new System.Drawing.Point(0, 221);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.guna2Button2.Size = new System.Drawing.Size(297, 72);
-            this.guna2Button2.TabIndex = 10;
-            this.guna2Button2.Text = "Điểm danh";
-            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_diemdanh.BackColor = System.Drawing.Color.Transparent;
+            this.btn_diemdanh.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_diemdanh.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_diemdanh.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_diemdanh.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_diemdanh.FillColor = System.Drawing.Color.Transparent;
+            this.btn_diemdanh.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_diemdanh.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.btn_diemdanh.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btn_diemdanh.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
+            this.btn_diemdanh.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btn_diemdanh.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
+            this.btn_diemdanh.Location = new System.Drawing.Point(0, 221);
+            this.btn_diemdanh.Name = "btn_diemdanh";
+            this.btn_diemdanh.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_diemdanh.Size = new System.Drawing.Size(297, 72);
+            this.btn_diemdanh.TabIndex = 10;
+            this.btn_diemdanh.Text = "Điểm danh";
+            this.btn_diemdanh.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_diemdanh.Click += new System.EventHandler(this.btn_diemdanh_Click);
             // 
             // guna2Button1
             // 
@@ -228,7 +229,7 @@
         private Guna.UI2.WinForms.Guna2Button btnXemHoSo;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel pn_body;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button btn_diemdanh;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
     }

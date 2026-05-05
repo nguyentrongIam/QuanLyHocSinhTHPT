@@ -16,6 +16,7 @@ namespace QuanLyHocSinhTHPT.DAO
     public class LopDAO
     {
         private string connectionString = "Server=.;Database=QuanLyHocSinh_DB;Integrated Security=True;";
+        Database db = new Database();
         public DataSet GetClassDAO(string namhoc)
         {
             DataSet ds;
@@ -33,25 +34,33 @@ namespace QuanLyHocSinhTHPT.DAO
         }
         public DataTable LayDS()
         {
-            string sql = "SELECT MaLopHoc, TenLop FROM LopHoc";
             Database db = new Database();
-            DataSet ds = db.XemDanhSach1(sql); 
+           
+            DataSet ds = db.XemDanhSach1("SELECT MaLopHoc, TenLop FROM LopHoc");
 
-            // Kiểm tra null và trả về Table đầu tiên
-            if (ds != null && ds.Tables.Count > 0)
-                return ds.Tables[0];
-            return null;
+           
+            if (ds == null || ds.Tables.Count == 0)
+            {
+                
+                return null;
+            }
+
+            return ds.Tables[0];
         }
+
+
+
         public DataSet LayDanhSachLopTheoGV(int maGV)
         {
             Database db = new Database();
-            // Giả sử bảng Lop có cột MaGiaoVien để biết giáo viên nào dạy lớp nào
-            string sql = "SELECT MaLop, TenLop, NamHoc FROM Lop WHERE MaGiaoVien = @MaGV";
+            // Đã đổi MaGiaoVien thành MaGVCN theo đúng Database của bạn
+            string sql = "SELECT MaLopHoc, TenLop FROM LopHoc WHERE MaGVCN = @MaGV";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
             sqlParameters[0] = new SqlParameter("@MaGV", SqlDbType.Int);
             sqlParameters[0].Value = maGV;
 
+            // Sử dụng XemDanhSach2 để thực thi lệnh có tham số
             return db.XemDanhSach2(sql, sqlParameters);
         }
     }

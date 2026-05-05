@@ -50,8 +50,6 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.gridDanhSach = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pnThongTin = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.btn_luu = new Guna.UI2.WinForms.Guna2Button();
             this.lbl_diemtrungbinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txt_diemcuoiky = new Guna.UI2.WinForms.Guna2TextBox();
@@ -389,8 +387,6 @@
             // 
             this.pnThongTin.BackColor = System.Drawing.Color.Transparent;
             this.pnThongTin.BorderRadius = 10;
-            this.pnThongTin.Controls.Add(this.guna2Button1);
-            this.pnThongTin.Controls.Add(this.btn_luu);
             this.pnThongTin.Controls.Add(this.lbl_diemtrungbinh);
             this.pnThongTin.Controls.Add(this.guna2HtmlLabel10);
             this.pnThongTin.Controls.Add(this.txt_diemcuoiky);
@@ -413,44 +409,12 @@
             this.pnThongTin.Size = new System.Drawing.Size(517, 716);
             this.pnThongTin.TabIndex = 21;
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BorderRadius = 10;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Silver;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(291, 626);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(173, 53);
-            this.guna2Button1.TabIndex = 41;
-            this.guna2Button1.Text = "Hủy";
-            // 
-            // btn_luu
-            // 
-            this.btn_luu.BorderRadius = 10;
-            this.btn_luu.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_luu.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_luu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_luu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_luu.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(107)))));
-            this.btn_luu.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_luu.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_luu.Location = new System.Drawing.Point(97, 626);
-            this.btn_luu.Name = "btn_luu";
-            this.btn_luu.Size = new System.Drawing.Size(172, 53);
-            this.btn_luu.TabIndex = 40;
-            this.btn_luu.Text = "Lưu";
-            // 
             // lbl_diemtrungbinh
             // 
             this.lbl_diemtrungbinh.AutoSize = false;
             this.lbl_diemtrungbinh.BackColor = System.Drawing.Color.Transparent;
             this.lbl_diemtrungbinh.Font = new System.Drawing.Font("Arial Narrow", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_diemtrungbinh.Location = new System.Drawing.Point(222, 440);
+            this.lbl_diemtrungbinh.Location = new System.Drawing.Point(234, 443);
             this.lbl_diemtrungbinh.Name = "lbl_diemtrungbinh";
             this.lbl_diemtrungbinh.Size = new System.Drawing.Size(93, 32);
             this.lbl_diemtrungbinh.TabIndex = 39;
@@ -724,8 +688,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private Guna.UI2.WinForms.Guna2Button btn_lammoi;
         private Guna.UI2.WinForms.Guna2GradientPanel pnThongTin;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button btn_luu;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbl_diemtrungbinh;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel10;
         private Guna.UI2.WinForms.Guna2TextBox txt_diemcuoiky;

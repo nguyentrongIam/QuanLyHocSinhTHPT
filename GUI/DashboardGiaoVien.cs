@@ -105,5 +105,29 @@ namespace QuanLyHocSinhTHPT.GUI
             }
 
         }
+
+        private void btn_diemdanh_Click(object sender, EventArgs e)
+        {
+            if (Session.TaiKhoanHienTai != null)
+            {
+                // Lấy MaTaiKhoan (giả sử trong TaiKhoanDTO của bạn có thuộc tính này)
+                int maTK = Session.TaiKhoanHienTai.MaTaiKhoan;
+
+                GiaoVienBUS busGV = new GiaoVienBUS();
+                int maGV = busGV.LayMaGVHienTai(maTK);
+
+                if (maGV != -1)
+                {
+                    ucQuanLyDiemDanh uc = new ucQuanLyDiemDanh(maGV);
+                    pn_body.Controls.Clear();
+                    uc.Dock = DockStyle.Fill;
+                    pn_body.Controls.Add(uc);
+                }
+                else
+                {
+                    MessageBox.Show("Tài khoản này chưa được gán cho giáo viên nào!");
+                }
+            }
+        }
     }
 }

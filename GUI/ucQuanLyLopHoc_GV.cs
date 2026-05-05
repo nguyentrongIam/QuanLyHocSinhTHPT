@@ -14,6 +14,21 @@
         public partial class ucQuanLyLopHoc__GV : UserControl
         {
         private int maDiemHienTai = -1; // Khai báo biến để lưu ID điểm đang chọn
+        private bool isAdding = false; // Biến cờ để theo dõi trạng thái nút Thêm/Lưu
+
+        // Hàm kiểm tra điểm hợp lệ (từ 0 đến 10)
+        private bool KiemTraDiemHopLe(string diemStr)
+        {
+            // Nếu để trống thì hợp lệ (coi như chưa có điểm)
+            if (string.IsNullOrWhiteSpace(diemStr)) return true;
+
+            // Kiểm tra xem có phải số không và có nằm trong khoảng 0 - 10 không
+            if (float.TryParse(diemStr, out float diem))
+            {
+                return diem >= 0 && diem <= 10;
+            }
+            return false; // Không phải số hợp lệ
+        }
 
         // Khai báo các đối tượng nghiệp vụ
         private GiaoVienBUS busGiaoVien = new GiaoVienBUS();
@@ -103,26 +118,25 @@
         private void btn_lammoi_Click(object sender, EventArgs e)
         {
             maDiemHienTai = -1;
+            // Xóa sạch nguồn dữ liệu cũ của Grid NGAY LẬP TỨC
+            gridDanhSach.DataSource = null;
+
             // 1. Kiểm tra đầu vào
             if (cbb_lop.SelectedValue == null || cbb_monhoc.SelectedValue == null ||
                 cbb_namhoc.SelectedValue == null || string.IsNullOrEmpty(cbb_hk.Text))
             {
-                gridDanhSach.DataSource = null;
-                MessageBox.Show("Vui lòng chọn đầy đủ thông tin!", "Thông báo");
+                MessageBox.Show("Vui lòng chọn đầy đủ thông tin (Lớp, Môn, Năm, Học kỳ)!", "Thông báo");
                 return;
             }
 
             try
             {
-                // Xóa sạch nguồn dữ liệu cũ của Grid trước khi gọi hàm mới
-                gridDanhSach.DataSource = null;
-
                 string tenLop = cbb_lop.Text;
                 int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
                 int hocKy = Convert.ToInt32(cbb_hk.Text);
                 string namHoc = cbb_namhoc.Text;
 
-                MessageBox.Show($"Đang tìm: Lớp='{tenLop}', Môn={maMon}, HK={hocKy}, Năm='{namHoc}'");
+                // Bỏ dòng MessageBox.Show ở đây để đỡ phiền người dùng
                 DataSet ds = busDiem.LayBangDiemTheoLop(tenLop, maMon, hocKy, namHoc);
 
                 if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
@@ -132,8 +146,9 @@
                 }
                 else
                 {
-                    // Nếu không có dữ liệu, thông báo rõ ràng cho người dùng
-                    MessageBox.Show($"Không có dữ liệu điểm cho năm {namHoc} - Học kỳ {hocKy}", "Thông báo");
+                    // Nếu KHÔNG CÓ dữ liệu, Grid đã được set DataSource = null ở trên
+                    // Chỉ cần thông báo nhẹ cho người dùng biết (nếu bạn muốn)
+                    // MessageBox.Show($"Không có dữ liệu điểm cho Lớp {tenLop} - Năm {namHoc} - Học kỳ {hocKy}", "Thông báo");
                 }
             }
             catch (Exception ex)
@@ -248,41 +263,79 @@
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            // Kiểm tra trống
-            if (string.IsNullOrEmpty(txt_mahs.Text))
+            if (!isAdding) // NẾU ĐANG Ở TRẠNG THÁI "THÊM"
             {
-                MessageBox.Show("Vui lòng chọn một học sinh!", "Thông báo");
-                return;
+                isAdding = true;
+                guna2Button2.Text = "Lưu"; // Tạm đổi Text của nút (nhớ đổi thuộc tính Text ban đầu của nút này là "Thêm" trong giao diện)
+
+                // Khóa lưới danh sách để tránh click nhầm sang dòng khác khi đang nhập
+                gridDanhSach.Enabled = false;
+
+                // Xóa trắng các TextBox để chuẩn bị nhập
+                txt_mahs.Clear();
+                txt_diemmieng.Clear();
+                txt_diem15p_lan1.Clear();
+                txt_diem15p_lan2.Clear();
+                txt_diemgiuaky.Clear();
+                txt_diemcuoiky.Clear();
+
+                MessageBox.Show("Đã chuyển sang chế độ Thêm. Vui lòng gõ mã học sinh và điểm, sau đó ấn 'Lưu'!", "Hướng dẫn", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txt_mahs.Focus(); // Trỏ chuột vào ô nhập Mã HS
             }
-
-            try
+            else // NẾU ĐANG Ở TRẠNG THÁI "LƯU"
             {
-                string maHS = txt_mahs.Text;
-                string maLop = cbb_lop.SelectedValue.ToString();
-                int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
-                int hk = Convert.ToInt32(cbb_hk.Text);
-                string nam = cbb_namhoc.Text.Replace(" ", "");
-
-                // Chuyển đổi điểm an toàn (nếu TextBox rỗng thì mặc định là 0)
-                float.TryParse(txt_diemmieng.Text, out float diemMieng);
-                float.TryParse(txt_diem15p_lan1.Text, out float d15p1);
-                float.TryParse(txt_diem15p_lan2.Text, out float d15p2);
-                float.TryParse(txt_diemgiuaky.Text, out float dGK);
-                float.TryParse(txt_diemcuoiky.Text, out float dCK);
-
-                if (busDiem.ThemDiemBUS(maHS, maLop, maMon, hk, nam, diemMieng, d15p1, d15p2, dGK, dCK))
+                // Kiểm tra trống Mã HS
+                if (string.IsNullOrEmpty(txt_mahs.Text))
                 {
-                    MessageBox.Show("Thêm điểm thành công!", "Thông báo");
-                    btn_lammoi_Click(sender, e); // Gọi lại nút Làm mới để load lại danh sách
+                    MessageBox.Show("Vui lòng nhập mã học sinh!", "Thông báo");
+                    return;
                 }
-                else
+
+                // Kiểm tra tính hợp lệ của tất cả các cột điểm (từ 0 - 10)
+                if (!KiemTraDiemHopLe(txt_diemmieng.Text) || !KiemTraDiemHopLe(txt_diem15p_lan1.Text) ||
+                    !KiemTraDiemHopLe(txt_diem15p_lan2.Text) || !KiemTraDiemHopLe(txt_diemgiuaky.Text) ||
+                    !KiemTraDiemHopLe(txt_diemcuoiky.Text))
                 {
-                    MessageBox.Show("Thêm điểm thất bại!", "Lỗi");
+                    MessageBox.Show("Điểm nhập vào phải là một số và nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi nhập liệu: " + ex.Message);
+
+                try
+                {
+                    string maHS = txt_mahs.Text.Trim();
+                    string maLop = cbb_lop.SelectedValue.ToString();
+                    int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
+                    int hk = Convert.ToInt32(cbb_hk.Text);
+                    string nam = cbb_namhoc.Text.Replace(" ", "");
+
+                    // Chuyển đổi điểm an toàn (nếu TextBox rỗng thì mặc định là 0)
+                    float dMieng = string.IsNullOrWhiteSpace(txt_diemmieng.Text) ? 0 : float.Parse(txt_diemmieng.Text);
+                    float d15p1 = string.IsNullOrWhiteSpace(txt_diem15p_lan1.Text) ? 0 : float.Parse(txt_diem15p_lan1.Text);
+                    float d15p2 = string.IsNullOrWhiteSpace(txt_diem15p_lan2.Text) ? 0 : float.Parse(txt_diem15p_lan2.Text);
+                    float dGK = string.IsNullOrWhiteSpace(txt_diemgiuaky.Text) ? 0 : float.Parse(txt_diemgiuaky.Text);
+                    float dCK = string.IsNullOrWhiteSpace(txt_diemcuoiky.Text) ? 0 : float.Parse(txt_diemcuoiky.Text);
+
+                    // Gọi BUS thêm
+                    if (busDiem.ThemDiemBUS(maHS, maLop, maMon, hk, nam, dMieng, d15p1, d15p2, dGK, dCK))
+                    {
+                        MessageBox.Show("Thêm/Lưu điểm thành công!", "Thông báo");
+
+                        // Trả lại trạng thái ban đầu
+                        isAdding = false;
+                        guna2Button2.Text = "Thêm";
+                        gridDanhSach.Enabled = true;
+
+                        btn_lammoi_Click(sender, e); // Load lại danh sách
+                    }
+                    else
+                    {
+                        MessageBox.Show("Thêm điểm thất bại! Kiểm tra lại học sinh này có thể đã có điểm hoặc sai mã.", "Lỗi");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi hệ thống: " + ex.Message);
+                }
             }
         }
 
@@ -290,31 +343,37 @@
         {
             if (string.IsNullOrEmpty(txt_mahs.Text))
             {
-                MessageBox.Show("Vui lòng chọn học sinh cần sửa điểm!");
+                MessageBox.Show("Vui lòng chọn học sinh cần sửa điểm trên danh sách trước!");
+                return;
+            }
+
+            // Kiểm tra tính hợp lệ của tất cả các cột điểm (từ 0 - 10)
+            if (!KiemTraDiemHopLe(txt_diemmieng.Text) || !KiemTraDiemHopLe(txt_diem15p_lan1.Text) ||
+                !KiemTraDiemHopLe(txt_diem15p_lan2.Text) || !KiemTraDiemHopLe(txt_diemgiuaky.Text) ||
+                !KiemTraDiemHopLe(txt_diemcuoiky.Text))
+            {
+                MessageBox.Show("Điểm sửa phải là một số và nằm trong khoảng từ 0 đến 10!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                // 1. Lấy thông tin định danh
                 string maHS = txt_mahs.Text;
                 string maLop = cbb_lop.SelectedValue.ToString();
                 int maMon = Convert.ToInt32(cbb_monhoc.SelectedValue);
                 int hk = Convert.ToInt32(cbb_hk.Text);
                 string nam = cbb_namhoc.Text.Trim();
 
-                // 2. Ép kiểu điểm số (nếu để trống thì coi như 0)
-                float dM = string.IsNullOrEmpty(txt_diemmieng.Text) ? 0 : float.Parse(txt_diemmieng.Text);
-                float d15_1 = string.IsNullOrEmpty(txt_diem15p_lan1.Text) ? 0 : float.Parse(txt_diem15p_lan1.Text);
-                float d15_2 = string.IsNullOrEmpty(txt_diem15p_lan2.Text) ? 0 : float.Parse(txt_diem15p_lan2.Text);
-                float dGK = string.IsNullOrEmpty(txt_diemgiuaky.Text) ? 0 : float.Parse(txt_diemgiuaky.Text);
-                float dCK = string.IsNullOrEmpty(txt_diemcuoiky.Text) ? 0 : float.Parse(txt_diemcuoiky.Text);
+                float dM = string.IsNullOrWhiteSpace(txt_diemmieng.Text) ? 0 : float.Parse(txt_diemmieng.Text);
+                float d15_1 = string.IsNullOrWhiteSpace(txt_diem15p_lan1.Text) ? 0 : float.Parse(txt_diem15p_lan1.Text);
+                float d15_2 = string.IsNullOrWhiteSpace(txt_diem15p_lan2.Text) ? 0 : float.Parse(txt_diem15p_lan2.Text);
+                float dGK = string.IsNullOrWhiteSpace(txt_diemgiuaky.Text) ? 0 : float.Parse(txt_diemgiuaky.Text);
+                float dCK = string.IsNullOrWhiteSpace(txt_diemcuoiky.Text) ? 0 : float.Parse(txt_diemcuoiky.Text);
 
-                // 3. Gọi BUS thực thi
                 if (busDiem.SuaDiemBUS(maHS, maLop, maMon, hk, nam, dM, d15_1, d15_2, dGK, dCK))
                 {
                     MessageBox.Show("Cập nhật điểm thành công!");
-                    btn_lammoi_Click(sender, e); // Load lại lưới để thấy dữ liệu mới
+                    btn_lammoi_Click(sender, e);
                 }
                 else
                 {
@@ -357,6 +416,11 @@
                     MessageBox.Show("Xóa thất bại! Có thể do kết nối cơ sở dữ liệu.", "Lỗi");
                 }
             }
+        }
+
+        private void btn_luu_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
