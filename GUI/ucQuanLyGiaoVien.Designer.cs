@@ -477,6 +477,7 @@
             this.btnXuatBaoCao.TabIndex = 12;
             this.btnXuatBaoCao.TabStop = false;
             this.btnXuatBaoCao.Text = "Xuất báo cáo excel";
+            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
             // 
             // guna2Button4
             // 
@@ -651,6 +652,7 @@
             this.Controls.Add(this.guna2GradientPanel1);
             this.Name = "ucQuanLyGiaoVien";
             this.Size = new System.Drawing.Size(1791, 1061);
+            this.Load += new System.EventHandler(this.ucQuanLyGiaoVien_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.pnThongTin.ResumeLayout(false);

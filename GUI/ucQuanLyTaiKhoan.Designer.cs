@@ -113,6 +113,7 @@
             this.btnXuatBaoCao.TabIndex = 12;
             this.btnXuatBaoCao.TabStop = false;
             this.btnXuatBaoCao.Text = "Xuất báo cáo excel";
+            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
             // 
             // btnSua
             // 

@@ -108,6 +108,7 @@
             this.btnXuatBaoCao.TabIndex = 38;
             this.btnXuatBaoCao.TabStop = false;
             this.btnXuatBaoCao.Text = "Xuất báo cáo";
+            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
             // 
             // btn_lammoi
             // 

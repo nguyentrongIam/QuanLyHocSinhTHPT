@@ -156,7 +156,7 @@ namespace QuanLyHocSinhTHPT.DAO
             string sql = "SELECT MaGiaoVien, HoTen FROM GiaoVien";
             DataSet ds = db.XemDanhSach(sql); // Hàm gốc của bạn trả về DataSet
 
-            // Sửa lỗi CS0029: Chuyển từ DataSet sang DataTable
+        
             if (ds != null && ds.Tables.Count > 0)
                 return ds.Tables[0];
             return null;
@@ -173,7 +173,7 @@ namespace QuanLyHocSinhTHPT.DAO
         new SqlParameter("@maGV", maGV)
     };
 
-            // SỬA TẠI ĐÂY: Dùng XemDanhSach thay vì ThucThiCoThamSo
+          
             return db.XemDanhSach(sql, parameters);
         }
         public int LayMaGVTuMaTK(int maTK)
@@ -181,7 +181,6 @@ namespace QuanLyHocSinhTHPT.DAO
             Database db = new Database();
             int maGV = -1; // Giá trị mặc định nếu không tìm thấy
 
-            // Câu lệnh SQL chuẩn theo ảnh database của bạn
             string sql = "SELECT MaGiaoVien FROM GiaoVien WHERE MaTaiKhoan = @MaTK";
 
             SqlParameter[] sqlParameters = new SqlParameter[1];
@@ -206,11 +205,11 @@ namespace QuanLyHocSinhTHPT.DAO
             }
             catch (Exception ex)
             {
-                // Bạn có thể dùng MessageBox.Show(ex.Message) ở đây để debug nhanh nếu muốn
+              
                 throw ex;
             }
 
-            return maGV; // QUAN TRỌNG: Phải có dòng này để trả về kết quả
+            return maGV;
         }
        
 

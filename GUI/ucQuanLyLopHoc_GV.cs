@@ -3,6 +3,8 @@ using QuanLyHocSinhTHPT.DTO;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+
 
 namespace QuanLyHocSinhTHPT.GUI
 {
@@ -381,5 +383,77 @@ namespace QuanLyHocSinhTHPT.GUI
         private void btn_HienThiLopGiaoVienDay_Click(object sender, EventArgs e) { }
         private void guna2GradientPanel1_Paint(object sender, PaintEventArgs e) { }
         private void btn_luu_Click(object sender, EventArgs e) { }
+
+        private void btn_xuatfileexcel_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem GridView có dữ liệu không
+            if (gridDanhSach.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Mở hộp thoại lưu file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            saveFileDialog.FileName = "DanhSachHocSinh_" + DateTime.Now.ToString("ddMMyyyy_HHmm") + ".xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // 3. Khởi tạo ứng dụng Excel
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+                Excel._Worksheet worksheet = null;
+
+                try
+                {
+                    worksheet = workbook.ActiveSheet;
+                    worksheet.Name = "Danh sách học sinh";
+
+                    // 4. Xuất tiêu đề cột từ DataGridView
+                    for (int i = 1; i <= gridDanhSach.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i] = gridDanhSach.Columns[i - 1].HeaderText;
+                        // Định dạng tiêu đề (In đậm, màu nền)
+                        worksheet.Cells[1, i].Font.Bold = true;
+                        worksheet.Cells[1, i].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                    }
+
+                    // 5. Xuất dữ liệu từng hàng
+                    for (int i = 0; i < gridDanhSach.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < gridDanhSach.Columns.Count; j++)
+                        {
+                            if (gridDanhSach.Rows[i].Cells[j].Value != null)
+                            {
+                                worksheet.Cells[i + 2, j + 1] = gridDanhSach.Rows[i].Cells[j].Value.ToString();
+                            }
+                        }
+                    }
+
+                    // 6. Tự động giãn chiều rộng cột
+                    worksheet.Columns.AutoFit();
+
+                    // 7. Lưu file
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất báo cáo thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // 8. Đóng ứng dụng Excel để không chạy ngầm
+                    excelApp.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                }
+            }
+        }
+
+        private void gridDanhSach_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

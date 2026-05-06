@@ -19,8 +19,7 @@ namespace QuanLyHocSinhTHPT.DAO
         Database db = new Database();
         public DataSet LayDanhSachDiemDanh(int maLop, DateTime ngay)
         {
-            // Đã thêm INNER JOIN với bảng PhanLopHocSinh (pl) 
-            // và sửa điều kiện WHERE thành pl.MaLopHoc
+            
             string sql = @"
     SELECT 
         hs.MaHocSinh, 
@@ -73,7 +72,7 @@ namespace QuanLyHocSinhTHPT.DAO
         {
             Database db = new Database();
 
-            // SQL sử dụng BEGIN...END để phân đoạn rõ ràng, dễ đọc hơn
+         
             string sql = @"
         DECLARE @MaLop INT;
         -- Tìm mã lớp của học sinh từ bảng phân lớp
@@ -81,7 +80,7 @@ namespace QuanLyHocSinhTHPT.DAO
 
         IF EXISTS (SELECT 1 FROM DiemDanh WHERE MaHocSinh = @MaHS AND NgayDiemDanh = @Ngay)
         BEGIN
-            -- Nếu đã có dữ liệu ngày hôm đó: Cập nhật Trạng thái và Ghi chú
+          
             UPDATE DiemDanh 
             SET TrangThai = @TT, 
                 GhiChu = @GC 
