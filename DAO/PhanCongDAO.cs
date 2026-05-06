@@ -17,7 +17,6 @@ namespace QuanLyHocSinhTHPT.DAO
         // Lấy danh sách phân công (có JOIN để lấy tên hiển thị trên GUI)
         public DataTable LayDanhSachPhanCong()
         {
-            // Bạn phải SELECT cả MaLopHoc, MaMonHoc, MaGiaoVien
             string sql = "SELECT PC.MaPhanCong, PC.MaLopHoc, L.TenLop, PC.MaMonHoc, M.TenMonHoc, " +
                          "PC.MaGiaoVien, GV.HoTen, PC.ThuTrongTuan, PC.TietHoc " +
                          "FROM PhanCongGiangDay PC " +
@@ -79,9 +78,7 @@ namespace QuanLyHocSinhTHPT.DAO
         // Kiểm tra giáo viên có bị trùng lịch dạy không
         public bool KiemTraTrungLich(int maGV, int thu, int tiet)
         {
-            // Sử dụng phương thức KiemTraTonTai có sẵn trong class Database của bạn
-            // Lưu ý: LayGiaTri trong class Database của bạn chưa hỗ trợ tham số trực tiếp, 
-            // nên ta dùng chuỗi SQL cơ bản hoặc bạn có thể bổ sung LayGiaTriCoThamSo.
+            
 
             string sql = string.Format("SELECT COUNT(*) FROM PhanCongGiangDay WHERE MaGiaoVien = {0} AND ThuTrongTuan = {1} AND TietHoc = {2}",
                                         maGV, thu, tiet);
@@ -104,7 +101,7 @@ namespace QuanLyHocSinhTHPT.DAO
             return -1; // Không tìm thấy
         }
 
-        // --- ĐỔI SANG DATASET ---
+       
 
         public DataSet LayDanhSachThu(int maGV)
         {
