@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.lblDanhSach = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnXuatBaoCao = new Guna.UI2.WinForms.Guna2Button();
             this.btn_sua = new Guna.UI2.WinForms.Guna2Button();
@@ -63,7 +64,6 @@
             this.lblGioiTinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTieuDe = new System.Windows.Forms.Label();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gird_danhsach)).BeginInit();
             this.pnThongTin.SuspendLayout();
@@ -92,6 +92,23 @@
             this.guna2GradientPanel1.Size = new System.Drawing.Size(1154, 780);
             this.guna2GradientPanel1.TabIndex = 0;
             // 
+            // guna2Button2
+            // 
+            this.guna2Button2.BorderRadius = 10;
+            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button2.ForeColor = System.Drawing.SystemColors.Window;
+            this.guna2Button2.Location = new System.Drawing.Point(389, 114);
+            this.guna2Button2.Name = "guna2Button2";
+            this.guna2Button2.Size = new System.Drawing.Size(136, 40);
+            this.guna2Button2.TabIndex = 27;
+            this.guna2Button2.Text = "Tìm kiếm";
+            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click_1);
+            // 
             // lblDanhSach
             // 
             this.lblDanhSach.AutoSize = false;
@@ -119,6 +136,7 @@
             this.btnXuatBaoCao.Size = new System.Drawing.Size(178, 40);
             this.btnXuatBaoCao.TabIndex = 12;
             this.btnXuatBaoCao.Text = "Xuất báo cáo excel";
+            this.btnXuatBaoCao.Click += new System.EventHandler(this.btnXuatBaoCao_Click);
             // 
             // btn_sua
             // 
@@ -627,23 +645,6 @@
             this.lblTieuDe.Size = new System.Drawing.Size(479, 66);
             this.lblTieuDe.TabIndex = 14;
             this.lblTieuDe.Text = "Quản lý Học sinh";
-            // 
-            // guna2Button2
-            // 
-            this.guna2Button2.BorderRadius = 10;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.SystemColors.Window;
-            this.guna2Button2.Location = new System.Drawing.Point(389, 114);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(136, 40);
-            this.guna2Button2.TabIndex = 27;
-            this.guna2Button2.Text = "Tìm kiếm";
-            this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click_1);
             // 
             // ucQuanLyHocSinh
             // 

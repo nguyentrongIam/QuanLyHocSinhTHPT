@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace QuanLyHocSinhTHPT
 {
     public partial class ucQuanLyHocSinh : UserControl
@@ -40,33 +40,7 @@ namespace QuanLyHocSinhTHPT
 
 
         }
-        //}
-        //public void HienComBoBoxTenLop()
-        //{
-
-            //    //Lấy năm học 
-            //    string namhoc = cbb_namhoc.Text;
-            //    LopBUS bus = new LopBUS();  
-            //    DataSet ds = bus.GetClassBUS(namhoc);
-            //    if (ds == null || ds.Tables[0].Rows.Count==0)
-            //    {
-            //        hienthi = "khong";
-            //        cbb_lophoc.DisplayMember = "";
-            //        cbb_lophoc.ValueMember = "";
-            //        cbb_lophoc.DataSource = null;
-            //        cbb_lophoc.Items.Clear();
-            //    }
-            //    else
-            //    {
-            //        hienthi = "co";
-
-            //        cbb_lophoc.DisplayMember = "TenLop";
-            //        cbb_lophoc.ValueMember = "MaLopHoc";
-            //        cbb_lophoc.DataSource = ds.Tables[0];
-            //        cbb_lophoc.SelectedIndex = -1;  
-            //    }
-
-            //}
+        
 
 
         private void uc_QuanLyHocSinh_Load(object sender, EventArgs e)
@@ -244,6 +218,73 @@ namespace QuanLyHocSinhTHPT
             DataSet ds;
             ds = bus.TimKiemHocSinhBUS(txt_timkiem.Text);
             gird_danhsach.DataSource = ds.Tables[0];
+        }
+
+        private void btnXuatBaoCao_Click(object sender, EventArgs e)
+        {
+            // 1. Kiểm tra xem GridView có dữ liệu không
+            if (gird_danhsach.Rows.Count == 0)
+            {
+                MessageBox.Show("Không có dữ liệu để xuất!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            // 2. Mở hộp thoại lưu file
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            saveFileDialog.FileName = "DanhSachHocSinh_" + DateTime.Now.ToString("ddMMyyyy_HHmm") + ".xlsx";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // 3. Khởi tạo ứng dụng Excel
+                Excel.Application excelApp = new Excel.Application();
+                Excel.Workbook workbook = excelApp.Workbooks.Add(Type.Missing);
+                Excel._Worksheet worksheet = null;
+
+                try
+                {
+                    worksheet = workbook.ActiveSheet;
+                    worksheet.Name = "Danh sách học sinh";
+
+                    // 4. Xuất tiêu đề cột từ DataGridView
+                    for (int i = 1; i <= gird_danhsach.Columns.Count; i++)
+                    {
+                        worksheet.Cells[1, i] = gird_danhsach.Columns[i - 1].HeaderText;
+                        // Định dạng tiêu đề (In đậm, màu nền)
+                        worksheet.Cells[1, i].Font.Bold = true;
+                        worksheet.Cells[1, i].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.LightGray);
+                    }
+
+                    // 5. Xuất dữ liệu từng hàng
+                    for (int i = 0; i < gird_danhsach.Rows.Count; i++)
+                    {
+                        for (int j = 0; j < gird_danhsach.Columns.Count; j++)
+                        {
+                            if (gird_danhsach.Rows[i].Cells[j].Value != null)
+                            {
+                                worksheet.Cells[i + 2, j + 1] = gird_danhsach.Rows[i].Cells[j].Value.ToString();
+                            }
+                        }
+                    }
+
+                    // 6. Tự động giãn chiều rộng cột
+                    worksheet.Columns.AutoFit();
+
+                    // 7. Lưu file
+                    workbook.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Xuất báo cáo thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi xuất file: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    // 8. Đóng ứng dụng Excel để không chạy ngầm
+                    excelApp.Quit();
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                }
+            }
         }
     }
 }//
