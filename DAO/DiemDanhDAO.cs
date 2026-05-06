@@ -19,15 +19,19 @@ namespace QuanLyHocSinhTHPT.DAO
         Database db = new Database();
         public DataSet LayDanhSachDiemDanh(int maLop, DateTime ngay)
         {
-            Database db = new Database();
-            // Sử dụng ISNULL để nếu dd.NgayDiemDanh bị NULL thì sẽ lấy giá trị @Ngay truyền vào
-            string sql = @"SELECT hs.MaHocSinh, hs.HoTen, 
-                          ISNULL(dd.TrangThai, 0) as TrangThai, 
-                          ISNULL(dd.NgayDiemDanh, @Ngay) as NgayDiemDanh 
-                   FROM HocSinh hs 
-                   INNER JOIN PhanLopHocSinh plhs ON hs.MaHocSinh = plhs.MaHocSinh
-                   LEFT JOIN DiemDanh dd ON hs.MaHocSinh = dd.MaHocSinh AND dd.NgayDiemDanh = @Ngay
-                   WHERE plhs.MaLopHoc = @MaLop";
+            // Đã thêm INNER JOIN với bảng PhanLopHocSinh (pl) 
+            // và sửa điều kiện WHERE thành pl.MaLopHoc
+            string sql = @"
+    SELECT 
+        hs.MaHocSinh, 
+        hs.HoTen, 
+        dd.TrangThai, 
+        dd.NgayDiemDanh, 
+        dd.GhiChu 
+    FROM HocSinh hs
+    INNER JOIN PhanLopHocSinh pl ON hs.MaHocSinh = pl.MaHocSinh
+    LEFT JOIN DiemDanh dd ON hs.MaHocSinh = dd.MaHocSinh AND dd.NgayDiemDanh = @Ngay
+    WHERE pl.MaLopHoc = @MaLop";
 
             SqlParameter[] p = {
         new SqlParameter("@MaLop", SqlDbType.Int) { Value = maLop },
@@ -36,6 +40,9 @@ namespace QuanLyHocSinhTHPT.DAO
 
             return db.XemDanhSach2(sql, p);
         }
+
+
+
 
         public bool LuuDiemDanh(int maHocSinh, int maLopHoc, DateTime ngayDiemDanh, string trangThai, string ghiChu)
         {
@@ -62,25 +69,36 @@ namespace QuanLyHocSinhTHPT.DAO
 
             return db.ThucThiCoThamSo(sSQL, parameters) > 0;
         }
-        public bool CapNhatTrangThaiDiemDanh(int maHS, DateTime ngay, string trangThai)
+        public bool CapNhatTrangThaiDiemDanh(int maHS, DateTime ngay, string trangThai, string ghiChu)
         {
             Database db = new Database();
 
-            // SỬA TẠI ĐÂY: Lấy MaLopHoc từ bảng PhanLopHocSinh
+            // SQL sử dụng BEGIN...END để phân đoạn rõ ràng, dễ đọc hơn
             string sql = @"
         DECLARE @MaLop INT;
+        -- Tìm mã lớp của học sinh từ bảng phân lớp
         SELECT TOP 1 @MaLop = MaLopHoc FROM PhanLopHocSinh WHERE MaHocSinh = @MaHS;
 
-        IF EXISTS (SELECT * FROM DiemDanh WHERE MaHocSinh = @MaHS AND NgayDiemDanh = @Ngay)
-            UPDATE DiemDanh SET TrangThai = @TT WHERE MaHocSinh = @MaHS AND NgayDiemDanh = @Ngay
+        IF EXISTS (SELECT 1 FROM DiemDanh WHERE MaHocSinh = @MaHS AND NgayDiemDanh = @Ngay)
+        BEGIN
+            -- Nếu đã có dữ liệu ngày hôm đó: Cập nhật Trạng thái và Ghi chú
+            UPDATE DiemDanh 
+            SET TrangThai = @TT, 
+                GhiChu = @GC 
+            WHERE MaHocSinh = @MaHS AND NgayDiemDanh = @Ngay;
+        END
         ELSE
-            INSERT INTO DiemDanh (MaHocSinh, MaLopHoc, NgayDiemDanh, TrangThai) 
-            VALUES (@MaHS, @MaLop, @Ngay, @TT)";
+        BEGIN
+            -- Nếu chưa có: Thêm mới bản ghi điểm danh đầy đủ các cột
+            INSERT INTO DiemDanh (MaHocSinh, MaLopHoc, NgayDiemDanh, TrangThai, GhiChu) 
+            VALUES (@MaHS, @MaLop, @Ngay, @TT, @GC);
+        END";
 
             SqlParameter[] p = {
         new SqlParameter("@MaHS", SqlDbType.Int) { Value = maHS },
         new SqlParameter("@Ngay", SqlDbType.Date) { Value = ngay.Date },
-        new SqlParameter("@TT", SqlDbType.NVarChar) { Value = trangThai }
+        new SqlParameter("@TT", SqlDbType.NVarChar) { Value = trangThai },
+        new SqlParameter("@GC", SqlDbType.NVarChar) { Value = (object)ghiChu ?? DBNull.Value }
     };
 
             return db.ThucThiCoThamSo(sql, p) > 0;

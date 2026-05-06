@@ -45,7 +45,7 @@
             this.cbb_trangthai = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btn_huy = new Guna.UI2.WinForms.Guna2Button();
             this.btn_luu = new Guna.UI2.WinForms.Guna2Button();
-            this.txt_diem15p_lan1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txt_ghichu = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lblThongTinChiTiet = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -245,7 +245,7 @@
             this.pnThongTin.Controls.Add(this.cbb_trangthai);
             this.pnThongTin.Controls.Add(this.btn_huy);
             this.pnThongTin.Controls.Add(this.btn_luu);
-            this.pnThongTin.Controls.Add(this.txt_diem15p_lan1);
+            this.pnThongTin.Controls.Add(this.txt_ghichu);
             this.pnThongTin.Controls.Add(this.guna2HtmlLabel5);
             this.pnThongTin.Controls.Add(this.guna2HtmlLabel6);
             this.pnThongTin.Controls.Add(this.lblThongTinChiTiet);
@@ -308,27 +308,27 @@
             this.btn_luu.Text = "Lưu";
             this.btn_luu.Click += new System.EventHandler(this.btn_luu_Click);
             // 
-            // txt_diem15p_lan1
+            // txt_ghichu
             // 
-            this.txt_diem15p_lan1.AutoSize = true;
-            this.txt_diem15p_lan1.BackColor = System.Drawing.Color.White;
-            this.txt_diem15p_lan1.BorderRadius = 10;
-            this.txt_diem15p_lan1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_diem15p_lan1.DefaultText = "";
-            this.txt_diem15p_lan1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txt_diem15p_lan1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txt_diem15p_lan1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_diem15p_lan1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txt_diem15p_lan1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_diem15p_lan1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_diem15p_lan1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txt_diem15p_lan1.Location = new System.Drawing.Point(167, 211);
-            this.txt_diem15p_lan1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_diem15p_lan1.Name = "txt_diem15p_lan1";
-            this.txt_diem15p_lan1.PlaceholderText = "";
-            this.txt_diem15p_lan1.SelectedText = "";
-            this.txt_diem15p_lan1.Size = new System.Drawing.Size(263, 120);
-            this.txt_diem15p_lan1.TabIndex = 30;
+            this.txt_ghichu.AutoSize = true;
+            this.txt_ghichu.BackColor = System.Drawing.Color.White;
+            this.txt_ghichu.BorderRadius = 10;
+            this.txt_ghichu.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_ghichu.DefaultText = "";
+            this.txt_ghichu.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txt_ghichu.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txt_ghichu.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_ghichu.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txt_ghichu.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_ghichu.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_ghichu.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txt_ghichu.Location = new System.Drawing.Point(167, 211);
+            this.txt_ghichu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txt_ghichu.Name = "txt_ghichu";
+            this.txt_ghichu.PlaceholderText = "";
+            this.txt_ghichu.SelectedText = "";
+            this.txt_ghichu.Size = new System.Drawing.Size(263, 120);
+            this.txt_ghichu.TabIndex = 30;
             // 
             // guna2HtmlLabel5
             // 
@@ -434,7 +434,7 @@
         private Guna.UI2.WinForms.Guna2GradientPanel pnThongTin;
         private Guna.UI2.WinForms.Guna2Button btn_huy;
         private Guna.UI2.WinForms.Guna2Button btn_luu;
-        private Guna.UI2.WinForms.Guna2TextBox txt_diem15p_lan1;
+        private Guna.UI2.WinForms.Guna2TextBox txt_ghichu;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel6;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblThongTinChiTiet;

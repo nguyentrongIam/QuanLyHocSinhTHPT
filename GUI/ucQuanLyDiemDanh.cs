@@ -51,10 +51,17 @@ namespace QuanLyHocSinhTHPT.GUI
 
             if (ds != null && ds.Tables.Count > 0)
             {
-                // Phải trỏ chính xác vào Tables[0] để ComboBox hiểu đúng cấu trúc cột
-                cbb_lop.DataSource = ds.Tables[0];
+                DataTable dt = ds.Tables[0];
+                cbb_lop.DataSource = dt;
                 cbb_lop.DisplayMember = "TenLop";
-                cbb_lop.ValueMember = "MaLopHoc";
+
+                // KIỂM TRA TÊN CỘT: 
+                // Nếu database của bạn cột là MaLop thì sửa thành "MaLop"
+                // Nếu database của bạn cột là MaLopHoc thì sửa thành "MaLopHoc"
+                if (dt.Columns.Contains("MaLopHoc"))
+                    cbb_lop.ValueMember = "MaLopHoc";
+                else if (dt.Columns.Contains("MaLop"))
+                    cbb_lop.ValueMember = "MaLop";
             }
         }
         private void LoadDataDiemDanh()
@@ -75,6 +82,12 @@ namespace QuanLyHocSinhTHPT.GUI
                     if (gridDanhSach.Columns.Contains("MaHocSinh")) gridDanhSach.Columns["MaHocSinh"].ReadOnly = true;
                     if (gridDanhSach.Columns.Contains("HoTen")) gridDanhSach.Columns["HoTen"].ReadOnly = true;
                     if (gridDanhSach.Columns.Contains("TrangThai")) gridDanhSach.Columns["TrangThai"].ReadOnly = true;
+
+                    if (gridDanhSach.Columns.Contains("GhiChu"))
+                    {
+                        gridDanhSach.Columns["GhiChu"].HeaderText = "Ghi chú";
+                        gridDanhSach.Columns["GhiChu"].ReadOnly = true; // Set ReadOnly vì ta sẽ sửa ở Panel bên phải
+                    }
 
                     if (gridDanhSach.Columns.Contains("NgayDiemDanh"))
                     {
@@ -124,6 +137,15 @@ namespace QuanLyHocSinhTHPT.GUI
                 // Lấy giá trị đã được format (là chữ) để gán cho ComboBox
                 string trangThaiHienThi = row.Cells["TrangThai"].FormattedValue.ToString();
                 cbb_trangthai.Text = trangThaiHienThi;
+
+                if (gridDanhSach.Columns.Contains("GhiChu") && row.Cells["GhiChu"].Value != DBNull.Value)
+                {
+                    txt_ghichu.Text = row.Cells["GhiChu"].Value.ToString();
+                }
+                else
+                {
+                    txt_ghichu.Clear(); // Nếu không có ghi chú thì xóa trắng ô text
+                }
             }
         }
 
@@ -132,13 +154,21 @@ namespace QuanLyHocSinhTHPT.GUI
             try
             {
                 // 1. Lấy dữ liệu từ giao diện
+                if (string.IsNullOrEmpty(txt_mahs.Text))
+                {
+                    MessageBox.Show("Vui lòng chọn học sinh cần lưu!");
+                    return;
+                }
+
                 int maHS = int.Parse(txt_mahs.Text);
                 DateTime ngayDiemDanh = dt_NgayDiemDanh.Value.Date;
-                string trangThaiChon = cbb_trangthai.Text; // "Có mặt", "Vắng có phép",...
+                string trangThaiChon = cbb_trangthai.Text;
 
-                // 2. Gọi BUS - CHỈ TRUYỀN 3 THAM SỐ
-                // Đổi tên hàm cho đúng với tên bạn đặt ở DAO là CapNhatTrangThaiDiemDanh
-                if (busDiemDanh.CapNhatDiemDanh(maHS, ngayDiemDanh, trangThaiChon))
+                // Lấy nội dung ghi chú
+                string ghiChu = txt_ghichu.Text.Trim();
+
+                // 2. Gọi BUS - BẠN CẦN TRUYỀN THÊM THAM SỐ GHI CHÚ
+                if (busDiemDanh.CapNhatDiemDanh(maHS, ngayDiemDanh, trangThaiChon, ghiChu))
                 {
                     MessageBox.Show("Cập nhật thành công!");
                     LoadDataDiemDanh();
@@ -152,33 +182,36 @@ namespace QuanLyHocSinhTHPT.GUI
             {
                 MessageBox.Show("Lỗi: " + ex.Message);
             }
+         
+            
         }
 
         private void gridDanhSach_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            // Kiểm tra nếu đang ở cột TrangThai
-            if (gridDanhSach.Columns[e.ColumnIndex].Name == "TrangThai" && e.Value != null)
+            // Kiểm tra nếu đang ở cột TrangThai và giá trị không bị NULL
+            if (gridDanhSach.Columns[e.ColumnIndex].Name == "TrangThai" && e.Value != null && e.Value != DBNull.Value)
             {
-                string val = e.Value.ToString();
+                string val = e.Value.ToString().Trim();
 
-                // Nếu database của bạn đang lưu là 0, 1, 2 hoặc lưu chữ sẵn
-                if (val == "0" || val.ToLower() == "false")
+                // Xử lý các giá trị tương ứng
+                if (val == "0" || val.ToLower() == "false" || val == "Có mặt")
                 {
                     e.Value = "Có mặt";
                     e.CellStyle.ForeColor = Color.Green;
+                    e.FormattingApplied = true;
                 }
-                else if (val == "1" || val.ToLower() == "true")
+                else if (val == "1" || val.ToLower() == "true" || val == "Vắng có phép")
                 {
                     e.Value = "Vắng có phép";
                     e.CellStyle.ForeColor = Color.Orange;
+                    e.FormattingApplied = true;
                 }
                 else if (val == "2" || val == "Vắng không phép")
                 {
                     e.Value = "Vắng không phép";
                     e.CellStyle.ForeColor = Color.Red;
+                    e.FormattingApplied = true;
                 }
-
-                e.FormattingApplied = true; // Xác nhận đã định dạng xong
             }
         }
 

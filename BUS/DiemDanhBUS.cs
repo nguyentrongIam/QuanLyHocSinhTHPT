@@ -22,17 +22,13 @@ namespace QuanLyHocSinhTHPT.BUS
             return dao.LayDanhSachDiemDanh(maLop, ngay);
         }
 
-        public bool CapNhatDiemDanh(int maHS, DateTime ngay, string trangThai)
+        public bool CapNhatDiemDanh(int maHS, DateTime ngay, string trangThai, string ghiChu)
         {
-            // Bạn có thể thêm logic kiểm tra ở đây, ví dụ: 
-            // Không cho phép điểm danh các ngày trong tương lai
-            if (ngay.Date > DateTime.Now.Date)
-            {
-                return false;
-            }
+            // Ở đây bạn có thể thêm logic kiểm tra nếu muốn, ví dụ:
+            // if (ngay > DateTime.Now) return false; // Không cho điểm danh ngày tương lai
 
-            // Gọi xuống DAO để thực thi lệnh SQL
-            return dao.CapNhatTrangThaiDiemDanh(maHS, ngay, trangThai);
+            // Gọi xuống DAO để thực thi SQL
+            return dao.CapNhatTrangThaiDiemDanh(maHS, ngay, trangThai, ghiChu);
         }
     }
 }

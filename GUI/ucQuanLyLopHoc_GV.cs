@@ -200,12 +200,51 @@ namespace QuanLyHocSinhTHPT.GUI
                     txt_diem15p_lan2.Text = row.Cells["Diem15phut_2"].Value?.ToString();
                     txt_diemgiuaky.Text = row.Cells["DiemGiuaKy"].Value?.ToString();
                     txt_diemcuoiky.Text = row.Cells["DiemCuoiKy"].Value?.ToString();
+                    TinhVaHienThiDTB(row);
                 }
                 else
                 {
                     txt_diemmieng.Clear(); txt_diem15p_lan1.Clear(); txt_diem15p_lan2.Clear();
                     txt_diemgiuaky.Clear(); txt_diemcuoiky.Clear();
                 }
+            }
+        }
+        private void TinhVaHienThiDTB(DataGridViewRow row)
+        {
+            double tongDiem = 0;
+            int tongHeSo = 0;
+
+            // Hàm nhỏ nội bộ để xử lý nhanh việc lấy điểm và cộng hệ số
+            //XuLy(tên cột, hệ số)
+            void XuLy(string colName, int heSo)
+            {
+                if (row.Cells[colName].Value != null &&
+                    double.TryParse(row.Cells[colName].Value.ToString(), out double diem))
+                {
+                    tongDiem += diem * heSo;
+                    tongHeSo += heSo;
+                }
+            }
+
+            // Áp dụng tính toán cho từng cột theo hệ số THPT
+            if (gridDanhSach.Columns.Contains("DiemMieng"))
+            {
+                XuLy("DiemMieng", 1);
+                XuLy("Diem15phut_1", 1);
+                XuLy("Diem15phut_2", 1);
+                XuLy("DiemGiuaKy", 2);
+                XuLy("DiemCuoiKy", 3);
+            }
+
+            // Hiển thị kết quả ra Label
+            if (tongHeSo > 0)
+            {
+                double dtb = tongDiem / tongHeSo;
+                lbl_diemtrungbinh.Text = dtb.ToString("0.0"); // Định dạng 1 chữ số thập phân, vd: 8.5
+            }
+            else
+            {
+                lbl_diemtrungbinh.Text = "0.0";
             }
         }
 
