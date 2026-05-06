@@ -157,7 +157,7 @@
             // 
             this.pn_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pn_body.FillColor = System.Drawing.Color.White;
-            this.pn_body.Location = new System.Drawing.Point(298, 0);
+            this.pn_body.Location = new System.Drawing.Point(0, 0);
             this.pn_body.Name = "pn_body";
             this.pn_body.Size = new System.Drawing.Size(1139, 1021);
             this.pn_body.TabIndex = 3;

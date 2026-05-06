@@ -41,7 +41,7 @@ namespace QuanLyHocSinhTHPT.BUS
         {
             return diem >= 0 && diem <= 10;
         }
-        public DataTable LayBangDiemHocSinhBUS(int maHS, string hocKy, string namHoc)
+        public DataTable LayBangDiemHocSinhBUS(int maHS, int hocKy, string namHoc)
         {
             return dao.LayBangDiemHocSinh(maHS, hocKy, namHoc);
         }

@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTieuDe = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.cbb_hocky = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.cbb_namhoc = new Guna.UI2.WinForms.Guna2ComboBox();
             this.lblDanhSach = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.gird_danhsach = new Guna.UI2.WinForms.Guna2DataGridView();
             this.btn_lammoi = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.pnThongTin = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.lblThongTinChiTiet = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cbb_namhoc = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lbl_DiemTrungBinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.lbl_HocLuc = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.cbb_hocky = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbl_Lop = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbl_HoTen = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel9 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel10 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lbl_HocLuc = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lbl_DiemTrungBinh = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.lblThongTinChiTiet = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gird_danhsach)).BeginInit();
@@ -64,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1791, 101);
+            this.panel1.Size = new System.Drawing.Size(1687, 101);
             this.panel1.TabIndex = 16;
             // 
             // lblTieuDe
@@ -91,11 +91,53 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel4);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.White;
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.White;
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(65, 156);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(38, 138);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
             this.guna2GradientPanel1.ShadowDecoration.BorderRadius = 0;
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(1154, 780);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(1128, 780);
             this.guna2GradientPanel1.TabIndex = 17;
+            // 
+            // cbb_hocky
+            // 
+            this.cbb_hocky.BackColor = System.Drawing.Color.Transparent;
+            this.cbb_hocky.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_hocky.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_hocky.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_hocky.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_hocky.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbb_hocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbb_hocky.ItemHeight = 30;
+            this.cbb_hocky.Location = new System.Drawing.Point(414, 111);
+            this.cbb_hocky.Name = "cbb_hocky";
+            this.cbb_hocky.Size = new System.Drawing.Size(124, 36);
+            this.cbb_hocky.TabIndex = 29;
+            // 
+            // guna2HtmlLabel5
+            // 
+            this.guna2HtmlLabel5.AutoSize = false;
+            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel5.Location = new System.Drawing.Point(334, 108);
+            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(235, 44);
+            this.guna2HtmlLabel5.TabIndex = 28;
+            this.guna2HtmlLabel5.Text = "Học kỳ:";
+            this.guna2HtmlLabel5.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // cbb_namhoc
+            // 
+            this.cbb_namhoc.BackColor = System.Drawing.Color.Transparent;
+            this.cbb_namhoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbb_namhoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbb_namhoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_namhoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.cbb_namhoc.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbb_namhoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.cbb_namhoc.ItemHeight = 30;
+            this.cbb_namhoc.Location = new System.Drawing.Point(125, 111);
+            this.cbb_namhoc.Name = "cbb_namhoc";
+            this.cbb_namhoc.Size = new System.Drawing.Size(155, 36);
+            this.cbb_namhoc.TabIndex = 27;
             // 
             // lblDanhSach
             // 
@@ -111,35 +153,35 @@
             // 
             // gird_danhsach
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.gird_danhsach.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.White;
+            this.gird_danhsach.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.gird_danhsach.BackgroundColor = System.Drawing.Color.AliceBlue;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gird_danhsach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gird_danhsach.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             this.gird_danhsach.ColumnHeadersHeight = 20;
             this.gird_danhsach.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gird_danhsach.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gird_danhsach.DefaultCellStyle = dataGridViewCellStyle33;
             this.gird_danhsach.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.gird_danhsach.Location = new System.Drawing.Point(29, 164);
+            this.gird_danhsach.Location = new System.Drawing.Point(25, 164);
             this.gird_danhsach.Name = "gird_danhsach";
             this.gird_danhsach.ReadOnly = true;
             this.gird_danhsach.RowHeadersVisible = false;
             this.gird_danhsach.RowHeadersWidth = 51;
             this.gird_danhsach.RowTemplate.Height = 24;
-            this.gird_danhsach.Size = new System.Drawing.Size(1102, 515);
+            this.gird_danhsach.Size = new System.Drawing.Size(1059, 515);
             this.gird_danhsach.TabIndex = 8;
             this.gird_danhsach.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.gird_danhsach.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -173,9 +215,9 @@
             this.btn_lammoi.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(62)))), ((int)(((byte)(107)))));
             this.btn_lammoi.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_lammoi.ForeColor = System.Drawing.SystemColors.Window;
-            this.btn_lammoi.Location = new System.Drawing.Point(999, 102);
+            this.btn_lammoi.Location = new System.Drawing.Point(970, 102);
             this.btn_lammoi.Name = "btn_lammoi";
-            this.btn_lammoi.Size = new System.Drawing.Size(102, 40);
+            this.btn_lammoi.Size = new System.Drawing.Size(114, 50);
             this.btn_lammoi.TabIndex = 7;
             this.btn_lammoi.Text = "Xem điểm";
             this.btn_lammoi.Click += new System.EventHandler(this.btn_lammoi_Click);
@@ -207,112 +249,10 @@
             this.pnThongTin.Controls.Add(this.guna2HtmlLabel6);
             this.pnThongTin.FillColor = System.Drawing.Color.White;
             this.pnThongTin.FillColor2 = System.Drawing.Color.White;
-            this.pnThongTin.Location = new System.Drawing.Point(1237, 156);
+            this.pnThongTin.Location = new System.Drawing.Point(1172, 138);
             this.pnThongTin.Name = "pnThongTin";
-            this.pnThongTin.Size = new System.Drawing.Size(517, 716);
+            this.pnThongTin.Size = new System.Drawing.Size(491, 438);
             this.pnThongTin.TabIndex = 18;
-            // 
-            // lblThongTinChiTiet
-            // 
-            this.lblThongTinChiTiet.AutoSize = false;
-            this.lblThongTinChiTiet.BackColor = System.Drawing.Color.White;
-            this.lblThongTinChiTiet.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
-            this.lblThongTinChiTiet.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblThongTinChiTiet.Location = new System.Drawing.Point(26, 24);
-            this.lblThongTinChiTiet.Name = "lblThongTinChiTiet";
-            this.lblThongTinChiTiet.Size = new System.Drawing.Size(473, 49);
-            this.lblThongTinChiTiet.TabIndex = 27;
-            this.lblThongTinChiTiet.Text = "Thông tin chi tiết";
-            // 
-            // guna2HtmlLabel6
-            // 
-            this.guna2HtmlLabel6.AutoSize = false;
-            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Arial", 14F);
-            this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.guna2HtmlLabel6.Location = new System.Drawing.Point(51, 264);
-            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(212, 27);
-            this.guna2HtmlLabel6.TabIndex = 13;
-            this.guna2HtmlLabel6.Text = "Điểm trung bình:";
-            // 
-            // cbb_namhoc
-            // 
-            this.cbb_namhoc.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_namhoc.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_namhoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_namhoc.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_namhoc.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_namhoc.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbb_namhoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbb_namhoc.ItemHeight = 30;
-            this.cbb_namhoc.Location = new System.Drawing.Point(125, 111);
-            this.cbb_namhoc.Name = "cbb_namhoc";
-            this.cbb_namhoc.Size = new System.Drawing.Size(155, 36);
-            this.cbb_namhoc.TabIndex = 27;
-            // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.AutoSize = false;
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Arial", 14F);
-            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(51, 337);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(212, 27);
-            this.guna2HtmlLabel1.TabIndex = 28;
-            this.guna2HtmlLabel1.Text = "Xếp loại học lực:";
-            // 
-            // lbl_DiemTrungBinh
-            // 
-            this.lbl_DiemTrungBinh.AutoSize = false;
-            this.lbl_DiemTrungBinh.BackColor = System.Drawing.Color.White;
-            this.lbl_DiemTrungBinh.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
-            this.lbl_DiemTrungBinh.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.lbl_DiemTrungBinh.Location = new System.Drawing.Point(234, 261);
-            this.lbl_DiemTrungBinh.Name = "lbl_DiemTrungBinh";
-            this.lbl_DiemTrungBinh.Size = new System.Drawing.Size(91, 27);
-            this.lbl_DiemTrungBinh.TabIndex = 29;
-            this.lbl_DiemTrungBinh.Text = "0.0";
-            // 
-            // lbl_HocLuc
-            // 
-            this.lbl_HocLuc.AutoSize = false;
-            this.lbl_HocLuc.BackColor = System.Drawing.Color.White;
-            this.lbl_HocLuc.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
-            this.lbl_HocLuc.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.lbl_HocLuc.Location = new System.Drawing.Point(234, 334);
-            this.lbl_HocLuc.Name = "lbl_HocLuc";
-            this.lbl_HocLuc.Size = new System.Drawing.Size(217, 27);
-            this.lbl_HocLuc.TabIndex = 30;
-            this.lbl_HocLuc.Text = "Xuất sắc";
-            // 
-            // cbb_hocky
-            // 
-            this.cbb_hocky.BackColor = System.Drawing.Color.Transparent;
-            this.cbb_hocky.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbb_hocky.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbb_hocky.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_hocky.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.cbb_hocky.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.cbb_hocky.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.cbb_hocky.ItemHeight = 30;
-            this.cbb_hocky.Location = new System.Drawing.Point(414, 111);
-            this.cbb_hocky.Name = "cbb_hocky";
-            this.cbb_hocky.Size = new System.Drawing.Size(124, 36);
-            this.cbb_hocky.TabIndex = 29;
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.AutoSize = false;
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.White;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(334, 108);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(235, 44);
-            this.guna2HtmlLabel5.TabIndex = 28;
-            this.guna2HtmlLabel5.Text = "Học kỳ:";
-            this.guna2HtmlLabel5.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbl_Lop
             // 
@@ -322,8 +262,9 @@
             this.lbl_Lop.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
             this.lbl_Lop.Location = new System.Drawing.Point(137, 164);
             this.lbl_Lop.Name = "lbl_Lop";
-            this.lbl_Lop.Size = new System.Drawing.Size(217, 27);
+            this.lbl_Lop.Size = new System.Drawing.Size(240, 67);
             this.lbl_Lop.TabIndex = 34;
+            this.lbl_Lop.Text = null;
             // 
             // lbl_HoTen
             // 
@@ -331,10 +272,11 @@
             this.lbl_HoTen.BackColor = System.Drawing.Color.White;
             this.lbl_HoTen.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
             this.lbl_HoTen.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.lbl_HoTen.Location = new System.Drawing.Point(234, 88);
+            this.lbl_HoTen.Location = new System.Drawing.Point(176, 88);
             this.lbl_HoTen.Name = "lbl_HoTen";
-            this.lbl_HoTen.Size = new System.Drawing.Size(91, 27);
+            this.lbl_HoTen.Size = new System.Drawing.Size(230, 86);
             this.lbl_HoTen.TabIndex = 33;
+            this.lbl_HoTen.Text = null;
             // 
             // guna2HtmlLabel9
             // 
@@ -360,6 +302,66 @@
             this.guna2HtmlLabel10.TabIndex = 31;
             this.guna2HtmlLabel10.Text = "Họ và tên:";
             // 
+            // lbl_HocLuc
+            // 
+            this.lbl_HocLuc.AutoSize = false;
+            this.lbl_HocLuc.BackColor = System.Drawing.Color.White;
+            this.lbl_HocLuc.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
+            this.lbl_HocLuc.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lbl_HocLuc.Location = new System.Drawing.Point(243, 337);
+            this.lbl_HocLuc.Name = "lbl_HocLuc";
+            this.lbl_HocLuc.Size = new System.Drawing.Size(222, 115);
+            this.lbl_HocLuc.TabIndex = 30;
+            this.lbl_HocLuc.Text = "Xuất sắc";
+            // 
+            // lbl_DiemTrungBinh
+            // 
+            this.lbl_DiemTrungBinh.AutoSize = false;
+            this.lbl_DiemTrungBinh.BackColor = System.Drawing.Color.White;
+            this.lbl_DiemTrungBinh.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Bold);
+            this.lbl_DiemTrungBinh.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.lbl_DiemTrungBinh.Location = new System.Drawing.Point(240, 264);
+            this.lbl_DiemTrungBinh.Name = "lbl_DiemTrungBinh";
+            this.lbl_DiemTrungBinh.Size = new System.Drawing.Size(155, 52);
+            this.lbl_DiemTrungBinh.TabIndex = 29;
+            this.lbl_DiemTrungBinh.Text = "0.0";
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.AutoSize = false;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Arial", 14F);
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(51, 337);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(274, 67);
+            this.guna2HtmlLabel1.TabIndex = 28;
+            this.guna2HtmlLabel1.Text = "Xếp loại học lực:";
+            // 
+            // lblThongTinChiTiet
+            // 
+            this.lblThongTinChiTiet.AutoSize = false;
+            this.lblThongTinChiTiet.BackColor = System.Drawing.Color.White;
+            this.lblThongTinChiTiet.Font = new System.Drawing.Font("Arial", 20F, System.Drawing.FontStyle.Bold);
+            this.lblThongTinChiTiet.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblThongTinChiTiet.Location = new System.Drawing.Point(26, 24);
+            this.lblThongTinChiTiet.Name = "lblThongTinChiTiet";
+            this.lblThongTinChiTiet.Size = new System.Drawing.Size(473, 49);
+            this.lblThongTinChiTiet.TabIndex = 27;
+            this.lblThongTinChiTiet.Text = "Thông tin chi tiết";
+            // 
+            // guna2HtmlLabel6
+            // 
+            this.guna2HtmlLabel6.AutoSize = false;
+            this.guna2HtmlLabel6.BackColor = System.Drawing.Color.White;
+            this.guna2HtmlLabel6.Font = new System.Drawing.Font("Arial", 14F);
+            this.guna2HtmlLabel6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.guna2HtmlLabel6.Location = new System.Drawing.Point(51, 264);
+            this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(338, 67);
+            this.guna2HtmlLabel6.TabIndex = 13;
+            this.guna2HtmlLabel6.Text = "Điểm trung bình:";
+            // 
             // ucXemDiem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -368,7 +370,7 @@
             this.Controls.Add(this.guna2GradientPanel1);
             this.Controls.Add(this.panel1);
             this.Name = "ucXemDiem";
-            this.Size = new System.Drawing.Size(1791, 1242);
+            this.Size = new System.Drawing.Size(1687, 937);
             this.Load += new System.EventHandler(this.ucXemDiem_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

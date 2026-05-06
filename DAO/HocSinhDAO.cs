@@ -185,10 +185,8 @@ namespace QuanLyHocSinhTHPT.DAO
         {
             Database db = new Database();
             // Truy vấn lấy tên học sinh và tên lớp thông qua phép JOIN[cite: 1]
-            string sql = @"SELECT hs.HoTen, l.TenLop 
-                   FROM HocSinh hs 
-                   JOIN LopHoc l ON hs.MaLopHoc = l.MaLopHoc 
-                   WHERE hs.MaHocSinh = @MaHS";
+            string sql = @"	select * from HocSinh hs join PhanLopHocSinh pl on hs.MaHocSinh=pl.MaHocSinh join LopHoc lh on pl.MaLopHoc = lh.MaLopHoc 
+                   WHERE pl.MaHocSinh = @MaHS";
 
             SqlParameter[] sqlParams = { new SqlParameter("@MaHS", maHS) };
             return db.LayDuLieuCoThamSo(sql, sqlParams);

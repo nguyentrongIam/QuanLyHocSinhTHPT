@@ -26,21 +26,9 @@ namespace QuanLyHocSinhTHPT.GUI
             this.MinimizeBox = false;
 
             // Thiết lập layout cho Panel ngay từ đầu để tránh bị nhảy giao diện
-            SetupLayout();
+            //SetupLayout();
         }
-        private void SetupLayout()
-        {
-            // Sidebar dock bên trái
-            pnSidebar.Dock = DockStyle.Left;
-
-            // Body chiếm phần còn lại
-            pn_body.Dock = DockStyle.Fill;
-
-            // Quan trọng: Đưa pn_body ra sau cùng để nó không đè lên Sidebar
-            // và đảm bảo Sidebar luôn hiển thị
-            pn_body.SendToBack();
-            pnSidebar.BringToFront();
-        }
+       
 
         private void btn_XemDiemHocKy_Click(object sender, EventArgs e)
         {
@@ -63,7 +51,12 @@ namespace QuanLyHocSinhTHPT.GUI
             pn_body.Controls.Clear();
 
             ucXemDiem uc = new ucXemDiem(maHS);
-            uc.Dock = DockStyle.Fill;
+            //uc.Dock = DockStyle.Fill;
+
+            // Reset padding của UC
+            //uc.Padding = new Padding(0);
+            //uc.Margin = new Padding(0);
+
             pn_body.Controls.Add(uc);
 
             // KHÔNG gọi pn_body.BringToFront() — sẽ phá layout Dock

@@ -58,6 +58,13 @@ namespace QuanLyHocSinhTHPT.GUI
                     frm.ShowDialog();
                     Close();
                 }
+                if (tkDangNhap.MaVaiTro == 3)
+                {
+                    this.Hide();
+                    DashboardPhuHuynhHocSinh frm = new DashboardPhuHuynhHocSinh();
+                    frm.ShowDialog();
+                    Close();
+                }
             } 
             else
             {

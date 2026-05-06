@@ -24,16 +24,38 @@ namespace QuanLyHocSinhTHPT.GUI
         DiemBUS bus=new DiemBUS();
         private void ucXemDiem_Load(object sender, EventArgs e)
         {
-            // Sửa lỗi: Sử dụng maHocSinhHienTai thay vì MaHS
+            // 1. Load thông tin học sinh (Họ tên, Lớp)
             LoadThongTinHocSinh();
 
-            // 1. Load danh sách năm học vào ComboBox
-            cbb_namhoc.DataSource = diemBus.LayDanhSachNamHoc(maHocSinhHienTai);
-            cbb_namhoc.DisplayMember = "NamHoc";
+            // 2. Nạp dữ liệu cho Học kỳ (Thường là cố định 1 & 2)
+            cbb_hocky.Items.Clear();
+            cbb_hocky.Items.Add("1");
+            cbb_hocky.Items.Add("2");
+            if (cbb_hocky.Items.Count > 0) cbb_hocky.SelectedIndex = 0;
 
-            // 2. Set mặc định học kỳ
-            if (cbb_hocky.Items.Count > 0)
-                cbb_hocky.SelectedIndex = 0;
+            // 3. Nạp danh sách Năm học từ Database
+            try
+            {
+                DataTable dtNamHoc = diemBus.LayDanhSachNamHoc(maHocSinhHienTai);
+                if (dtNamHoc != null && dtNamHoc.Rows.Count > 0)
+                {
+                    cbb_namhoc.DataSource = dtNamHoc;
+                    cbb_namhoc.DisplayMember = "NamHoc"; // Tên cột hiển thị trong DB
+                    cbb_namhoc.ValueMember = "NamHoc";   // Giá trị lấy ra khi chọn
+                }
+                else
+                {
+                    // Nếu DB chưa có dữ liệu, thêm mặc định để không bị trống
+                    cbb_namhoc.DataSource = null;
+                    cbb_namhoc.Items.Add("2023-2024");
+                    cbb_namhoc.Items.Add("2024-2025");
+                    cbb_namhoc.SelectedIndex = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi tải năm học: " + ex.Message);
+            }
         }
         private void LoadThongTinHocSinh()
         {
@@ -41,23 +63,38 @@ namespace QuanLyHocSinhTHPT.GUI
             if (dt != null && dt.Rows.Count > 0)
             {
                 // Hiển thị lên các Label tương ứng trên giao diện của bạn
-                lbl_HoTen.Text = "Học sinh: " + dt.Rows[0]["HoTen"].ToString();
-                lbl_Lop.Text = "Lớp: " + dt.Rows[0]["TenLop"].ToString();
+                lbl_HoTen.Text =  dt.Rows[0]["HoTen"].ToString();
+                lbl_Lop.Text =  dt.Rows[0]["TenLop"].ToString();
             }
         }
 
         private void btn_lammoi_Click(object sender, EventArgs e)
         {
-            if (cbb_namhoc.SelectedValue == null) return;
+            if (cbb_namhoc.SelectedValue == null || string.IsNullOrEmpty(cbb_hocky.Text)) return;
 
-            string namHoc = cbb_namhoc.Text;
-            string hocKy = cbb_hocky.Text;
+            try
+            {
+                string namHoc = cbb_namhoc.Text.Trim();
+                // Chuyển đổi Học kỳ sang kiểu int
+                int hocKy = int.Parse(cbb_hocky.Text.Trim());
 
-            // Đổ dữ liệu vào GridView[cite: 1]
-            gird_danhsach.DataSource = diemBus.LayBangDiemHocSinhBUS(maHocSinhHienTai, hocKy, namHoc);
+                DataTable dt = diemBus.LayBangDiemHocSinhBUS(maHocSinhHienTai, hocKy, namHoc);
 
-            // Gọi hàm tính toán điểm trung bình và xét học lực (như đã hướng dẫn ở câu trước)
-            TinhHocLuc();
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    gird_danhsach.DataSource = dt;
+                    TinhHocLuc();
+                }
+                else
+                {
+                    gird_danhsach.DataSource = null;
+                    MessageBox.Show($"Không tìm thấy điểm cho Học kỳ {hocKy} - Năm học {namHoc}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message);
+            }
         }
         private void TinhHocLuc()
         {

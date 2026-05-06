@@ -102,19 +102,22 @@ namespace QuanLyHocSinhTHPT.DAO
             SqlParameter[] pars = { new SqlParameter("@ma", maDiem) };
             return db.ThucThiCoThamSo(sql, pars) > 0;
         }
-        public DataTable LayBangDiemHocSinh(int maHS, string hocKy, string namHoc)
+        public DataTable LayBangDiemHocSinh(int maHS, int hocKy, string namHoc)
         {
+            // Sử dụng REPLACE để loại bỏ khoảng trắng ở cả 2 phía cho chắc chắn
             string sql = @"SELECT mh.TenMonHoc, d.DiemMieng, d.Diem15Phut_1, d.Diem15Phut_2, 
-                                  d.DiemGiuaKy, d.DiemCuoiKy
-                           FROM Diem d 
-                           JOIN MonHoc mh ON d.MaMonHoc = mh.MaMonHoc
-                           WHERE d.MaHocSinh = @MaHS AND d.HocKy = @HocKy AND d.NamHoc = @NamHoc";
+                          d.DiemGiuaKy, d.DiemCuoiKy
+                   FROM Diem d 
+                   JOIN MonHoc mh ON d.MaMonHoc = mh.MaMonHoc
+                   WHERE d.MaHocSinh = @MaHS 
+                   AND d.HocKy = @HocKy 
+                   AND REPLACE(d.NamHoc, ' ', '') = @NamHoc";
 
             SqlParameter[] sqlParams = {
-                new SqlParameter("@MaHS", maHS),
-                new SqlParameter("@HocKy", hocKy),
-                new SqlParameter("@NamHoc", namHoc)
-            };
+        new SqlParameter("@MaHS", maHS),
+        new SqlParameter("@HocKy", hocKy),
+        new SqlParameter("@NamHoc", namHoc.Replace(" ", "")) // Xóa trắng ở tham số truyền vào
+    };
 
             return db.LayDuLieuCoThamSo(sql, sqlParams);
         }
