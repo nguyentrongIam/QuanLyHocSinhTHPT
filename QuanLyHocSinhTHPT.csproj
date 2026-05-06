@@ -143,6 +143,12 @@
     <Compile Include="GUI\ucQuanLyGiaoVien.Designer.cs">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucQuanLyLopHoc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucQuanLyLopHoc.Designer.cs">
+      <DependentUpon>ucQuanLyLopHoc.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ucQuanLyLopHoc_GV.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -204,6 +210,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucQuanLyGiaoVien.resx">
       <DependentUpon>ucQuanLyGiaoVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucQuanLyLopHoc.resx">
+      <DependentUpon>ucQuanLyLopHoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucQuanLyLopHoc_GV.resx">
       <DependentUpon>ucQuanLyLopHoc_GV.cs</DependentUpon>

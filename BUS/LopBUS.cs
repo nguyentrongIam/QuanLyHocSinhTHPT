@@ -32,5 +32,13 @@ namespace QuanLyHocSinhTHPT.BUS
             LopDAO dao = new LopDAO();
             return dao.LayDanhSachLopTheoGV(maGV);
         }
+
+        public DataTable LocDanhSachLop(string namHoc, string maGVCN, string tuKhoa)
+        {
+            LopDAO dao = new LopDAO();
+
+            DataSet ds = dao.LocDanhSachLop(namHoc, maGVCN, tuKhoa);
+            return ds.Tables[0];
+        }
     }
 }

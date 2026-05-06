@@ -57,6 +57,8 @@ namespace QuanLyHocSinhTHPT.GUI
 
         private void btnQuanLyLopHoc_Click(object sender, EventArgs e)
         {
+            ucQuanLyLopHoc uc = new ucQuanLyLopHoc();
+            addUserControl(uc);
         }
 
         private void btnPhanCongGiangDay_Click(object sender, EventArgs e)
