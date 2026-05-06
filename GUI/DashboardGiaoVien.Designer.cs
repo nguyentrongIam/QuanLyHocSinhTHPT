@@ -219,6 +219,7 @@
             this.DoubleBuffered = true;
             this.Name = "DashboardGiaoVien";
             this.Text = "DashboardGiaoVien";
+            this.Load += new System.EventHandler(this.DashboardGiaoVien_Load_1);
             this.pn_sidebar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);

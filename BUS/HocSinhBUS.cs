@@ -73,5 +73,17 @@ namespace QuanLyHocSinhTHPT.BUS
             ds = dao.TimKiemHocSinh(name);
             return ds;
         }
+        public int LayMaHocSinh(int maTK)
+        {
+            HocSinhDAO dao = new HocSinhDAO();
+
+            return dao.LayMaHocSinhTuMaTK(maTK);
+        }
+        public DataTable LayThongTinChiTiet(int maHS)
+        {
+            HocSinhDAO dao = new HocSinhDAO();
+
+            return dao.LayThongTinChiTiet(maHS);
+        }
     }
 }

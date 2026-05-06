@@ -183,6 +183,32 @@ namespace QuanLyHocSinhTHPT.DAO
             return ds;
         
         }
+        public int LayMaHocSinhTuMaTK(int maTK)
+        {
+            Database db = new Database();
+            // Truy vấn lấy MaHocSinh từ bảng HocSinh dựa vào khóa ngoại MaTaiKhoan
+            string sql = $"SELECT MaHocSinh FROM HocSinh WHERE MaTaiKhoan = {maTK}";
+
+            object ketQua = db.LayGiaTri(sql);
+
+            if (ketQua != null && ketQua != DBNull.Value)
+            {
+                return Convert.ToInt32(ketQua);
+            }
+            return -1; // Trả về -1 nếu không tìm thấy học sinh liên kết với tài khoản này
+        }
+        public DataTable LayThongTinChiTiet(int maHS)
+        {
+            Database db = new Database();
+            // Truy vấn lấy tên học sinh và tên lớp thông qua phép JOIN[cite: 1]
+            string sql = @"SELECT hs.HoTen, l.TenLop 
+                   FROM HocSinh hs 
+                   JOIN LopHoc l ON hs.MaLopHoc = l.MaLopHoc 
+                   WHERE hs.MaHocSinh = @MaHS";
+
+            SqlParameter[] sqlParams = { new SqlParameter("@MaHS", maHS) };
+            return db.LayDuLieuCoThamSo(sql, sqlParams);
+        }
     }
 }
 //

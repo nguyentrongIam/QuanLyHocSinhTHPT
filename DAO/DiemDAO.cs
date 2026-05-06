@@ -102,5 +102,31 @@ namespace QuanLyHocSinhTHPT.DAO
             SqlParameter[] pars = { new SqlParameter("@ma", maDiem) };
             return db.ThucThiCoThamSo(sql, pars) > 0;
         }
+        public DataTable LayBangDiemHocSinh(int maHS, string hocKy, string namHoc)
+        {
+            string sql = @"SELECT mh.TenMonHoc, d.DiemMieng, d.Diem15Phut_1, d.Diem15Phut_2, 
+                                  d.DiemGiuaKy, d.DiemCuoiKy
+                           FROM Diem d 
+                           JOIN MonHoc mh ON d.MaMonHoc = mh.MaMonHoc
+                           WHERE d.MaHocSinh = @MaHS AND d.HocKy = @HocKy AND d.NamHoc = @NamHoc";
+
+            SqlParameter[] sqlParams = {
+                new SqlParameter("@MaHS", maHS),
+                new SqlParameter("@HocKy", hocKy),
+                new SqlParameter("@NamHoc", namHoc)
+            };
+
+            return db.LayDuLieuCoThamSo(sql, sqlParams);
+        }
+
+        // Lấy danh sách các Năm học mà học sinh đó có điểm (để load vào ComboBox)
+        public DataTable LayDanhSachNamHoc(int maHS)
+        {
+            string sql = "SELECT DISTINCT NamHoc FROM Diem WHERE MaHocSinh = @MaHS";
+            SqlParameter[] sqlParams = { new SqlParameter("@MaHS", maHS) };
+            return db.LayDuLieuCoThamSo(sql, sqlParams);
+        }
+       
+
     }
 }

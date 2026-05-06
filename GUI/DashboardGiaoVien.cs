@@ -181,5 +181,10 @@ namespace QuanLyHocSinhTHPT.GUI
                 Application.Restart();
             }
         }
+
+        private void DashboardGiaoVien_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
