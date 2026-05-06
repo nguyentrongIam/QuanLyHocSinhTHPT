@@ -69,12 +69,14 @@
     <Compile Include="BUS\NhanVienBUS.cs" />
     <Compile Include="BUS\PhanCongBUS.cs" />
     <Compile Include="BUS\TaiKhoanBUS.cs" />
+    <Compile Include="BUS\ThoiKhoaBieuBUS.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\DiemDanhDAO.cs" />
     <Compile Include="DAO\GiaoVienDAO.cs" />
     <Compile Include="DAO\LichGiangDayDAO.cs" />
     <Compile Include="DAO\NamHocDAO.cs" />
     <Compile Include="DAO\PhanCongDAO.cs" />
+    <Compile Include="DAO\ThoiKhoaBieuDAO.cs" />
     <Compile Include="DTO\GiaoVienDTO.cs" />
     <Compile Include="DTO\NguoiDungDTO.cs" />
     <Compile Include="DTO\PhanCongGiangDayDTO.cs" />
@@ -159,6 +161,12 @@
     <Compile Include="GUI\ucXemDiem.Designer.cs">
       <DependentUpon>ucXemDiem.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ucXemThoiKhoaBieu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ucXemThoiKhoaBieu.Designer.cs">
+      <DependentUpon>ucXemThoiKhoaBieu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GUI\ucQuanLyHocSinh.cs">
@@ -205,6 +213,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\ucXemDiem.resx">
       <DependentUpon>ucXemDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ucXemThoiKhoaBieu.resx">
+      <DependentUpon>ucXemThoiKhoaBieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

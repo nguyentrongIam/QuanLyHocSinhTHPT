@@ -30,19 +30,19 @@
         {
             this.pnSidebar = new Guna.UI2.WinForms.Guna2Panel();
             this.btnDangXuat = new Guna.UI2.WinForms.Guna2Button();
-            this.btnQuanLyGiaoVien = new Guna.UI2.WinForms.Guna2Button();
             this.btn_XemDiemHocKy = new Guna.UI2.WinForms.Guna2Button();
             this.btnXemHoSo = new Guna.UI2.WinForms.Guna2Button();
-            this.pn_body = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.pn_body = new Guna.UI2.WinForms.Guna2Panel();
+            this.btn_XemTKB = new Guna.UI2.WinForms.Guna2Button();
             this.pnSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnSidebar
             // 
+            this.pnSidebar.Controls.Add(this.btn_XemTKB);
             this.pnSidebar.Controls.Add(this.btnDangXuat);
-            this.pnSidebar.Controls.Add(this.btnQuanLyGiaoVien);
             this.pnSidebar.Controls.Add(this.btn_XemDiemHocKy);
             this.pnSidebar.Controls.Add(this.btnXemHoSo);
             this.pnSidebar.Controls.Add(this.guna2PictureBox1);
@@ -75,32 +75,6 @@
             this.btnDangXuat.TabIndex = 8;
             this.btnDangXuat.Text = "Đăng xuất";
             this.btnDangXuat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // btnQuanLyGiaoVien
-            // 
-            this.btnQuanLyGiaoVien.BackColor = System.Drawing.Color.Transparent;
-            this.btnQuanLyGiaoVien.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnQuanLyGiaoVien.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.btnQuanLyGiaoVien.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyGiaoVien.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnQuanLyGiaoVien.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnQuanLyGiaoVien.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnQuanLyGiaoVien.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnQuanLyGiaoVien.FillColor = System.Drawing.Color.Transparent;
-            this.btnQuanLyGiaoVien.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.btnQuanLyGiaoVien.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
-            this.btnQuanLyGiaoVien.HoverState.BorderColor = System.Drawing.Color.White;
-            this.btnQuanLyGiaoVien.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyGiaoVien.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
-            this.btnQuanLyGiaoVien.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
-            this.btnQuanLyGiaoVien.Location = new System.Drawing.Point(1, 243);
-            this.btnQuanLyGiaoVien.Name = "btnQuanLyGiaoVien";
-            this.btnQuanLyGiaoVien.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnQuanLyGiaoVien.Size = new System.Drawing.Size(297, 72);
-            this.btnQuanLyGiaoVien.TabIndex = 3;
-            this.btnQuanLyGiaoVien.Text = "Quản lý Giáo viên";
-            this.btnQuanLyGiaoVien.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnQuanLyGiaoVien.Click += new System.EventHandler(this.btnQuanLyGiaoVien_Click);
             // 
             // btn_XemDiemHocKy
             // 
@@ -153,15 +127,6 @@
             this.btnXemHoSo.Text = "Profile";
             this.btnXemHoSo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             // 
-            // pn_body
-            // 
-            this.pn_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pn_body.FillColor = System.Drawing.Color.White;
-            this.pn_body.Location = new System.Drawing.Point(0, 0);
-            this.pn_body.Name = "pn_body";
-            this.pn_body.Size = new System.Drawing.Size(1139, 1021);
-            this.pn_body.TabIndex = 3;
-            // 
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Transparent;
@@ -173,6 +138,41 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
+            // 
+            // pn_body
+            // 
+            this.pn_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pn_body.FillColor = System.Drawing.Color.White;
+            this.pn_body.Location = new System.Drawing.Point(298, 0);
+            this.pn_body.Name = "pn_body";
+            this.pn_body.Size = new System.Drawing.Size(1139, 1021);
+            this.pn_body.TabIndex = 3;
+            // 
+            // btn_XemTKB
+            // 
+            this.btn_XemTKB.BackColor = System.Drawing.Color.Transparent;
+            this.btn_XemTKB.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btn_XemTKB.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btn_XemTKB.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
+            this.btn_XemTKB.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_XemTKB.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_XemTKB.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_XemTKB.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_XemTKB.FillColor = System.Drawing.Color.Transparent;
+            this.btn_XemTKB.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.btn_XemTKB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(85)))), ((int)(((byte)(105)))));
+            this.btn_XemTKB.HoverState.BorderColor = System.Drawing.Color.White;
+            this.btn_XemTKB.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
+            this.btn_XemTKB.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.btn_XemTKB.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(78)))), ((int)(((byte)(216)))));
+            this.btn_XemTKB.Location = new System.Drawing.Point(-2, 249);
+            this.btn_XemTKB.Name = "btn_XemTKB";
+            this.btn_XemTKB.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btn_XemTKB.Size = new System.Drawing.Size(297, 72);
+            this.btn_XemTKB.TabIndex = 9;
+            this.btn_XemTKB.Text = "Xem thời khóa biểu";
+            this.btn_XemTKB.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btn_XemTKB.Click += new System.EventHandler(this.btn_XemTKB_Click);
             // 
             // DashboardPhuHuynhHocSinh
             // 
@@ -194,10 +194,10 @@
 
         private Guna.UI2.WinForms.Guna2Panel pnSidebar;
         private Guna.UI2.WinForms.Guna2Button btnDangXuat;
-        private Guna.UI2.WinForms.Guna2Button btnQuanLyGiaoVien;
         private Guna.UI2.WinForms.Guna2Button btn_XemDiemHocKy;
         private Guna.UI2.WinForms.Guna2Button btnXemHoSo;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2Panel pn_body;
+        private Guna.UI2.WinForms.Guna2Button btn_XemTKB;
     }
 }

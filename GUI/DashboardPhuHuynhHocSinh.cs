@@ -25,8 +25,7 @@ namespace QuanLyHocSinhTHPT.GUI
             this.MaximizeBox = false;
             this.MinimizeBox = false;
 
-            // Thiết lập layout cho Panel ngay từ đầu để tránh bị nhảy giao diện
-            //SetupLayout();
+            
         }
        
 
@@ -51,15 +50,10 @@ namespace QuanLyHocSinhTHPT.GUI
             pn_body.Controls.Clear();
 
             ucXemDiem uc = new ucXemDiem(maHS);
-            //uc.Dock = DockStyle.Fill;
-
-            // Reset padding của UC
-            //uc.Padding = new Padding(0);
-            //uc.Margin = new Padding(0);
-
+          
             pn_body.Controls.Add(uc);
 
-            // KHÔNG gọi pn_body.BringToFront() — sẽ phá layout Dock
+           
         }
 
         private void DashboardPhuHuynhHocSinh_Load(object sender, EventArgs e)
@@ -71,6 +65,31 @@ namespace QuanLyHocSinhTHPT.GUI
         {
            
 
+        }
+
+        private void btn_XemTKB_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra Session
+            if (Session.TaiKhoanHienTai == null)
+            {
+                MessageBox.Show("Chưa đăng nhập! Session rỗng.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            HocSinhBUS hsBus = new HocSinhBUS();
+            int maHS = hsBus.LayMaHocSinh(Session.TaiKhoanHienTai.MaTaiKhoan);
+
+            if (maHS == -1)
+            {
+                MessageBox.Show("Không tìm thấy mã học sinh!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            pn_body.Controls.Clear();
+
+            ucXemThoiKhoaBieu uc = new ucXemThoiKhoaBieu(maHS);
+
+            pn_body.Controls.Add(uc);
         }
     }
 }
